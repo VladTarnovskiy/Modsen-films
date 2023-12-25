@@ -45,7 +45,8 @@ const plugins = [
 
 export default merge(common, {
   mode: "production",
-  target: "browserslist",
+  target: "web",
+  // target: "browserslist",
   plugins,
   devtool: false,
   output: {
