@@ -1,17 +1,17 @@
-import path from "path";
-import HtmlWebpackPlugin from "html-webpack-plugin";
-import webpack from "webpack";
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import FaviconsWebpackPlugin from "favicons-webpack-plugin";
-import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
-import FileManagerPlugin from "filemanager-webpack-plugin";
-import { fileURLToPath } from "url";
+import path from 'path';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import webpack from 'webpack';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import FileManagerPlugin from 'filemanager-webpack-plugin';
+import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const BUILD_DIR = path.resolve(__dirname, "..", "build");
-const PUBLIC_DIR = path.resolve(__dirname, "..", "public");
-const STATIC_DIR = path.resolve(__dirname, "..", "static");
+const BUILD_DIR = path.resolve(__dirname, '..', 'build');
+const PUBLIC_DIR = path.resolve(__dirname, '..', 'public');
+const STATIC_DIR = path.resolve(__dirname, '..', 'static');
 
 const plugins = [
   new FileManagerPlugin({
@@ -32,19 +32,19 @@ const plugins = [
     },
   }),
   new HtmlWebpackPlugin({
-    template: path.join(PUBLIC_DIR, "index.html"),
-    filename: "index.html",
+    template: path.join(PUBLIC_DIR, 'index.html'),
+    filename: 'index.html',
   }),
   //
   new FaviconsWebpackPlugin({
-    logo: path.resolve(PUBLIC_DIR, "favicon.svg"),
-    prefix: "/favicons/",
-    outputPath: path.resolve(BUILD_DIR, "favicons"),
-    mode: "webapp",
+    logo: path.resolve(PUBLIC_DIR, 'favicon.svg'),
+    prefix: '/favicons/',
+    outputPath: path.resolve(BUILD_DIR, 'favicons'),
+    // mode: 'webapp',
     // Injecting into all HTML Files or separately (for an every instance of HtmlWebpackPlugin)
-    // inject: true,
+    inject: true,
     inject: (htmlPlugin) =>
-      path.basename(htmlPlugin.options.filename) === "index.html",
+      path.basename(htmlPlugin.options.filename) === 'index.html',
     favicons: {
       icons: {
         appleIcon: false, // Apple touch icons.
@@ -70,7 +70,7 @@ const devServer = {
   historyApiFallback: true, // Apply HTML5 History API if routes are used
   open: true,
   compress: true,
-  allowedHosts: "all",
+  allowedHosts: 'all',
   hot: true, // Reload the page after changes saved (HotModuleReplacementPlugin)
   client: {
     // Shows a full-screen overlay in the browser when there are compiler errors or warnings
@@ -94,7 +94,7 @@ const devServer = {
     // Required to use favicons located in a separate directory as assets
     // Should use with historyApiFallback, to avoid of 404 for routes
     {
-      directory: path.join(BUILD_DIR, "favicons"),
+      directory: path.join(BUILD_DIR, 'favicons'),
     },
   ],
 };
@@ -102,14 +102,14 @@ const devServer = {
 export default {
   devServer,
   plugins,
-  entry: path.join(__dirname, "..", "src", "index.tsx"),
+  entry: path.join(__dirname, '..', 'src', 'index.tsx'),
   output: {
     path: BUILD_DIR,
     /**
      * Helps to avoid of MIME type ('text/html') is not a supported stylesheet
      * And sets address in html imports
      */
-    publicPath: "/",
+    publicPath: '/',
   },
   // Checking the maximum weight of the bundle is disabled
   performance: {
@@ -117,7 +117,7 @@ export default {
   },
   // Modules resolved
   resolve: {
-    extensions: [".tsx", ".ts", ".js"],
+    extensions: ['.tsx', '.ts', '.js'],
   },
   module: {
     strictExportPresence: true, // Strict mod to avoid of importing non-existent objects
@@ -127,38 +127,38 @@ export default {
         test: /\.[jt]sx?$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
           options: {
             cacheDirectory: true, // Using a cache to avoid of recompilation
           },
         },
       },
       // --- HTML
-      { test: /\.(html)$/, use: ["html-loader"] },
+      { test: /\.(html)$/, use: ['html-loader'] },
       // --- S/A/C/SS
       {
         test: /\.(s[ac]|c)ss$/i,
         use: [
           MiniCssExtractPlugin.loader,
           {
-            loader: "css-loader", // translates css into CommonJS
+            loader: 'css-loader', // translates css into CommonJS
             options: {
               esModule: true,
               // css modules
               modules: {
-                localIdentName: "[name]__[local]__[hash:base64:5]", // format of output
+                localIdentName: '[name]__[local]__[hash:base64:5]', // format of output
                 namedExport: true, // named exports instead of default
               },
             },
           },
           {
             // autoprefixer
-            loader: "postcss-loader",
+            loader: 'postcss-loader',
             options: {
               postcssOptions: {
                 plugins: [
                   [
-                    "postcss-preset-env",
+                    'postcss-preset-env',
                     {
                       // Options
                     },
@@ -172,23 +172,23 @@ export default {
       // --- S/A/SS
       {
         test: /\.(s[ac])ss$/i,
-        use: ["sass-loader"],
+        use: ['sass-loader'],
       },
       // --- IMG
       {
         test: /\.(png|jpe?g|gif|svg|webp|ico)$/i,
-        type: "asset/resource",
+        type: 'asset/resource',
         generator: {
-          filename: "assets/img/[hash][ext]",
+          filename: 'assets/img/[hash][ext]',
         },
       },
       // --- FONTS
       {
         test: /\.(woff2?|eot|ttf|otf)$/i,
         exclude: /node_modules/,
-        type: "asset/resource",
+        type: 'asset/resource',
         generator: {
-          filename: "assets/fonts/[hash][ext]",
+          filename: 'assets/fonts/[hash][ext]',
         },
       },
     ],

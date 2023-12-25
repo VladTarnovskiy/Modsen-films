@@ -3,8 +3,6 @@
     "rootDirs": ["src", "__jest__"],
     "outDir": "build",
     "lib": ["dom", "esnext"],
-    // This will include all packages from array only
-    // node_modules/@types - is default path. Required, otherwise it will be ignored.
     "typeRoots": ["node_modules/@types", "src/types"],
     "target": "ESNext",
     "skipLibCheck": true, // Skip type checking of declaration files (.d.ts)
