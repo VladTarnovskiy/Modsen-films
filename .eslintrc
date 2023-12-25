@@ -2,12 +2,14 @@
   "root": true,
   "extends": [
     "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended",
+    "prettier"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
+    "ecmaVersion": "latest",
     "sourceType": "module",
-    "ecmaVersion": 2015,
     "ecmaFeatures": {
       "jsx": true // JSX-compatible
     }
@@ -17,22 +19,22 @@
     "browser": true,
     "node": true
   },
-  "plugins": ["@typescript-eslint", "react"],
+  "plugins": ["@typescript-eslint", "react", "react-hooks", "prettier"],
   "rules": {
-    "@typescript-eslint/no-var-requires": "off", // To avoid of error: "Require statement not part of import statement", if ES modules are used
-    "semi": ["error", "always"],
-    "quotes": ["error", "double"],
-    "indent": "off",
-    "no-fallthrough": "off", // disallow fallthrough of case statements
-    "no-multiple-empty-lines": [
-      1,
-      {
-        "max": 2
-      }
-    ], // disallow multiple empty lines (off by default)
-    "no-nested-ternary": 1, // disallow nested ternary expressions (off by default)
-    "eqeqeq": 2, // require the use of === and !==
-    "react/prop-types": "off" // Prevent missing props validation in a React component definition
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "comma-dangle": ["error", "only-multiline"],
+    "react/prop-types": "off",
+    "react/display-name": "off",
+    "@typescript-eslint/interface-name-prefix": "off",
+    "@typescript-eslint/ban-ts-comment": "error",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/no-var-requires": "off",
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off"
   },
   "settings": {
     "react": {

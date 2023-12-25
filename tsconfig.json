@@ -6,7 +6,7 @@
     // This will include all packages from array only
     // node_modules/@types - is default path. Required, otherwise it will be ignored.
     "typeRoots": ["node_modules/@types", "src/types"],
-    "target": "es5",
+    "target": "ESNext",
     "skipLibCheck": true, // Skip type checking of declaration files (.d.ts)
     "esModuleInterop": true, // Creates __importStar and __importDefault helpers for compatibility with the Babel
     "allowSyntheticDefaultImports": true, // allows import w/o default prop
@@ -21,7 +21,7 @@
     "noImplicitThis": true, // Raise error on "this" expressions with an implied "any" type
     "noUnusedLocals": true, // Raise errors on unused local variables
     "noEmit": true, // Do not emit compiler output files like JavaScript source code, source-maps or declarations
-    "jsx": "react",
+    "jsx": "react-jsx",
     "plugins": [
       {
         "name": "typescript-plugin-css-modules", // auto-genertes virtual .d.ts for an every css file
