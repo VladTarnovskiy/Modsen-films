@@ -6,11 +6,10 @@ export const baseTheme = {
     base: 'rgba(0, 0, 0, 1)',
     primary: 'rgba(0, 0, 0, 0.19)',
     secondary: 'rgba(255, 138, 0, 1)',
-    // success: 'rgba(255, 138, 0, 1)',
-    // danger: '#f44336 ',
+    tertiary: ' rgb(255, 255, 255)',
 
     bgBase: 'rgb(255, 255, 255)',
-    bgPrimary: 'rgba(0, 0, 0, 0.19)',
+    bgPrimary: 'rgba(0, 0, 0, 0.06)',
     font: 'rgba(0, 0, 0, 1)',
   },
 

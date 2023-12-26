@@ -8,8 +8,7 @@ export interface ITheme {
     base: string;
     primary: string;
     secondary: string;
-    // success: string;
-    // danger: string;
+    tertiary: string;
 
     bgBase: string;
     bgPrimary: string;

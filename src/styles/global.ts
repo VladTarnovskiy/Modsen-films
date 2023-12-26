@@ -39,7 +39,7 @@ pre {
   font-size: 1em; /* 2 */
 }
 
-a {
+a ,button{
   background-color: transparent;
 }
 
@@ -99,6 +99,7 @@ textarea {
 button,
 input { /* 1 */
   overflow: visible;
+  box-sizing: border-box;
 }
 
 button,

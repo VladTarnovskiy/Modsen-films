@@ -1,4 +1,4 @@
-import { itemsCenter } from 'src/styles/fragments';
+import { borderBase, buttonAnimation, itemsCenter } from 'src/styles/fragments';
 import styled from 'styled-components';
 
 export const SearchBarContainer = styled.div`
@@ -11,25 +11,21 @@ export const SearchBar = styled.input`
   max-width: 570px;
   width: 100%;
   height: 38px;
-  border: 1px solid;
-  border-color: ${({ theme }) => theme.colors.primary};
   padding: 5px 15px;
   font-size: ${({ theme }) => theme.fontSize.small};
   color: ${({ theme }) => theme.colors.primary};
-  box-sizing: border-box;
+  ${borderBase}
 `;
 
 export const SubmitButton = styled.button`
   width: 57px;
   height: 38px;
-  border: 1px solid;
-  border-color: ${({ theme }) => theme.colors.primary};
+  ${borderBase}
   ${itemsCenter}
 
   &:hover {
-    cursor: pointer;
-    transform: scale(1.03);
-    background-color: ${({ theme }) => theme.colors.primary};
+    background-color: ${({ theme }) => theme.colors.secondary};
+    ${buttonAnimation}
   }
 
   &:active {
