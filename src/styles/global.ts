@@ -5,6 +5,7 @@ export default createGlobalStyle`
 body {
     font-family: 'Roboto Regular', sans-serif;
     font-size: 16px;
+    box-sizing: border-box;
 }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
