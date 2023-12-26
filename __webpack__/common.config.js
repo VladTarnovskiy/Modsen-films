@@ -2,7 +2,7 @@ import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import webpack from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
+// import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import FileManagerPlugin from 'filemanager-webpack-plugin';
 import { fileURLToPath } from 'url';
@@ -36,29 +36,29 @@ const plugins = [
     filename: 'index.html',
   }),
   //
-  new FaviconsWebpackPlugin({
-    logo: path.resolve(PUBLIC_DIR, 'favicon.svg'),
-    prefix: '/favicons/',
-    outputPath: path.resolve(BUILD_DIR, 'favicons'),
-    // mode: 'webapp',
-    // Injecting into all HTML Files or separately (for an every instance of HtmlWebpackPlugin)
-    inject: true,
-    inject: (htmlPlugin) =>
-      path.basename(htmlPlugin.options.filename) === 'index.html',
-    favicons: {
-      icons: {
-        appleIcon: false, // Apple touch icons.
-        appleStartup: false, // Apple startup images.
-        android: false, // Android homescreen icon.
-        favicons: true, // Regular favicons.
-        coast: false, // Opera Coast icon.
-        firefox: false, // Firefox OS icons.
-        windows: false, // Windows 8 tile icons.
-        yandex: false, // Yandex browser icon.
-      },
-    },
-    cache: false, // Disallow caching the assets across webpack builds.
-  }),
+  // new FaviconsWebpackPlugin({
+  //   logo: path.resolve(PUBLIC_DIR, 'favicon.svg'),
+  //   prefix: '/favicons/',
+  //   outputPath: path.resolve(BUILD_DIR, 'favicons'),
+  // mode: 'webapp',
+  // Injecting into all HTML Files or separately (for an every instance of HtmlWebpackPlugin)
+  // inject: true,
+  // inject: (htmlPlugin) =>
+  //   path.basename(htmlPlugin.options.filename) === 'index.html',
+  // favicons: {
+  //   icons: {
+  //     appleIcon: false, // Apple touch icons.
+  //     appleStartup: false, // Apple startup images.
+  //     android: false, // Android homescreen icon.
+  //     favicons: true, // Regular favicons.
+  //     coast: false, // Opera Coast icon.
+  //     firefox: false, // Firefox OS icons.
+  //     windows: false, // Windows 8 tile icons.
+  //     yandex: false, // Yandex browser icon.
+  //   },
+  // },
+  // cache: false, // Disallow caching the assets across webpack builds.
+  // }),
   new webpack.HotModuleReplacementPlugin(), // For page reloading
 ];
 
@@ -118,6 +118,9 @@ export default {
   // Modules resolved
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
+    alias: {
+      src: path.join(__dirname, '..', 'src'),
+    },
   },
   module: {
     strictExportPresence: true, // Strict mod to avoid of importing non-existent objects
