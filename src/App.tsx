@@ -1,13 +1,16 @@
 import { FC } from 'react';
+import './styles/fonts.scss';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { router } from './router';
 import { ThemeProvider } from 'styled-components';
-import { baseTheme } from './styles/theme';
+import { lightTheme } from './styles/theme';
+import GlobalStyles from './styles/global';
 
 export const App: FC = () => {
   return (
-    <ThemeProvider theme={baseTheme}>
-      <RouterProvider router={createBrowserRouter(router)} />{' '}
+    <ThemeProvider theme={lightTheme}>
+      <RouterProvider router={createBrowserRouter(router)} />
+      <GlobalStyles />
     </ThemeProvider>
   );
 };

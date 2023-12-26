@@ -1,14 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledHeader = styled.header`
-  background-color: ${({ theme }) => theme.colors.bgBase};
-  padding: 1px, 0px, 1px, 0px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-export const LogoContainer = styled.div`
+export const SearchBarContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
