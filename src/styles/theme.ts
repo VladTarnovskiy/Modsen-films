@@ -7,6 +7,7 @@ export const baseTheme = {
     primary: 'rgba(0, 0, 0, 0.19)',
     secondary: 'rgba(255, 138, 0, 1)',
     tertiary: ' rgb(255, 255, 255)',
+    quaternary: 'rgba(0, 0, 0, 0.4)',
 
     bgBase: 'rgb(255, 255, 255)',
     bgPrimary: 'rgba(0, 0, 0, 0.06)',
@@ -15,6 +16,7 @@ export const baseTheme = {
 
   fontFamily: {
     bold: "'Roboto Bold', sans-serif",
+    medium: "'Roboto Medium', sans-serif",
     base: "'Roboto Regular', sans-serif",
   },
 

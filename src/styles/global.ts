@@ -44,6 +44,11 @@ a ,button{
   background-color: transparent;
 }
 
+a {
+  text-decoration:none;
+  color: inherit;
+}
+
 abbr[title] {
   border-bottom: none; /* 1 */
   text-decoration: underline; /* 2 */

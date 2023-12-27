@@ -9,6 +9,7 @@ export interface ITheme {
     primary: string;
     secondary: string;
     tertiary: string;
+    quaternary: string;
 
     bgBase: string;
     bgPrimary: string;
@@ -18,6 +19,7 @@ export interface ITheme {
 
   fontFamily: {
     base: string;
+    medium: string;
     bold: string;
   };
 

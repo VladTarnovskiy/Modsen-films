@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-export const CardContainer = styled.div``;
+export const CardContainer = styled.div`
+  padding-bottom: 20px;
+`;
 
 export const CardImg = styled.img`
   width: 332px;

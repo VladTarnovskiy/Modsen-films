@@ -5,7 +5,10 @@ import { Card } from 'src/components/Card';
 export const MainPage: FC = () => {
   return (
     <S.MainContainer>
-      <Card />
+      <S.CardContainer>
+        <Card />
+      </S.CardContainer>
+      <S.ShowMoreBut>Show More</S.ShowMoreBut>
     </S.MainContainer>
   );
 };
