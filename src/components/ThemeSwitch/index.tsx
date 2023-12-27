@@ -6,7 +6,9 @@ export const ThemeSwitch: FC = () => {
   return (
     <S.SwitchContainer>
       <S.Switch>
-        <S.SwitchImg src={Sun} />
+        <S.SwitchThumb>
+          <S.SwitchImg src={Sun} />
+        </S.SwitchThumb>
       </S.Switch>
     </S.SwitchContainer>
   );

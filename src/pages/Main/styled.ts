@@ -2,7 +2,7 @@ import { buttonAnimation, itemsCenter } from 'src/styles/fragments';
 import styled from 'styled-components';
 
 export const MainContainer = styled.main`
-  padding: 28px 6px;
+  padding: 28px 6px 50px 6px;
   border-bottom: 2px solid;
   border-color: ${({ theme }) => theme.colors.primary};
 `;
@@ -13,6 +13,7 @@ export const CardContainer = styled.div`
   justify-items: center;
   gap: 20px;
   margin-bottom: 37px;
+  min-height: 47.8vh;
 `;
 
 export const ShowMoreBut = styled.button`
@@ -23,7 +24,6 @@ export const ShowMoreBut = styled.button`
   font-size: 22px;
   border-radius: 5px;
   margin: auto;
-  margin-bottom: 50px;
   color: ${({ theme }) => theme.colors.tertiary};
   background-color: ${({ theme }) => theme.colors.secondary};
   border: none;

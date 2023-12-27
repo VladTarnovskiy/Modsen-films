@@ -1,3 +1,4 @@
+import { buttonAnimation } from 'src/styles/fragments';
 import { styled } from 'styled-components';
 
 export const FooterContainer = styled.footer`
@@ -7,6 +8,7 @@ export const FooterContainer = styled.footer`
 export const LinksContainer = styled.div`
   margin-bottom: 22px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   justify-items: center;
 `;
@@ -27,7 +29,11 @@ export const LocalLinksList = styled.div`
   width: 293px;
 `;
 
-export const LocalLink = styled.div``;
+export const LocalLink = styled.a`
+  &:hover {
+    color: ${({ theme }) => theme.colors.secondary};
+  }
+`;
 
 export const SocialLinksContainer = styled.div`
   display: flex;
@@ -40,6 +46,19 @@ export const SocialLink = styled.img`
   width: 16px;
   height: 16px;
   margin-right: 27px;
+
+  &.last {
+    margin-right: 0;
+  }
+
+  &:hover {
+    ${buttonAnimation}
+    transform: scale(1.2);
+  }
+
+  &:active {
+    transform: scale(1);
+  }
 `;
 
 export const CreationDate = styled.div`

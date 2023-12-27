@@ -11,27 +11,30 @@ export const Footer: FC = () => {
       <S.LinksContainer>
         <S.LocalLinksContainer>
           <S.LocalLinksList>
-            <S.LocalLink>
-              <a href="#">TermsPrivacyPolicy & Safety</a>
-            </S.LocalLink>
-            <S.LocalLink>
-              <a href="#">How YouTube works</a>
-            </S.LocalLink>
-            <S.LocalLink>
-              <a href="#">Test new features</a>
-            </S.LocalLink>
+            <div>
+              <S.LocalLink href="#">TermsPrivacyPolicy & Safety</S.LocalLink>
+            </div>
+            <div>
+              <S.LocalLink href="#">How YouTube works</S.LocalLink>
+            </div>
+            <div>
+              <S.LocalLink href="#">Test new features</S.LocalLink>
+            </div>
           </S.LocalLinksList>
           <S.LocalLinksList>
-            <S.LocalLink>
-              <a href="#">About</a> <a href="#">Press</a>{' '}
-              <a href="#">Copyright</a>
-            </S.LocalLink>
-            <S.LocalLink>
-              <a href="#">Contact us</a> <a href="#">Creators</a>
-            </S.LocalLink>
-            <S.LocalLink>
-              <a href="#">Advertise</a> <a href="#">Developers</a>
-            </S.LocalLink>
+            <div>
+              <S.LocalLink href="#">About</S.LocalLink>{' '}
+              <S.LocalLink href="#">Press</S.LocalLink>{' '}
+              <S.LocalLink href="#">Copyright</S.LocalLink>
+            </div>
+            <div>
+              <S.LocalLink href="#">Contact us</S.LocalLink>{' '}
+              <S.LocalLink href="#">Creators</S.LocalLink>
+            </div>
+            <div>
+              <S.LocalLink href="#">Advertise</S.LocalLink>{' '}
+              <S.LocalLink href="#">Developers</S.LocalLink>
+            </div>
           </S.LocalLinksList>
         </S.LocalLinksContainer>
         <S.SocialLinksContainer>
@@ -45,7 +48,7 @@ export const Footer: FC = () => {
             <S.SocialLink src={InstagramImg} />
           </a>
           <a href="https://www.linkedin.com/company/modsen/">
-            <S.SocialLink src={LinkedInImg} />
+            <S.SocialLink className="last" src={LinkedInImg} />
           </a>
         </S.SocialLinksContainer>
       </S.LinksContainer>
