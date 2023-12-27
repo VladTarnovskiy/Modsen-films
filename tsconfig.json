@@ -29,7 +29,8 @@
       }
     ],
     "paths": {
-      "src/*": ["./src/*"]
+      "src/*": ["./src/*"],
+      "assets/*": ["./src/assets/*"]
     }
   },
   "exclude": [

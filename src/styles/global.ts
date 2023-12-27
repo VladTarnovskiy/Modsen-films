@@ -5,6 +5,7 @@ export default createGlobalStyle`
 body {
     font-family: 'Roboto Regular', sans-serif;
     font-size: 16px;
+    line-height: 18px;
     box-sizing: border-box;
 }
 

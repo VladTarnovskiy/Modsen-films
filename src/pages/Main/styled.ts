@@ -1,5 +1,9 @@
-import { styled } from 'styled-components';
+import styled from 'styled-components';
 
-export const H1 = styled.h1`
-  color: red;
+export const MainContainer = styled.main`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(332px, 1fr));
+  justify-items: center;
+  gap: 20px;
+  padding: 28px 6px;
 `;

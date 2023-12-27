@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import * as S from './styled';
-import Sun from 'src/assets/Sun.svg';
+import Sun from 'assets/Sun.svg';
 
 export const ThemeSwitch: FC = () => {
   return (

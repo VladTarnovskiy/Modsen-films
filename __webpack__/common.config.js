@@ -120,6 +120,7 @@ export default {
     extensions: ['.tsx', '.ts', '.js'],
     alias: {
       src: path.join(__dirname, '..', 'src'),
+      assets: path.join(__dirname, '..', 'src/assets'),
     },
   },
   module: {

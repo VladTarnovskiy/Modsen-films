@@ -29,18 +29,3 @@ export const FilterButton = styled.button`
     transform: scale(1);
   }
 `;
-
-// export const Switch = styled.div`
-//   position: relative;
-//   border-radius: 9999px;
-//   height: 25px;
-//   width: 25px;
-//   background-color: ${({ theme }) => theme.colors.secondary};
-//   ${itemsCenter}
-// `;
-
-// export const SwitchImg = styled.img`
-//   height: 24px;
-//   width: 24px;
-//   margin-left: -2px;
-// `;
