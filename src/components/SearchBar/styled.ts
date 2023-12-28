@@ -13,8 +13,14 @@ export const SearchBar = styled.input`
   height: 38px;
   padding: 5px 15px;
   font-size: ${({ theme }) => theme.fontSize.small};
-  color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.base};
   ${borderBase}
+
+  &:focus {
+    outline: none;
+    border: 1px solid;
+    border-color: ${({ theme }) => theme.colors.base};
+  }
 `;
 
 export const SubmitButton = styled.button`

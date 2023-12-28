@@ -1,7 +1,7 @@
 export interface ISearchResultResponse {
   kind: string;
   etag: string;
-  nextPageToken: string;
+  nextPageToken: string | undefined;
   regionCode: string;
   pageInfo: {
     totalResults: number;
