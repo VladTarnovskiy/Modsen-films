@@ -52,6 +52,8 @@ export const darkTheme: DefaultTheme = {
 
   colors: {
     ...baseTheme.colors,
+    // background-color: teal;
+
     // bg: '#19191B',
     // font: '#E5E4E8',
   },

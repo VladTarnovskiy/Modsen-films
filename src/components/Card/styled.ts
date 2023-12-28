@@ -2,12 +2,12 @@ import styled from 'styled-components';
 
 export const CardContainer = styled.div`
   padding-bottom: 20px;
+  width: 332px;
 `;
 
 export const CardImg = styled.img`
-  width: 332px;
+  width: 100%;
   height: 186px;
-  background-color: teal;
 `;
 
 export const CardDescription = styled.div`
@@ -27,6 +27,10 @@ export const VideoInfo = styled.div`
   margin: 13px 24px 13px 0;
 `;
 
-export const UserName = styled.div`
+export const FilmTitle = styled.div`
   font-size: ${({ theme }) => theme.fontSize.small};
+`;
+
+export const ChanelTitle = styled.div`
+  margin-bottom: 4px;
 `;
