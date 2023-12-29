@@ -1,4 +1,8 @@
-import { buttonAnimation, itemsCenter } from 'src/styles/fragments';
+import {
+  buttonAnimation,
+  defaultAnimationSize,
+  itemsCenter,
+} from 'src/styles/fragments';
 import styled from 'styled-components';
 
 export const MainContainer = styled.main`
@@ -34,7 +38,7 @@ export const ShowMoreBut = styled.button`
   }
 
   &:active {
-    transform: scale(1);
+    ${defaultAnimationSize}
   }
 `;
 

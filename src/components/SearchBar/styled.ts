@@ -1,4 +1,9 @@
-import { borderBase, buttonAnimation, itemsCenter } from 'src/styles/fragments';
+import {
+  borderBase,
+  buttonAnimation,
+  defaultAnimationSize,
+  itemsCenter,
+} from 'src/styles/fragments';
 import styled from 'styled-components';
 
 export const SearchBarContainer = styled.div`
@@ -35,7 +40,7 @@ export const SubmitButton = styled.button`
   }
 
   &:active {
-    transform: scale(1);
+    ${defaultAnimationSize}
   }
 `;
 

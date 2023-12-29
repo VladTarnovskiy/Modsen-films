@@ -10,11 +10,16 @@ export interface IVideo {
   kind: string;
   etag: string;
   id: string;
+  contentDetails: ContentDetails;
   snippet: Snippet;
   statistics: Statistics;
   player: {
     embedHtml: string;
   };
+}
+
+interface ContentDetails {
+  duration: string;
 }
 
 interface PageInfo {

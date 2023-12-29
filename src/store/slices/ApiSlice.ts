@@ -1,6 +1,6 @@
 import { ISearchResultResponse } from 'src/interfaces/searchVideo';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { IVideosInfo } from 'src/interfaces/videoData';
+import { IVideo, IVideosInfo } from 'src/interfaces/videoData';
 import { KEY } from 'src/constants/api';
 
 export const apiSlice = createApi({
@@ -54,7 +54,20 @@ export const apiSlice = createApi({
         return { data: { ...videosInfo, nextPageToken } };
       },
     }),
+    getVideoData: builder.query<IVideo, { videoID: string }>({
+      query: ({ videoID }) => ({
+        url: 'www.googleapis.com/youtube/v3/videos',
+        params: {
+          key: KEY,
+          part: 'snippet,statistics,player,contentDetails',
+          id: videoID,
+        },
+      }),
+      transformResponse: (response: IVideosInfo): IVideo => {
+        return response.items[0];
+      },
+    }),
   }),
 });
 
-export const { useGetSearchInfoQuery } = apiSlice;
+export const { useGetSearchInfoQuery, useGetVideoDataQuery } = apiSlice;

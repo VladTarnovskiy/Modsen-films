@@ -1,4 +1,9 @@
-import { borderBase, buttonAnimation, itemsCenter } from 'src/styles/fragments';
+import {
+  borderBase,
+  buttonAnimation,
+  defaultAnimationSize,
+  itemsCenter,
+} from 'src/styles/fragments';
 import styled from 'styled-components';
 
 export const FilterContainer = styled.div`
@@ -26,6 +31,6 @@ export const FilterButton = styled.button`
   }
 
   &:active {
-    transform: scale(1);
+    ${defaultAnimationSize}
   }
 `;

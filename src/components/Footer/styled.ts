@@ -1,4 +1,4 @@
-import { buttonAnimation } from 'src/styles/fragments';
+import { buttonAnimation, defaultAnimationSize } from 'src/styles/fragments';
 import { styled } from 'styled-components';
 
 export const FooterContainer = styled.footer`
@@ -57,7 +57,7 @@ export const SocialLink = styled.img`
   }
 
   &:active {
-    transform: scale(1);
+    ${defaultAnimationSize}
   }
 `;
 

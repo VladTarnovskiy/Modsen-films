@@ -11,6 +11,8 @@ export const baseTheme = {
 
     bgBase: 'rgb(255, 255, 255)',
     bgPrimary: 'rgba(0, 0, 0, 0.06)',
+    bgSecondary: 'rgba(0, 0, 0, 1)',
+
     font: 'rgba(0, 0, 0, 1)',
   },
 

@@ -1,8 +1,24 @@
+import {
+  buttonAnimation,
+  defaultAnimationSize,
+  itemsCenter,
+} from 'src/styles/fragments';
 import styled from 'styled-components';
 
 export const CardContainer = styled.div`
+  position: relative;
   padding-bottom: 20px;
   width: 332px;
+
+  &:hover {
+    cursor: pointer;
+    background-color: ${({ theme }) => theme.colors.bgPrimary};
+    ${buttonAnimation}
+  }
+
+  &:active {
+    ${defaultAnimationSize}
+  }
 `;
 
 export const CardImg = styled.img`
@@ -33,4 +49,15 @@ export const FilmTitle = styled.div`
 
 export const ChanelTitle = styled.div`
   margin-bottom: 4px;
+`;
+
+export const Duration = styled.div`
+  top: 160px;
+  right: 5px;
+  position: absolute;
+  width: 70px;
+  height: 20px;
+  background-color: ${({ theme }) => theme.colors.bgBase};
+  border-radius: 9999px;
+  ${itemsCenter}
 `;

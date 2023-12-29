@@ -12,6 +12,10 @@ export const buttonAnimation = css`
   transition: all 0.1s ease-out;
 `;
 
+export const defaultAnimationSize = css`
+  transform: scale(1);
+`;
+
 export const borderBase = css`
   border: 1px solid;
   border-color: ${({ theme }) => theme.colors.primary};
