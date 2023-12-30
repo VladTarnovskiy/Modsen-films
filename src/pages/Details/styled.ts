@@ -62,3 +62,9 @@ export const VideoStatisticIcon = styled.img`
 `;
 
 export const VideoStatisticInfo = styled.div``;
+
+export const LoaderContainer = styled.div`
+  margin-top: 200px;
+  width: 100%;
+  ${itemsCenter}
+`;

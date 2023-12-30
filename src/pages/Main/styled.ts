@@ -37,5 +37,5 @@ export const ShowMoreBut = styled.button`
 `;
 
 export const LoaderContainer = styled.div`
-  margin-top: 20%;
+  margin-top: 200px;
 `;

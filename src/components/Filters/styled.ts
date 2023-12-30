@@ -28,6 +28,7 @@ export const FilterButton = styled.button`
     ${buttonAnimation}
     background-color: ${({ theme }) => theme.colors.secondary};
     color: ${({ theme }) => theme.colors.tertiary};
+    border: none;
   }
 
   &:active {

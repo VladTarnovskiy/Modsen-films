@@ -58,9 +58,13 @@ export const DetailsPage: FC = () => {
       </>
     );
   } else if (isError) {
-    content = <div>Nothing Found.</div>;
+    content = <S.LoaderContainer>Nothing Found.</S.LoaderContainer>;
   } else {
-    content = <Loader />;
+    content = (
+      <S.LoaderContainer>
+        <Loader />
+      </S.LoaderContainer>
+    );
   }
 
   return <S.DetailsContainer>{content} </S.DetailsContainer>;

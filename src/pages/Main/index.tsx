@@ -8,6 +8,7 @@ import {
   // setVideosInfo,
 } from 'src/store/slices/MainPageSlice';
 import { Loader } from 'src/components/Loader';
+import { Filters } from 'src/components/Filters';
 
 export const MainPage: FC = () => {
   // const dispatch = useDispatch();
@@ -33,7 +34,9 @@ export const MainPage: FC = () => {
       content = <div>Nothing found.</div>;
     }
   } else if (isError) {
-    content = <S.LoaderContainer>Nothing Found.</S.LoaderContainer>;
+    content = (
+      <S.LoaderContainer>Sorry, something went wrong.</S.LoaderContainer>
+    );
   } else {
     content = (
       <S.LoaderContainer>
@@ -44,6 +47,7 @@ export const MainPage: FC = () => {
 
   return (
     <div>
+      <Filters />
       <S.CardContainer>{content}</S.CardContainer>
       <S.ShowMoreBut>Show More</S.ShowMoreBut>
     </div>

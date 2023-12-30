@@ -3,7 +3,6 @@ import * as S from './styled';
 import Logo from 'assets/Logo.svg';
 import { SearchBar } from '../SearchBar';
 import { ThemeSwitch } from '../ThemeSwitch';
-import { Filters } from '../Filters';
 import { NavLink } from 'react-router-dom';
 
 export const Header: FC = () => {
@@ -19,7 +18,6 @@ export const Header: FC = () => {
         <SearchBar />
         <ThemeSwitch />
       </S.StyledHeader>
-      <Filters />
     </>
   );
 };
