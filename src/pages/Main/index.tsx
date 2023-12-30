@@ -49,9 +49,9 @@ export const MainPage: FC = () => {
   }
 
   return (
-    <S.MainContainer>
+    <div>
       <S.CardContainer>{content}</S.CardContainer>
       <S.ShowMoreBut>Show More</S.ShowMoreBut>
-    </S.MainContainer>
+    </div>
   );
 };

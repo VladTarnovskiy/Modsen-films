@@ -5,12 +5,6 @@ import {
 } from 'src/styles/fragments';
 import styled from 'styled-components';
 
-export const MainContainer = styled.main`
-  padding: 28px 6px 50px 6px;
-  border-bottom: 2px solid;
-  border-color: ${({ theme }) => theme.colors.primary};
-`;
-
 export const CardContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(332px, 1fr));

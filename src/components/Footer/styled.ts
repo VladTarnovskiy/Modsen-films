@@ -3,6 +3,8 @@ import { styled } from 'styled-components';
 
 export const FooterContainer = styled.footer`
   padding: 55px 6px 17px 6px;
+  border-top: 2px solid;
+  border-color: ${({ theme }) => theme.colors.primary};
 `;
 
 export const LinksContainer = styled.div`

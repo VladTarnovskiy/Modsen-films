@@ -22,7 +22,7 @@ export const Card: FC<IProps> = ({ videoData }) => {
         <S.UserIcon src={AvatarImg} />
         <S.VideoInfo>
           <S.ChanelTitle>{snippet.channelTitle}</S.ChanelTitle>
-          <S.FilmTitle>{snippet.localized.title}</S.FilmTitle>
+          <S.FilmTitle>{snippet.title}</S.FilmTitle>
         </S.VideoInfo>
       </S.CardDescription>
       {/* <iframe
