@@ -34,7 +34,6 @@ export const UserIcon = styled.img`
 `;
 
 export const VideoPublishedDate = styled.div`
-  /* font-size: ${({ theme }) => theme.fontSize.small}; */
   margin-top: 20px;
   margin-bottom: 5px;
 `;

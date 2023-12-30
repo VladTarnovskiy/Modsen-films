@@ -3,8 +3,6 @@ import * as S from './styled';
 import AvatarImg from 'assets/Avatar.svg';
 import ViewsIcon from 'assets/Views.svg';
 import LikedIcon from 'assets/Liked.svg';
-
-// import { IVideo } from 'src/interfaces/videoData';
 import { useParams } from 'react-router-dom';
 import { useGetVideoDataQuery } from 'src/store/slices/ApiSlice';
 import { Loader } from 'src/components/Loader';
@@ -59,7 +57,6 @@ export const DetailsPage: FC = () => {
         <S.VideoDescription>{snippet.description}</S.VideoDescription>
       </>
     );
-    console.log(videoData);
   } else if (isError) {
     content = <div>Nothing Found.</div>;
   } else {

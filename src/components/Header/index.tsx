@@ -4,15 +4,18 @@ import Logo from 'assets/Logo.svg';
 import { SearchBar } from '../SearchBar';
 import { ThemeSwitch } from '../ThemeSwitch';
 import { Filters } from '../Filters';
+import { NavLink } from 'react-router-dom';
 
 export const Header: FC = () => {
   return (
     <>
       <S.StyledHeader>
-        <S.LogoContainer>
-          <S.LogoImg src={Logo}></S.LogoImg>
-          <S.LogoTitle>ModsenFilms</S.LogoTitle>
-        </S.LogoContainer>
+        <NavLink to="/">
+          <S.LogoContainer>
+            <S.LogoImg src={Logo}></S.LogoImg>
+            <S.LogoTitle>ModsenFilms</S.LogoTitle>
+          </S.LogoContainer>
+        </NavLink>
         <SearchBar />
         <ThemeSwitch />
       </S.StyledHeader>

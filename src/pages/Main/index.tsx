@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 import * as S from './styled';
 import { Card } from 'src/components/Card';
 import { useGetSearchInfoQuery } from 'src/store/slices/ApiSlice';
@@ -20,12 +20,6 @@ export const MainPage: FC = () => {
   } = useGetSearchInfoQuery({
     searchValue: searchValue,
   });
-
-  useEffect(() => {
-    if (isSuccess) {
-      console.log(videosInfo);
-    }
-  }, [isSuccess, videosInfo]);
 
   let content: JSX.Element | JSX.Element[];
 
