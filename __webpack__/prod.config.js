@@ -1,12 +1,12 @@
-import { merge } from "webpack-merge";
-import common from "./common.config.js";
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import ImageMinimizerPlugin from "image-minimizer-webpack-plugin";
-import TerserPlugin from "terser-webpack-plugin";
+import { merge } from 'webpack-merge';
+import common from './common.config.js';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import ImageMinimizerPlugin from 'image-minimizer-webpack-plugin';
+import TerserPlugin from 'terser-webpack-plugin';
 
 const plugins = [
   new MiniCssExtractPlugin({
-    filename: "[contenthash].css",
+    filename: '[contenthash].css',
   }),
   // Compress images
   new ImageMinimizerPlugin({
@@ -14,21 +14,21 @@ const plugins = [
       implementation: ImageMinimizerPlugin.imageminMinify,
       options: {
         plugins: [
-          ["gifsicle", { interlaced: true }],
-          ["jpegtran", { progressive: true }],
-          ["optipng", { optimizationLevel: 8 }],
+          ['gifsicle', { interlaced: true }],
+          ['jpegtran', { progressive: true }],
+          ['optipng', { optimizationLevel: 8 }],
           [
-            "svgo",
+            'svgo',
             {
               plugins: [
                 {
-                  name: "preset-default",
+                  name: 'preset-default',
                   params: {
                     overrides: {
                       removeViewBox: false,
                       addAttributesToSVGElement: {
                         params: {
-                          attributes: [{ xmlns: "http://www.w3.org/2000/svg" }],
+                          attributes: [{ xmlns: 'http://www.w3.org/2000/svg' }],
                         },
                       },
                     },
@@ -44,13 +44,13 @@ const plugins = [
 ];
 
 export default merge(common, {
-  mode: "production",
-  target: "web",
+  mode: 'production',
+  target: 'web',
   // target: "browserslist",
   plugins,
   devtool: false,
   output: {
-    filename: "[fullhash].js",
+    filename: '[fullhash].js',
   },
   optimization: {
     usedExports: false,

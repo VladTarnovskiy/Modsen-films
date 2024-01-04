@@ -2,9 +2,8 @@ import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import webpack from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-// import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
-import FileManagerPlugin from 'filemanager-webpack-plugin';
+import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -14,51 +13,17 @@ const PUBLIC_DIR = path.resolve(__dirname, '..', 'public');
 const STATIC_DIR = path.resolve(__dirname, '..', 'static');
 
 const plugins = [
-  new FileManagerPlugin({
-    events: {
-      // Remove build dir
-      onStart: {
-        delete: [BUILD_DIR],
-      },
-      onEnd: {
-        // Copy static files
-        copy: [
-          {
-            source: STATIC_DIR,
-            destination: BUILD_DIR,
-          },
-        ],
-      },
-    },
-  }),
   new HtmlWebpackPlugin({
     template: path.join(PUBLIC_DIR, 'index.html'),
     filename: 'index.html',
+    // favicon: path.join(STATIC_DIR, './favicon.svg'),
   }),
-  //
-  // new FaviconsWebpackPlugin({
-  //   logo: path.resolve(PUBLIC_DIR, 'favicon.svg'),
-  //   prefix: '/favicons/',
-  //   outputPath: path.resolve(BUILD_DIR, 'favicons'),
-  // mode: 'webapp',
-  // Injecting into all HTML Files or separately (for an every instance of HtmlWebpackPlugin)
-  // inject: true,
-  // inject: (htmlPlugin) =>
-  //   path.basename(htmlPlugin.options.filename) === 'index.html',
-  // favicons: {
-  //   icons: {
-  //     appleIcon: false, // Apple touch icons.
-  //     appleStartup: false, // Apple startup images.
-  //     android: false, // Android homescreen icon.
-  //     favicons: true, // Regular favicons.
-  //     coast: false, // Opera Coast icon.
-  //     firefox: false, // Firefox OS icons.
-  //     windows: false, // Windows 8 tile icons.
-  //     yandex: false, // Yandex browser icon.
-  //   },
-  // },
-  // cache: false, // Disallow caching the assets across webpack builds.
-  // }),
+  new FaviconsWebpackPlugin({
+    logo: path.resolve(STATIC_DIR, 'favicon.svg'),
+    // prefix: '/favicons/',
+    // outputPath: path.resolve(BUILD_DIR),
+    mode: 'light',
+  }),
   new webpack.HotModuleReplacementPlugin(), // For page reloading
 ];
 
@@ -90,13 +55,13 @@ const devServer = {
   devMiddleware: {
     writeToDisk: true,
   },
-  static: [
-    // Required to use favicons located in a separate directory as assets
-    // Should use with historyApiFallback, to avoid of 404 for routes
-    {
-      directory: path.join(BUILD_DIR, 'favicons'),
-    },
-  ],
+  // static: [
+  //   // Required to use favicons located in a separate directory as assets
+  //   // Should use with historyApiFallback, to avoid of 404 for routes
+  //   {
+  //     directory: path.join(BUILD_DIR, 'favicons'),
+  //   },
+  // ],
 };
 
 export default {
@@ -109,7 +74,7 @@ export default {
      * Helps to avoid of MIME type ('text/html') is not a supported stylesheet
      * And sets address in html imports
      */
-    publicPath: '/',
+    // publicPath: '/',
   },
   // Checking the maximum weight of the bundle is disabled
   performance: {
