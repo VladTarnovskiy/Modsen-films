@@ -1,7 +1,12 @@
 import { ISearchResultResponse } from 'src/interfaces/searchVideo';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { IVideo, IVideosInfo } from 'src/interfaces/videoData';
+import { v4 as uuidv4 } from 'uuid';
 import { KEY } from 'src/constants/api';
+
+interface IPageToken {
+  pageToken: string;
+}
 
 export const apiSlice = createApi({
   reducerPath: 'api',
@@ -11,9 +16,11 @@ export const apiSlice = createApi({
   endpoints: (builder) => ({
     getSearchInfo: builder.query<
       IVideosInfo,
-      { searchValue: string; page?: number }
+      { searchValue: string; pageToken: string | null }
     >({
       async queryFn(arg, _queryApi, _extraOptions, fetchWithBQ) {
+        const pageToken: IPageToken | null =
+          arg.pageToken !== null ? { pageToken: arg.pageToken } : null;
         const fetchSearchInfo = await fetchWithBQ({
           url: 'youtube.googleapis.com/youtube/v3/search',
           params: {
@@ -24,7 +31,7 @@ export const apiSlice = createApi({
             type: 'video',
             videoEmbeddable: 'true',
             videoType: 'movie',
-            // pageToken: page,
+            ...pageToken,
           },
         });
 
@@ -49,6 +56,7 @@ export const apiSlice = createApi({
         if (fetchVideosInfo.error) throw fetchVideosInfo.error;
 
         const videosInfo = fetchVideosInfo.data as IVideosInfo;
+        videosInfo.items.map((video) => (video.keyID = uuidv4()));
         const nextPageToken = searchResp.nextPageToken ?? null;
 
         return { data: { ...videosInfo, nextPageToken } };

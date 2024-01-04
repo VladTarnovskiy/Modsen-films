@@ -10,8 +10,11 @@ export const FilterContainer = styled.div`
   padding: 12px 6px;
   flex-wrap: wrap;
   gap: 6px;
-  ${borderBase}
-  ${itemsCenter}
+  margin-bottom: 28px;
+  ${borderBase};
+  border-left: none;
+  border-right: none;
+  ${itemsCenter};
 `;
 
 export const FilterButton = styled.button`

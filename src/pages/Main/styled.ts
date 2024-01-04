@@ -14,7 +14,7 @@ export const CardContainer = styled.div`
   min-height: 47.8vh;
 `;
 
-export const ShowMoreBut = styled.button`
+export const ShowMoreBut = styled.button<{ $isFetching: boolean }>`
   width: 192px;
   height: 52px;
   padding: 14px 35px;
@@ -25,7 +25,8 @@ export const ShowMoreBut = styled.button`
   color: ${({ theme }) => theme.colors.tertiary};
   background-color: ${({ theme }) => theme.colors.secondary};
   border: none;
-  ${itemsCenter}
+  ${itemsCenter};
+  opacity: ${({ $isFetching }) => ($isFetching ? 0.5 : 1)};
 
   &:hover {
     ${buttonAnimation}

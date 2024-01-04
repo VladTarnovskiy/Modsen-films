@@ -4,9 +4,11 @@ export interface IVideosInfo {
   etag: string;
   pageInfo: PageInfo;
   items: IVideo[];
+  nextPageToken: string | null;
 }
 
 export interface IVideo {
+  keyID: string;
   kind: string;
   etag: string;
   id: string;
