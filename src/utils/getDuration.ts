@@ -20,6 +20,8 @@ export function getDuration(duration: string) {
     } else {
       time += minutes[0] + ':';
     }
+  } else {
+    time += '00:';
   }
 
   const seconds = duration.match(regS);
@@ -29,6 +31,10 @@ export function getDuration(duration: string) {
     } else {
       time += seconds[0];
     }
+  }
+
+  if (!hours && !minutes && !seconds) {
+    time = 'stream';
   }
 
   return time;

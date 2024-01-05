@@ -30,7 +30,7 @@ export const apiSlice = createApi({
             maxResults: '16',
             type: 'video',
             videoEmbeddable: 'true',
-            videoType: 'movie',
+            // videoType: 'movie',
             ...pageToken,
           },
         });
@@ -78,4 +78,8 @@ export const apiSlice = createApi({
   }),
 });
 
-export const { useGetSearchInfoQuery, useGetVideoDataQuery } = apiSlice;
+export const {
+  useGetSearchInfoQuery,
+  useLazyGetSearchInfoQuery,
+  useGetVideoDataQuery,
+} = apiSlice;

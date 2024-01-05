@@ -1,49 +1,27 @@
-import { FC, useEffect, useState } from 'react';
+import { FC } from 'react';
 import * as S from './styled';
 import { Card } from 'src/components/Card';
-import { useGetSearchInfoQuery } from 'src/store/slices/ApiSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import {
+  selectIsLoading,
+  selectIsSuccess,
   selectNextPageToken,
-  selectSearchValue,
   selectVideos,
-  setNextPageToken,
-  setVideos,
+  setTriggeredNextPageToken,
 } from 'src/store/slices/MainPageSlice';
 import { Loader } from 'src/components/Loader';
 import { Filters } from 'src/components/Filters';
 
 export const MainPage: FC = () => {
   const dispatch = useDispatch();
-  const searchValue = useSelector(selectSearchValue);
   const nextPageToken = useSelector(selectNextPageToken);
-  const [currentPageToken, setCurrentPageToken] = useState<string | null>(null);
-
+  const isLoading = useSelector(selectIsLoading);
+  const isSuccess = useSelector(selectIsSuccess);
   const videos = useSelector(selectVideos);
 
-  const {
-    data: videosInfo,
-    isSuccess,
-    // isError,
-    isFetching,
-  } = useGetSearchInfoQuery({
-    searchValue: searchValue,
-    pageToken: currentPageToken,
-  });
-
-  useEffect(() => {
-    if (isSuccess) {
-      dispatch(setVideos(videosInfo.items));
-      if (videosInfo.nextPageToken) {
-        dispatch(setNextPageToken(videosInfo.nextPageToken));
-      }
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [videosInfo]);
-
   const getNextPageVideosData = () => {
-    if (!isFetching) {
-      setCurrentPageToken(nextPageToken);
+    if (!isLoading) {
+      dispatch(setTriggeredNextPageToken(nextPageToken));
     }
   };
 
@@ -58,7 +36,7 @@ export const MainPage: FC = () => {
     } else {
       content = <div>Nothing found.</div>;
     }
-  } else if (isFetching) {
+  } else if (isLoading) {
     content = (
       <S.LoaderContainer>
         <Loader />
@@ -72,11 +50,13 @@ export const MainPage: FC = () => {
 
   return (
     <div>
-      {nextPageToken && <Filters />}
+      <Filters />
       <S.CardContainer>{content}</S.CardContainer>
-      <S.ShowMoreBut $isFetching={isFetching} onClick={getNextPageVideosData}>
-        Show More
-      </S.ShowMoreBut>
+      {nextPageToken && (
+        <S.ShowMoreBut $isFetching={isLoading} onClick={getNextPageVideosData}>
+          Show More
+        </S.ShowMoreBut>
+      )}
     </div>
   );
 };

@@ -6,9 +6,11 @@ import { IVideo } from 'src/interfaces/videoData';
 interface InitialState {
   theme: string;
   nextPageToken: null | string;
+  triggeredNextPageToken: null | string;
   amountPages: number | null;
-  // isLoading: boolean;
-  // isError: boolean;
+  isLoading: boolean;
+  isError: boolean;
+  isSuccess: boolean;
   searchValue: string;
   videosInfo: IVideo[];
 }
@@ -16,9 +18,11 @@ interface InitialState {
 const initialState: InitialState = {
   theme: 'light',
   nextPageToken: null,
+  triggeredNextPageToken: null,
   amountPages: null,
-  // isLoading: false,
-  // isError: false,
+  isLoading: false,
+  isError: false,
+  isSuccess: true,
   searchValue: localStorage.getItem('searchValue') || '',
   videosInfo: [],
 };
@@ -36,21 +40,29 @@ const userSlice = createSlice({
     setNextPageToken: (state, { payload }) => {
       state.nextPageToken = payload;
     },
+    setTriggeredNextPageToken: (state, { payload }) => {
+      state.triggeredNextPageToken = payload;
+    },
     changeTheme: (state, { payload }) => {
       state.theme = payload;
     },
-    // setIsLoading: (state, { payload }) => {
-    //   state.isLoading = payload;
-    // },
-    // setIsError: (state, { payload }) => {
-    //   state.isError = payload;
-    // },
+    setIsLoading: (state, { payload }) => {
+      state.isLoading = payload;
+    },
+    setIsError: (state, { payload }) => {
+      state.isError = payload;
+      state.isSuccess = false;
+    },
+    setIsSuccess: (state, { payload }) => {
+      state.isSuccess = payload;
+      state.isError = false;
+    },
     setVideos: (state, { payload }) => {
       // if (state.videosInfo === null) {
       //   state.videosInfo = payload;
       // } else {
-      // state.isLoading = false;
-      // state.isError = false;
+      state.isLoading = false;
+      state.isError = false;
       state.videosInfo = [...state.videosInfo].concat(payload);
       // }
     },
@@ -73,16 +85,22 @@ export const {
   changeTheme,
   setVideos,
   clearVideos,
-  // setIsError,
-  // setIsLoading,
+  setIsError,
+  setIsLoading,
+  setIsSuccess,
+  setTriggeredNextPageToken,
 } = userSlice.actions;
 
 export const selectSearchValue = (state: RootState) =>
   state.mainPage.searchValue;
 export const selectNextPageToken = (state: RootState) =>
   state.mainPage.nextPageToken;
-// export const selectIsLoading = (state: RootState) => state.mainPage.isLoading;
-// export const selectIsError = (state: RootState) => state.mainPage.isError;
+export const selectTriggeredNextPageToken = (state: RootState) =>
+  state.mainPage.triggeredNextPageToken;
+export const selectIsLoading = (state: RootState) => state.mainPage.isLoading;
+export const selectIsError = (state: RootState) => state.mainPage.isError;
+export const selectIsSuccess = (state: RootState) => state.mainPage.isSuccess;
+
 export const selectAmountPages = (state: RootState) =>
   state.mainPage.amountPages;
 export const selectVideos = (state: RootState) => state.mainPage.videosInfo;
