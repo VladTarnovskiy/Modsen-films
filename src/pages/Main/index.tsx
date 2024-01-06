@@ -3,31 +3,38 @@ import * as S from './styled';
 import { Card } from 'src/components/Card';
 import { useDispatch, useSelector } from 'react-redux';
 import {
+  selectIsError,
   selectIsLoading,
   selectIsSuccess,
   selectNextPageToken,
   selectVideos,
+  setIsLoading,
   setTriggeredNextPageToken,
 } from 'src/store/slices/MainPageSlice';
-import { Loader } from 'src/components/Loader';
 import { Filters } from 'src/components/Filters';
+import { CardSkeleton } from 'src/components/CardSkeleton';
 
 export const MainPage: FC = () => {
   const dispatch = useDispatch();
   const nextPageToken = useSelector(selectNextPageToken);
   const isLoading = useSelector(selectIsLoading);
   const isSuccess = useSelector(selectIsSuccess);
+  const isError = useSelector(selectIsError);
   const videos = useSelector(selectVideos);
 
   const getNextPageVideosData = () => {
     if (!isLoading) {
       dispatch(setTriggeredNextPageToken(nextPageToken));
+      dispatch(setIsLoading(true));
     }
   };
 
   let content: JSX.Element | JSX.Element[];
-
-  if (isSuccess) {
+  if (isError) {
+    content = <S.InfoContainer>Sorry, something went wrong.</S.InfoContainer>;
+  } else if (isLoading) {
+    content = [...Array(6)].map((item, index) => <CardSkeleton key={index} />);
+  } else if (isSuccess) {
     if (videos.length >= 1) {
       console.log(videos);
       content = videos.map((video) => (
@@ -36,26 +43,20 @@ export const MainPage: FC = () => {
     } else {
       content = <div>Nothing found.</div>;
     }
-  } else if (isLoading) {
-    content = (
-      <S.LoaderContainer>
-        <Loader />
-      </S.LoaderContainer>
-    );
   } else {
-    content = (
-      <S.LoaderContainer>Sorry, something went wrong.</S.LoaderContainer>
-    );
+    content = <S.InfoContainer>Sorry, something went wrong.</S.InfoContainer>;
   }
 
   return (
     <div>
       <Filters />
       <S.CardContainer>{content}</S.CardContainer>
-      {nextPageToken && (
+      {nextPageToken ? (
         <S.ShowMoreBut $isFetching={isLoading} onClick={getNextPageVideosData}>
           Show More
         </S.ShowMoreBut>
+      ) : (
+        <S.ShowMoreBut $isFetching={true}>Show More</S.ShowMoreBut>
       )}
     </div>
   );

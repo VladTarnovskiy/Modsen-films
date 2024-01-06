@@ -52,6 +52,7 @@ const userSlice = createSlice({
     setIsError: (state, { payload }) => {
       state.isError = payload;
       state.isSuccess = false;
+      state.isLoading = false;
     },
     setIsSuccess: (state, { payload }) => {
       state.isSuccess = payload;

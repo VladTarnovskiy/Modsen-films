@@ -30,6 +30,7 @@ export const Layout: FC = () => {
   });
 
   useEffect(() => {
+    console.log('Layout');
     if (isSuccess) {
       dispatch(setVideos(videosInfo.items));
       dispatch(setNextPageToken(videosInfo.nextPageToken));

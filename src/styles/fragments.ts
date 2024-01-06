@@ -1,4 +1,4 @@
-import { css } from 'styled-components';
+import { css, keyframes } from 'styled-components';
 
 export const itemsCenter = css`
   display: flex;
@@ -19,4 +19,17 @@ export const defaultAnimationSize = css`
 export const borderBase = css`
   border: 1px solid;
   border-color: ${({ theme }) => theme.colors.primary};
+`;
+
+const skeletonLoading = keyframes`
+  0% {
+    background-color: hsl(200, 20%, 80%);
+  }
+  100% {
+    background-color: hsl(200, 20%, 95%);
+  }
+`;
+
+export const SkeletonBackgroundAnimation = css`
+  animation: ${skeletonLoading} 1s linear infinite alternate;
 `;

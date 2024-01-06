@@ -31,10 +31,12 @@ export function getDuration(duration: string) {
     } else {
       time += seconds[0];
     }
+  } else {
+    time += '00';
   }
 
   if (!hours && !minutes && !seconds) {
-    time = 'stream';
+    time = 'online';
   }
 
   return time;

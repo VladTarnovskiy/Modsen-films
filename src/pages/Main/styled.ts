@@ -29,14 +29,14 @@ export const ShowMoreBut = styled.button<{ $isFetching: boolean }>`
   opacity: ${({ $isFetching }) => ($isFetching ? 0.5 : 1)};
 
   &:hover {
-    ${buttonAnimation}
+    ${({ $isFetching }) => (!$isFetching ? buttonAnimation : null)}
   }
 
   &:active {
-    ${defaultAnimationSize}
+    ${({ $isFetching }) => (!$isFetching ? defaultAnimationSize : null)}
   }
 `;
 
-export const LoaderContainer = styled.div`
+export const InfoContainer = styled.div`
   margin-top: 200px;
 `;

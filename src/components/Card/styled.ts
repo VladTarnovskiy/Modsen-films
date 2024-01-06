@@ -32,11 +32,14 @@ export const CardDescription = styled.div`
   padding-top: 12px;
 `;
 
-export const UserIcon = styled.img`
+export const UserIcon = styled.div<{ $bg: string }>`
+  flex-shrink: 0;
   width: 36px;
   height: 36px;
   margin-right: 12px;
   border-radius: 100%;
+  background-image: url(${({ $bg }) => $bg});
+  background-size: cover;
 `;
 
 export const VideoInfo = styled.div`

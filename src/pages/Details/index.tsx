@@ -1,11 +1,10 @@
 import { FC } from 'react';
 import * as S from './styled';
-import AvatarImg from 'assets/Avatar.svg';
 import ViewsIcon from 'assets/Views.svg';
 import LikedIcon from 'assets/Liked.svg';
 import { useParams } from 'react-router-dom';
 import { useGetVideoDataQuery } from 'src/store/slices/ApiSlice';
-import { Loader } from 'src/components/Loader';
+import { DetailsSkeleton } from 'src/components/DetailsSkeleton';
 
 export const DetailsPage: FC = () => {
   const { detailsId } = useParams();
@@ -37,10 +36,10 @@ export const DetailsPage: FC = () => {
           src={playerEl}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
-        ></S.VideoPlayer>
+        />
         <S.FilmTitle>{snippet.title}</S.FilmTitle>
         <S.ChanelInfo>
-          <S.UserIcon src={AvatarImg} />
+          <S.UserIcon $bg={snippet.thumbnails.default.url} />
           <S.ChanelTitle>{snippet.channelTitle}</S.ChanelTitle>
         </S.ChanelInfo>
         <S.VideoStatistic>
@@ -58,13 +57,9 @@ export const DetailsPage: FC = () => {
       </>
     );
   } else if (isError) {
-    content = <S.LoaderContainer>Nothing Found.</S.LoaderContainer>;
+    content = <S.InfoContainer>Nothing Found.</S.InfoContainer>;
   } else {
-    content = (
-      <S.LoaderContainer>
-        <Loader />
-      </S.LoaderContainer>
-    );
+    content = <DetailsSkeleton />;
   }
 
   return <S.DetailsContainer>{content} </S.DetailsContainer>;

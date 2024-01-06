@@ -26,11 +26,14 @@ export const ChanelTitle = styled.div`
   margin-bottom: 4px;
 `;
 
-export const UserIcon = styled.img`
+export const UserIcon = styled.div<{ $bg: string }>`
+  flex-shrink: 0;
   width: 36px;
   height: 36px;
   margin-right: 12px;
   border-radius: 100%;
+  background-image: url(${({ $bg }) => $bg});
+  background-size: cover;
 `;
 
 export const VideoPublishedDate = styled.div`
@@ -63,7 +66,7 @@ export const VideoStatisticIcon = styled.img`
 
 export const VideoStatisticInfo = styled.div``;
 
-export const LoaderContainer = styled.div`
+export const InfoContainer = styled.div`
   margin-top: 200px;
   width: 100%;
   ${itemsCenter}
