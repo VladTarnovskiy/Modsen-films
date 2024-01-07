@@ -13,6 +13,7 @@ import {
   selectTriggeredNextPageToken,
   changeTheme,
   selectFilmsFilter,
+  setIsSuccess,
 } from 'src/store/slices/MainPageSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -37,10 +38,6 @@ export const Layout: FC = () => {
     if (isSuccess) {
       dispatch(setVideos(videosInfo.items));
       dispatch(setNextPageToken(videosInfo.nextPageToken));
-    } else if (isFetching) {
-      dispatch(setIsLoading(true));
-    } else if (isError) {
-      dispatch(setIsError(true));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [videosInfo]);
@@ -52,6 +49,13 @@ export const Layout: FC = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    dispatch(setIsLoading(isFetching));
+    dispatch(setIsError(isError));
+    dispatch(setIsSuccess(isSuccess));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isFetching, isError, isSuccess]);
 
   return (
     <>
