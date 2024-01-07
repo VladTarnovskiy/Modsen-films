@@ -1,7 +1,11 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import * as S from './styled';
-import { useDispatch } from 'react-redux';
-import { changeFilmsFilter, clearVideos } from 'src/store/slices/MainPageSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  changeFilmsFilter,
+  clearVideos,
+  selectFilmsFilter,
+} from 'src/store/slices/MainPageSlice';
 
 const buttonsData = [
   'All',
@@ -15,14 +19,11 @@ const buttonsData = [
 
 export const Filters: FC = () => {
   const dispatch = useDispatch();
-  const [activeButton, setActiveButton] = useState('All');
+  const filterValue = useSelector(selectFilmsFilter);
 
   const changeFilter = (title: string) => {
-    dispatch(clearVideos());
-    setActiveButton(title);
-    if (title === 'All') {
-      dispatch(changeFilmsFilter(''));
-    } else {
+    if (filterValue !== title) {
+      dispatch(clearVideos());
       dispatch(changeFilmsFilter(title));
     }
   };
@@ -31,7 +32,7 @@ export const Filters: FC = () => {
     <S.FilterContainer>
       {buttonsData.map((title) => (
         <S.FilterButton
-          $isActive={activeButton === title}
+          $isActive={filterValue === title}
           key={title}
           onClick={() => changeFilter(title)}
         >

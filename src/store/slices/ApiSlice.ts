@@ -25,7 +25,9 @@ export const apiSlice = createApi({
           url: 'youtube.googleapis.com/youtube/v3/search',
           params: {
             key: KEY,
-            q: `${arg.searchValue} + ' ' + ${arg.filterValue}`,
+            q: `${arg.searchValue} + ' ' + ${
+              arg.filterValue === 'All' ? '' : arg.filterValue
+            }`,
             part: 'id',
             maxResults: '16',
             type: 'video',

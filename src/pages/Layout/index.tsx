@@ -13,7 +13,6 @@ import {
   selectTriggeredNextPageToken,
   changeTheme,
   selectFilmsFilter,
-  setIsSuccess,
 } from 'src/store/slices/MainPageSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -53,9 +52,8 @@ export const Layout: FC = () => {
   useEffect(() => {
     dispatch(setIsLoading(isFetching));
     dispatch(setIsError(isError));
-    dispatch(setIsSuccess(isSuccess));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isFetching, isError, isSuccess]);
+  }, [isFetching, isError]);
 
   return (
     <>
