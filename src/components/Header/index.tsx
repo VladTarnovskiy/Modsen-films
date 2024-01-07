@@ -4,6 +4,7 @@ import Logo from 'assets/Logo.svg';
 import { SearchBar } from '../SearchBar';
 import { ThemeSwitch } from '../ThemeSwitch';
 import { NavLink } from 'react-router-dom';
+import { BurgerMenu } from '../BurgerMenu';
 
 export const Header: FC = () => {
   return (
@@ -16,7 +17,10 @@ export const Header: FC = () => {
           </S.LogoContainer>
         </NavLink>
         <SearchBar />
-        <ThemeSwitch />
+        <S.SwitchContainer>
+          <ThemeSwitch />
+        </S.SwitchContainer>
+        <BurgerMenu />
       </S.StyledHeader>
     </>
   );

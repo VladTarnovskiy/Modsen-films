@@ -22,3 +22,13 @@ export const LogoTitle = styled.h1`
   font-family: ${({ theme }) => theme.fontFamily.bold};
   font-size: ${({ theme }) => theme.fontSize.lg};
 `;
+
+export const SwitchContainer = styled.div`
+  min-width: 145px;
+  display: flex;
+  justify-content: flex-end;
+
+  @media ${({ theme }) => theme.media.s} {
+    display: none;
+  }
+`;

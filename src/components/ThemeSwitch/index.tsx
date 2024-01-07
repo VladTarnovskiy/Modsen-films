@@ -18,12 +18,10 @@ export const ThemeSwitch: FC = () => {
   };
 
   return (
-    <S.SwitchContainer>
-      <S.Switch>
-        <S.SwitchThumb onClick={changeCurrentTheme} $isLight={isLight}>
-          {isLight ? <S.SwitchImg src={Sun} /> : <S.SwitchImg src={Moon} />}
-        </S.SwitchThumb>
-      </S.Switch>
-    </S.SwitchContainer>
+    <S.Switch>
+      <S.SwitchThumb onClick={changeCurrentTheme} $isLight={isLight}>
+        {isLight ? <S.SwitchImg src={Sun} /> : <S.SwitchImg src={Moon} />}
+      </S.SwitchThumb>
+    </S.Switch>
   );
 };

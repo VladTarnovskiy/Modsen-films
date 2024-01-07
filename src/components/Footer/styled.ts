@@ -12,11 +12,15 @@ export const LinksContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  justify-items: center;
+  /* justify-items: center; */
+
+  @media ${({ theme }) => theme.media.l} {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const LocalLinksContainer = styled.div`
-  flex-basis: 1/2;
   padding-bottom: 23px;
   font-family: ${({ theme }) => theme.fontFamily.medium};
   font-size: 20px;
@@ -24,11 +28,33 @@ export const LocalLinksContainer = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   margin-left: 38px;
+
+  @media ${({ theme }) => theme.media.l} {
+    margin-left: 0;
+    font-size: 18px;
+  }
+
+  @media ${({ theme }) => theme.media.s} {
+    margin-left: 0;
+    font-size: 14px;
+  }
+
+  @media ${({ theme }) => theme.media.s} {
+    flex-direction: column;
+  }
 `;
 
 export const LocalLinksList = styled.div`
   margin-right: 32px;
   width: 293px;
+
+  @media ${({ theme }) => theme.media.l} {
+    width: auto;
+  }
+
+  @media ${({ theme }) => theme.media.s} {
+    margin-bottom: 16px;
+  }
 `;
 
 export const LocalLink = styled.a`
@@ -70,4 +96,12 @@ export const CreationDate = styled.div`
   font-family: ${({ theme }) => theme.fontFamily.medium};
   font-size: 24px;
   color: ${({ theme }) => theme.colors.quaternary};
+
+  @media ${({ theme }) => theme.media.l} {
+    font-size: 14px;
+  }
+
+  @media ${({ theme }) => theme.media.s} {
+    font-size: 12px;
+  }
 `;

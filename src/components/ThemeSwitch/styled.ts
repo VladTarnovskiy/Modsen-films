@@ -1,12 +1,6 @@
 import { itemsCenter } from 'src/styles/fragments';
 import styled from 'styled-components';
 
-export const SwitchContainer = styled.div`
-  min-width: 145px;
-  display: flex;
-  justify-content: flex-end;
-`;
-
 export const Switch = styled.div`
   border-radius: 9999px;
   height: 25px;
