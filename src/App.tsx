@@ -3,18 +3,18 @@ import './styles/fonts.scss';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { router } from './router';
 import { ThemeProvider } from 'styled-components';
-import { lightTheme } from './styles/theme';
+import { darkTheme, lightTheme } from './styles/theme';
 import GlobalStyles from './styles/global';
-import { Provider } from 'react-redux';
-import { store } from './store/store';
+import { selectIsLightTheme } from './store/slices/MainPageSlice';
+import { useSelector } from 'react-redux';
 
 export const App: FC = () => {
+  const isLight = useSelector(selectIsLightTheme);
+
   return (
-    <Provider store={store}>
-      <ThemeProvider theme={lightTheme}>
-        <RouterProvider router={createBrowserRouter(router)} />
-        <GlobalStyles />
-      </ThemeProvider>
-    </Provider>
+    <ThemeProvider theme={isLight ? lightTheme : darkTheme}>
+      <RouterProvider router={createBrowserRouter(router)} />
+      <GlobalStyles />
+    </ThemeProvider>
   );
 };

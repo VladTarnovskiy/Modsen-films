@@ -23,8 +23,11 @@ export const SearchBar = styled.input`
 
   &:focus {
     outline: none;
-    border: 1px solid;
     border-color: ${({ theme }) => theme.colors.base};
+  }
+
+  &::placeholder {
+    color: ${({ theme }) => theme.colors.quaternary};
   }
 `;
 
@@ -35,7 +38,7 @@ export const SubmitButton = styled.button`
   ${itemsCenter}
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.secondary};
+    background-color: ${({ theme }) => theme.colors.bgSecondary};
     ${buttonAnimation}
   }
 

@@ -2,7 +2,6 @@ import { itemsCenter } from 'src/styles/fragments';
 import styled from 'styled-components';
 
 export const StyledHeader = styled.header`
-  background-color: ${({ theme }) => theme.colors.bgBase};
   padding: 15px 6px;
   display: flex;
   justify-content: space-between;

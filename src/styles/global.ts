@@ -7,6 +7,8 @@ body {
     font-size: 16px;
     line-height: 18px;
     box-sizing: border-box;
+    background-color: ${({ theme }) => theme.colors.bgBase};
+    color: ${({ theme }) => theme.colors.base};
 }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -100,12 +102,14 @@ textarea {
   font-size: 100%; /* 1 */
   line-height: 1.15; /* 1 */
   margin: 0; /* 2 */
+  border: none;
 }
 
 button,
 input { /* 1 */
   overflow: visible;
   box-sizing: border-box;
+  background-color: transparent;
 }
 
 button,

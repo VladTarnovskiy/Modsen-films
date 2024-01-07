@@ -14,8 +14,6 @@ export interface ITheme {
     bgBase: string;
     bgPrimary: string;
     bgSecondary: string;
-
-    font: string;
   };
 
   fontFamily: {

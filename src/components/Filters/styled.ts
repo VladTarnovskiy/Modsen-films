@@ -18,6 +18,7 @@ export const FilterContainer = styled.div`
 `;
 
 export const FilterButton = styled.button`
+  color: ${({ theme }) => theme.colors.base};
   border-radius: 9999px;
   height: 30px;
   min-width: 90px;
@@ -29,7 +30,7 @@ export const FilterButton = styled.button`
 
   &:hover {
     ${buttonAnimation}
-    background-color: ${({ theme }) => theme.colors.secondary};
+    background-color: ${({ theme }) => theme.colors.bgSecondary};
     color: ${({ theme }) => theme.colors.tertiary};
     border: none;
   }

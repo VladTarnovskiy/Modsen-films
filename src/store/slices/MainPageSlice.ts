@@ -4,7 +4,7 @@ import { IVideo } from 'src/interfaces/videoData';
 // import { IVideosInfo } from 'src/interfaces/videoData';
 
 interface InitialState {
-  theme: string;
+  isLightTheme: boolean;
   nextPageToken: null | string;
   triggeredNextPageToken: null | string;
   amountPages: number | null;
@@ -16,7 +16,7 @@ interface InitialState {
 }
 
 const initialState: InitialState = {
-  theme: 'light',
+  isLightTheme: true,
   nextPageToken: null,
   triggeredNextPageToken: null,
   amountPages: null,
@@ -44,7 +44,7 @@ const userSlice = createSlice({
       state.triggeredNextPageToken = payload;
     },
     changeTheme: (state, { payload }) => {
-      state.theme = payload;
+      state.isLightTheme = payload;
     },
     setIsLoading: (state, { payload }) => {
       state.isLoading = payload;
@@ -106,6 +106,7 @@ export const selectAmountPages = (state: RootState) =>
   state.mainPage.amountPages;
 export const selectVideos = (state: RootState) => state.mainPage.videosInfo;
 
-export const selectTheme = (state: RootState) => state.mainPage.amountPages;
+export const selectIsLightTheme = (state: RootState) =>
+  state.mainPage.isLightTheme;
 
 export default userSlice.reducer;

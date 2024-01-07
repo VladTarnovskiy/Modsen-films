@@ -1,11 +1,19 @@
 import { FC } from 'react';
 import * as S from './styled';
 import FaceBookImg from 'assets/Facebook.svg';
+import FaceBookImgLight from 'assets/FacebookLight.svg';
 import InstagramImg from 'assets/Instagram.svg';
+import InstagramImgLight from 'assets/InstagramLight.svg';
 import TwitterImg from 'assets/Twitter.svg';
+import TwitterImgLight from 'assets/TwitterLight.svg';
 import LinkedInImg from 'assets/LinkedIn.svg';
+import LinkedInImgLight from 'assets/LinkedInLight.svg';
+import { selectIsLightTheme } from 'src/store/slices/MainPageSlice';
+import { useSelector } from 'react-redux';
 
 export const Footer: FC = () => {
+  const isLight = useSelector(selectIsLightTheme);
+
   return (
     <S.FooterContainer>
       <S.LinksContainer>
@@ -39,16 +47,19 @@ export const Footer: FC = () => {
         </S.LocalLinksContainer>
         <S.SocialLinksContainer>
           <a href="https://web.facebook.com/ModsenSoftware/">
-            <S.SocialLink src={FaceBookImg} />
+            <S.SocialLink src={isLight ? FaceBookImg : FaceBookImgLight} />
           </a>
           <a href="https://twitter.com/modsencompany">
-            <S.SocialLink src={TwitterImg} />
+            <S.SocialLink src={isLight ? TwitterImg : TwitterImgLight} />
           </a>
           <a href="https://www.instagram.com/modsencompany/">
-            <S.SocialLink src={InstagramImg} />
+            <S.SocialLink src={isLight ? InstagramImg : InstagramImgLight} />
           </a>
           <a href="https://www.linkedin.com/company/modsen/">
-            <S.SocialLink className="last" src={LinkedInImg} />
+            <S.SocialLink
+              className="last"
+              src={isLight ? LinkedInImg : LinkedInImgLight}
+            />
           </a>
         </S.SocialLinksContainer>
       </S.LinksContainer>
