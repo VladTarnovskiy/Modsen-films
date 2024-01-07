@@ -5,6 +5,11 @@ export const FooterContainer = styled.footer`
   padding: 55px 6px 17px 6px;
   border-top: 2px solid;
   border-color: ${({ theme }) => theme.colors.primary};
+
+  @media ${({ theme }) => theme.media.s} {
+    padding-top: 8px;
+    padding-bottom: 0;
+  }
 `;
 
 export const LinksContainer = styled.div`
@@ -12,7 +17,6 @@ export const LinksContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  /* justify-items: center; */
 
   @media ${({ theme }) => theme.media.l} {
     flex-direction: column;
@@ -98,10 +102,11 @@ export const CreationDate = styled.div`
   color: ${({ theme }) => theme.colors.quaternary};
 
   @media ${({ theme }) => theme.media.l} {
-    font-size: 14px;
+    font-size: ${({ theme }) => theme.fontSize.small};
   }
 
   @media ${({ theme }) => theme.media.s} {
     font-size: 12px;
+    margin-bottom: 8px;
   }
 `;

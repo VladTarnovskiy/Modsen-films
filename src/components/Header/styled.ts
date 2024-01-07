@@ -31,4 +31,25 @@ export const SwitchContainer = styled.div`
   @media ${({ theme }) => theme.media.s} {
     display: none;
   }
+
+  @media ${({ theme }) => theme.media.l} {
+    min-width: 100px;
+  }
+`;
+
+export const SearchBarDesktopContainer = styled.div`
+  display: block;
+
+  @media ${({ theme }) => theme.media.s} {
+    display: none;
+  }
+`;
+
+export const SearchBarMobileContainer = styled.div`
+  display: none;
+  padding-right: 10px;
+
+  @media ${({ theme }) => theme.media.s} {
+    display: block;
+  }
 `;

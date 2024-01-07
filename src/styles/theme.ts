@@ -22,9 +22,9 @@ export const baseTheme = {
   },
 
   fontSize: {
+    small: '14px',
     base: '16px',
     lg: '18px',
-    small: '14px',
   },
 
   media: {

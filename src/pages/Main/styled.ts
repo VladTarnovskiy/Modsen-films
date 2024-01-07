@@ -12,6 +12,10 @@ export const CardContainer = styled.div`
   gap: 20px;
   margin-bottom: 37px;
   min-height: 47.8vh;
+
+  @media ${({ theme }) => theme.media.s} {
+    grid-template-columns: repeat(auto-fit, minmax(212px, 1fr));
+  }
 `;
 
 export const ShowMoreBut = styled.button<{ $isFetching: boolean }>`
@@ -27,6 +31,12 @@ export const ShowMoreBut = styled.button<{ $isFetching: boolean }>`
   border: none;
   ${itemsCenter};
   opacity: ${({ $isFetching }) => ($isFetching ? 0.5 : 1)};
+
+  @media ${({ theme }) => theme.media.s} {
+    width: 206px;
+    height: 33px;
+    font-size: ${({ theme }) => theme.fontSize.base};
+  }
 
   &:hover {
     ${({ $isFetching }) => (!$isFetching ? buttonAnimation : null)}

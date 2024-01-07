@@ -10,6 +10,18 @@ export const SkeletonVideoPlayer = styled.div`
   width: 100%;
   height: 500px;
   ${SkeletonBackgroundAnimation}
+
+  @media ${({ theme }) => theme.media.xl} {
+    height: 450px;
+  }
+
+  @media ${({ theme }) => theme.media.l} {
+    height: 400px;
+  }
+
+  @media ${({ theme }) => theme.media.s} {
+    height: 300px;
+  }
 `;
 
 export const SkeletonChanelInfo = styled.div`
@@ -24,6 +36,10 @@ export const SkeletonFilmTitle = styled.div`
   height: 22px;
   width: 230px;
   ${SkeletonBackgroundAnimation}
+
+  @media ${({ theme }) => theme.media.s} {
+    width: 130px;
+  }
 `;
 
 export const SkeletonChanelTitle = styled.div`
@@ -31,6 +47,10 @@ export const SkeletonChanelTitle = styled.div`
   height: 22px;
   width: 130px;
   ${SkeletonBackgroundAnimation}
+
+  @media ${({ theme }) => theme.media.s} {
+    width: 80px;
+  }
 `;
 
 export const SkeletonVideoStatistic = styled.div`
@@ -38,6 +58,11 @@ export const SkeletonVideoStatistic = styled.div`
   width: 230px;
   margin-left: 45px;
   ${SkeletonBackgroundAnimation}
+
+  @media ${({ theme }) => theme.media.s} {
+    width: 130px;
+    margin-left: 28px;
+  }
 `;
 
 export const SkeletonUserIcon = styled.div`
@@ -47,6 +72,12 @@ export const SkeletonUserIcon = styled.div`
   margin-right: 12px;
   border-radius: 100%;
   ${SkeletonBackgroundAnimation}
+
+  @media ${({ theme }) => theme.media.s} {
+    width: 22px;
+    height: 22px;
+    margin-right: 6px;
+  }
 `;
 
 export const SkeletonVideoDescription = styled.div`

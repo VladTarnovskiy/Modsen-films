@@ -7,7 +7,7 @@ export const BurgerMenu: FC = () => {
     <S.BurgerMenuContainer>
       <S.MenuToggle id="menu__toggle" type="checkbox" />
       <S.MenuButton className="menu__btn" htmlFor="menu__toggle">
-        <span></span>
+        <S.MenuLine></S.MenuLine>
       </S.MenuButton>
       <S.MenuBox className="menu__box">
         <S.MenuItem>

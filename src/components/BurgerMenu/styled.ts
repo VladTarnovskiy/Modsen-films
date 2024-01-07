@@ -18,6 +18,12 @@ export const MenuToggle = styled.input`
   z-index: 3;
 
   &:checked ~ .menu__btn > span {
+    position: fixed;
+    top: 40px;
+    right: 5px;
+  }
+
+  &:checked ~ .menu__btn > span {
     transform: rotate(45deg);
   }
   &:checked ~ .menu__btn > span::before {
@@ -33,6 +39,10 @@ export const MenuToggle = styled.input`
     visibility: visible;
     right: 0;
   }
+`;
+
+export const MenuLine = styled.span`
+  max-width: 26px;
 `;
 
 export const MenuButton = styled.label`

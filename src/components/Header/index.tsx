@@ -16,12 +16,17 @@ export const Header: FC = () => {
             <S.LogoTitle>ModsenFilms</S.LogoTitle>
           </S.LogoContainer>
         </NavLink>
-        <SearchBar />
+        <S.SearchBarDesktopContainer>
+          <SearchBar />
+        </S.SearchBarDesktopContainer>
         <S.SwitchContainer>
           <ThemeSwitch />
         </S.SwitchContainer>
         <BurgerMenu />
       </S.StyledHeader>
+      <S.SearchBarMobileContainer>
+        <SearchBar />
+      </S.SearchBarMobileContainer>
     </>
   );
 };

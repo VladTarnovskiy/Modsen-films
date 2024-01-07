@@ -15,6 +15,10 @@ export const FilterContainer = styled.div`
   border-left: none;
   border-right: none;
   ${itemsCenter};
+
+  @media ${({ theme }) => theme.media.s} {
+    border: none;
+  }
 `;
 
 export const FilterButton = styled.button<{ $isActive: boolean }>`
