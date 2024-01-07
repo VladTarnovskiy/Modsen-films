@@ -1,14 +1,13 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../store';
 import { IVideo } from 'src/interfaces/videoData';
-// import { IVideosInfo } from 'src/interfaces/videoData';
 
 interface InitialState {
   isLightTheme: boolean;
   nextPageToken: null | string;
   triggeredNextPageToken: null | string;
-  amountPages: number | null;
   isLoading: boolean;
+  filmsFilter: string;
   isError: boolean;
   isSuccess: boolean;
   searchValue: string;
@@ -19,8 +18,8 @@ const initialState: InitialState = {
   isLightTheme: true,
   nextPageToken: null,
   triggeredNextPageToken: null,
-  amountPages: null,
   isLoading: false,
+  filmsFilter: 'All',
   isError: false,
   isSuccess: true,
   searchValue: localStorage.getItem('searchValue') || '',
@@ -34,47 +33,41 @@ const userSlice = createSlice({
     setSearchValue(state, { payload }) {
       state.searchValue = payload;
     },
-    setAmountPage: (state, { payload }) => {
-      state.amountPages = payload;
-    },
-    setNextPageToken: (state, { payload }) => {
+    setNextPageToken: (state, { payload }: PayloadAction<string | null>) => {
       state.nextPageToken = payload;
     },
-    setTriggeredNextPageToken: (state, { payload }) => {
+    setTriggeredNextPageToken: (
+      state,
+      { payload }: PayloadAction<string | null>
+    ) => {
       state.triggeredNextPageToken = payload;
     },
-    changeTheme: (state, { payload }) => {
+    changeTheme: (state, { payload }: PayloadAction<boolean>) => {
       state.isLightTheme = payload;
     },
-    setIsLoading: (state, { payload }) => {
+    setIsLoading: (state, { payload }: PayloadAction<boolean>) => {
       state.isLoading = payload;
     },
-    setIsError: (state, { payload }) => {
+    setIsError: (state, { payload }: PayloadAction<boolean>) => {
       state.isError = payload;
       state.isSuccess = false;
       state.isLoading = false;
     },
-    setIsSuccess: (state, { payload }) => {
+    setIsSuccess: (state, { payload }: PayloadAction<boolean>) => {
       state.isSuccess = payload;
       state.isError = false;
     },
-    setVideos: (state, { payload }) => {
-      // if (state.videosInfo === null) {
-      //   state.videosInfo = payload;
-      // } else {
+    changeFilmsFilter: (state, { payload }: PayloadAction<string>) => {
+      state.filmsFilter = payload;
+    },
+    setVideos: (state, { payload }: PayloadAction<IVideo[]>) => {
       state.isLoading = false;
       state.isError = false;
       state.videosInfo = [...state.videosInfo].concat(payload);
-      // }
     },
     clearVideos: (state) => {
-      // if (state.videosInfo === null) {
-      //   state.videosInfo = payload;
-      // } else {
-      // state.isLoading = false;
-      // state.isError = false;
+      state.isLoading = true;
       state.videosInfo = [];
-      // }
     },
   },
 });
@@ -82,8 +75,8 @@ const userSlice = createSlice({
 export const {
   setSearchValue,
   setNextPageToken,
-  setAmountPage,
   changeTheme,
+  changeFilmsFilter,
   setVideos,
   clearVideos,
   setIsError,
@@ -101,11 +94,9 @@ export const selectTriggeredNextPageToken = (state: RootState) =>
 export const selectIsLoading = (state: RootState) => state.mainPage.isLoading;
 export const selectIsError = (state: RootState) => state.mainPage.isError;
 export const selectIsSuccess = (state: RootState) => state.mainPage.isSuccess;
-
-export const selectAmountPages = (state: RootState) =>
-  state.mainPage.amountPages;
+export const selectFilmsFilter = (state: RootState) =>
+  state.mainPage.filmsFilter;
 export const selectVideos = (state: RootState) => state.mainPage.videosInfo;
-
 export const selectIsLightTheme = (state: RootState) =>
   state.mainPage.isLightTheme;
 

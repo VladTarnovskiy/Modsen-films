@@ -6,12 +6,13 @@ export const baseTheme = {
     base: 'rgb(0, 0, 0)',
     primary: 'rgba(0, 0, 0, 0.19)',
     secondary: 'rgb(255, 138, 0)',
-    tertiary: ' rgb(255, 255, 255)',
+    tertiary: 'rgb(255, 255, 255)',
     quaternary: 'rgba(0, 0, 0, 0.4)',
 
     bgBase: 'rgb(255, 255, 255)',
     bgPrimary: 'rgba(0, 0, 0, 0.06)',
     bgSecondary: 'rgb(255, 138, 0)',
+    bgTertiary: 'rgb(255, 255, 255)',
   },
 
   fontFamily: {
@@ -48,9 +49,10 @@ export const darkTheme: DefaultTheme = {
     ...baseTheme.colors,
     base: 'rgb(255, 255, 255)',
     primary: 'rgba(255, 255, 255, 0.19)',
-    tertiary: ' rgb(0, 0, 0)',
+    tertiary: 'rgb(0, 0, 0)',
     quaternary: 'rgba(255, 255, 255, 0.4)',
 
     bgBase: 'teal',
+    bgTertiary: 'rgb(0, 0, 0)',
   },
 };

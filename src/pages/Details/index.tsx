@@ -35,6 +35,7 @@ export const DetailsPage: FC = () => {
         <S.VideoPlayer
           src={playerEl}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          frameBorder="0"
           allowFullScreen
         />
         <S.FilmTitle>{snippet.title}</S.FilmTitle>

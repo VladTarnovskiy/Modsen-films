@@ -17,14 +17,15 @@ export const FilterContainer = styled.div`
   ${itemsCenter};
 `;
 
-export const FilterButton = styled.button`
+export const FilterButton = styled.button<{ $isActive: boolean }>`
   color: ${({ theme }) => theme.colors.base};
   border-radius: 9999px;
   height: 30px;
   min-width: 90px;
   padding: 7px 12px;
   margin-right: 10px;
-  background-color: ${({ theme }) => theme.colors.bgPrimary};
+  background-color: ${({ theme, $isActive }) =>
+    $isActive ? theme.colors.bgSecondary : theme.colors.bgPrimary};
   ${borderBase}
   ${itemsCenter}
 

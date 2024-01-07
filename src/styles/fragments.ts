@@ -23,10 +23,10 @@ export const borderBase = css`
 
 const skeletonLoading = keyframes`
   0% {
-    background-color: hsl(200, 20%, 80%);
+    background-color: rgb(194, 207, 214);
   }
   100% {
-    background-color: hsl(200, 20%, 95%);
+    background-color: rgb(240, 243, 245);
   }
 `;
 

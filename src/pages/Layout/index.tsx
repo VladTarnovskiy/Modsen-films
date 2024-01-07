@@ -11,12 +11,15 @@ import {
   setIsLoading,
   setIsError,
   selectTriggeredNextPageToken,
+  changeTheme,
+  selectFilmsFilter,
 } from 'src/store/slices/MainPageSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
 export const Layout: FC = () => {
   const dispatch = useDispatch();
   const searchValue = useSelector(selectSearchValue);
+  const filterValue = useSelector(selectFilmsFilter);
   const nextPageToken = useSelector(selectTriggeredNextPageToken);
 
   const {
@@ -27,6 +30,7 @@ export const Layout: FC = () => {
   } = useGetSearchInfoQuery({
     searchValue: searchValue,
     pageToken: nextPageToken,
+    filterValue,
   });
 
   useEffect(() => {
@@ -40,6 +44,14 @@ export const Layout: FC = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [videosInfo]);
+
+  useEffect(() => {
+    const theme = localStorage.getItem('isLightTheme');
+    if (theme) {
+      dispatch(changeTheme(Boolean(JSON.parse(theme))));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>

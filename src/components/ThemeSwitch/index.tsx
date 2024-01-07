@@ -12,15 +12,15 @@ export const ThemeSwitch: FC = () => {
   const isLight = useSelector(selectIsLightTheme);
   const dispatch = useDispatch();
 
+  const changeCurrentTheme = () => {
+    localStorage.setItem('isLightTheme', JSON.stringify(!isLight));
+    dispatch(changeTheme(!isLight));
+  };
+
   return (
     <S.SwitchContainer>
       <S.Switch>
-        <S.SwitchThumb
-          onClick={() => {
-            dispatch(changeTheme(!isLight));
-          }}
-          $isLight={isLight}
-        >
+        <S.SwitchThumb onClick={changeCurrentTheme} $isLight={isLight}>
           {isLight ? <S.SwitchImg src={Sun} /> : <S.SwitchImg src={Moon} />}
         </S.SwitchThumb>
       </S.Switch>

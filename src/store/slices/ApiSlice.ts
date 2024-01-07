@@ -16,50 +16,50 @@ export const apiSlice = createApi({
   endpoints: (builder) => ({
     getSearchInfo: builder.query<
       IVideosInfo,
-      { searchValue: string; pageToken: string | null }
+      { searchValue: string; pageToken: string | null; filterValue: string }
     >({
       async queryFn(arg, _queryApi, _extraOptions, fetchWithBQ) {
         const pageToken: IPageToken | null =
           arg.pageToken !== null ? { pageToken: arg.pageToken } : null;
-        try {
-          const fetchSearchInfo = await fetchWithBQ({
-            url: 'youtube.googleapis.com/youtube/v3/search',
-            params: {
-              key: KEY,
-              q: arg.searchValue,
-              part: 'id',
-              maxResults: '16',
-              type: 'video',
-              videoEmbeddable: 'true',
-              // videoType: 'movie',
-              ...pageToken,
-            },
-          });
+        const fetchSearchInfo = await fetchWithBQ({
+          url: 'youtube.googleapis.com/youtube/v3/search',
+          params: {
+            key: KEY,
+            q: `${arg.searchValue} + ' ' + ${arg.filterValue}`,
+            part: 'id',
+            maxResults: '16',
+            type: 'video',
+            videoEmbeddable: 'true',
+            // videoType: 'movie',
+            ...pageToken,
+          },
+        });
 
-          const searchResp = fetchSearchInfo.data as ISearchResultResponse;
-          let ids = '';
-          searchResp.items.forEach((item) => {
-            ids += `${item.id.videoId},`;
-          });
-          ids = ids.slice(0, -1);
+        if (fetchSearchInfo.error) throw fetchSearchInfo.error;
 
-          const fetchVideosInfo = await fetchWithBQ({
-            url: 'www.googleapis.com/youtube/v3/videos',
-            params: {
-              key: KEY,
-              part: 'snippet,statistics,player,contentDetails',
-              id: ids,
-            },
-          });
+        const searchResp = fetchSearchInfo.data as ISearchResultResponse;
+        let ids = '';
+        searchResp.items.forEach((item) => {
+          ids += `${item.id.videoId},`;
+        });
+        ids = ids.slice(0, -1);
 
-          const videosInfo = fetchVideosInfo.data as IVideosInfo;
-          videosInfo.items.map((video) => (video.keyID = uuidv4()));
-          const nextPageToken = searchResp.nextPageToken ?? null;
+        const fetchVideosInfo = await fetchWithBQ({
+          url: 'www.googleapis.com/youtube/v3/videos',
+          params: {
+            key: KEY,
+            part: 'snippet,statistics,player,contentDetails',
+            id: ids,
+          },
+        });
 
-          return { data: { ...videosInfo, nextPageToken } };
-        } catch (error) {
-          return error;
-        }
+        if (fetchVideosInfo.error) throw fetchVideosInfo.error;
+
+        const videosInfo = fetchVideosInfo.data as IVideosInfo;
+        videosInfo.items.map((video) => (video.keyID = uuidv4()));
+        const nextPageToken = searchResp.nextPageToken ?? null;
+
+        return { data: { ...videosInfo, nextPageToken } };
       },
     }),
     getVideoData: builder.query<IVideo, { videoID: string }>({

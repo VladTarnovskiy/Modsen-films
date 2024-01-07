@@ -60,7 +60,7 @@ export const Duration = styled.div`
   position: absolute;
   width: 70px;
   height: 20px;
-  background-color: ${({ theme }) => theme.colors.bgBase};
+  background-color: ${({ theme }) => theme.colors.bgTertiary};
   border-radius: 9999px;
   ${itemsCenter}
 `;
