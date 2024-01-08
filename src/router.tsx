@@ -1,3 +1,4 @@
+import { RouterErrorBoundary } from './components/RouterErrorBoundary/RouterErrorBoudary';
 import { DetailsPage } from './pages/Details';
 import { Layout } from './pages/Layout';
 import { MainPage } from './pages/Main';
@@ -6,7 +7,7 @@ import { NotFoundPage } from './pages/NotFound/NotFound';
 export const router = [
   {
     element: <Layout />,
-    // errorElement: <RouterError />,
+    errorElement: <RouterErrorBoundary />,
     path: '/',
     children: [
       {
