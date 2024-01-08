@@ -1,6 +1,7 @@
 import { DetailsPage } from './pages/Details';
 import { Layout } from './pages/Layout';
 import { MainPage } from './pages/Main';
+import { NotFoundPage } from './pages/NotFound/NotFound';
 
 export const router = [
   {
@@ -18,8 +19,8 @@ export const router = [
       },
     ],
   },
-  // {
-  //   path: '*',
-  //   element: <NotFoundPage />,
-  // },
+  {
+    path: '*',
+    element: <NotFoundPage />,
+  },
 ];

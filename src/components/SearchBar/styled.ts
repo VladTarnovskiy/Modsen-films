@@ -7,9 +7,13 @@ import {
 import styled from 'styled-components';
 
 export const SearchBarContainer = styled.div`
-  width: 100%;
-  margin: 0 5px;
   ${itemsCenter}
+  padding: 0 20px;
+  box-sizing: border-box;
+
+  @media ${({ theme }) => theme.media.s} {
+    padding: 0 5px;
+  }
 `;
 
 export const SearchBar = styled.input`

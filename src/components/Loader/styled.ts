@@ -26,7 +26,6 @@ export const Ring = styled.div`
   border-radius: 50%;
   animation: ${ldsRing} 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
   border-color: #000000 transparent transparent transparent;
-  /* border-top: ${({ theme }) => theme.colors.base}; */
 
   &:nth-last-child(1) {
     animation-delay: -0.45s;

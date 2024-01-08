@@ -28,17 +28,18 @@ export const SwitchContainer = styled.div`
   display: flex;
   justify-content: flex-end;
 
-  @media ${({ theme }) => theme.media.s} {
-    display: none;
+  @media ${({ theme }) => theme.media.l} {
+    min-width: 50px;
   }
 
-  @media ${({ theme }) => theme.media.l} {
-    min-width: 100px;
+  @media ${({ theme }) => theme.media.s} {
+    display: none;
   }
 `;
 
 export const SearchBarDesktopContainer = styled.div`
   display: block;
+  width: 100%;
 
   @media ${({ theme }) => theme.media.s} {
     display: none;
@@ -47,7 +48,7 @@ export const SearchBarDesktopContainer = styled.div`
 
 export const SearchBarMobileContainer = styled.div`
   display: none;
-  padding-right: 10px;
+  width: 100%;
 
   @media ${({ theme }) => theme.media.s} {
     display: block;

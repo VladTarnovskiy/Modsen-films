@@ -19,6 +19,7 @@ export const baseTheme = {
     bold: "'Roboto Bold', sans-serif",
     medium: "'Roboto Medium', sans-serif",
     base: "'Roboto Regular', sans-serif",
+    light: "'Roboto Light', sans-serif",
   },
 
   fontSize: {

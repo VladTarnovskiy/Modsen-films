@@ -101,6 +101,7 @@ textarea {
   line-height: 1.15; /* 1 */
   margin: 0; /* 2 */
   border: none;
+  color: inherit;
 }
 
 button,

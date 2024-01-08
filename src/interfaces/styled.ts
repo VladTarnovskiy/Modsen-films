@@ -21,6 +21,7 @@ export interface ITheme {
     base: string;
     medium: string;
     bold: string;
+    light: string;
   };
 
   fontSize: {

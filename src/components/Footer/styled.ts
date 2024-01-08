@@ -107,6 +107,7 @@ export const CreationDate = styled.div`
 
   @media ${({ theme }) => theme.media.s} {
     font-size: 12px;
-    margin-bottom: 8px;
+    margin-bottom: 0;
+    padding-bottom: 8px;
   }
 `;

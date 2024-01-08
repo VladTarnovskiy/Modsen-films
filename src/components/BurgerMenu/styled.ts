@@ -19,7 +19,7 @@ export const MenuToggle = styled.input`
 
   &:checked ~ .menu__btn > span {
     position: fixed;
-    top: 40px;
+    top: 36px;
     right: 5px;
   }
 
