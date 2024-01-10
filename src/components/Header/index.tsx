@@ -3,10 +3,12 @@ import * as S from './styled';
 import Logo from 'assets/Logo.svg';
 import { SearchBar } from '../SearchBar';
 import { ThemeSwitch } from '../ThemeSwitch';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { BurgerMenu } from '../BurgerMenu';
 
 export const Header: FC = () => {
+  const location = useLocation();
+
   return (
     <>
       <S.StyledHeader>
@@ -16,17 +18,21 @@ export const Header: FC = () => {
             <S.LogoTitle>ModsenFilms</S.LogoTitle>
           </S.LogoContainer>
         </NavLink>
-        <S.SearchBarDesktopContainer>
-          <SearchBar />
-        </S.SearchBarDesktopContainer>
+        {location.pathname === '/' && (
+          <S.SearchBarDesktopContainer>
+            <SearchBar />
+          </S.SearchBarDesktopContainer>
+        )}
         <S.SwitchContainer>
           <ThemeSwitch />
         </S.SwitchContainer>
         <BurgerMenu />
       </S.StyledHeader>
-      <S.SearchBarMobileContainer>
-        <SearchBar />
-      </S.SearchBarMobileContainer>
+      {location.pathname === '/' && (
+        <S.SearchBarMobileContainer>
+          <SearchBar />
+        </S.SearchBarMobileContainer>
+      )}
     </>
   );
 };

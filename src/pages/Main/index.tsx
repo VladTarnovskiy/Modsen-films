@@ -30,7 +30,6 @@ export const MainPage: FC = () => {
   let content: JSX.Element | JSX.Element[] | null = null;
   if (videos.length >= 1) {
     if (videos.length >= 1) {
-      console.log(videos);
       content = videos.map((video) => (
         <Card key={video.keyID} videoData={video} />
       ));

@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "rootDirs": ["src", "__jest__"],
+    "rootDirs": ["src"],
     "outDir": "build",
     "lib": ["dom", "esnext"],
     "typeRoots": ["node_modules/@types", "src/types"],
@@ -31,6 +31,7 @@
     "paths": {
       "src/*": ["./src/*"],
       "assets/*": ["./src/assets/*"]
+      // "jest/*": ["./__jest__/*"]
     }
   },
   "exclude": [
@@ -38,7 +39,6 @@
     "build",
     "coverage",
     "webpack.*.js",
-    "*.config.js",
-    "**/*.test.ts*"
+    "*.config.js"
   ]
 }
