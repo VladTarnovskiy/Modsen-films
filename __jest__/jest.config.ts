@@ -3,6 +3,7 @@ import type { Config } from 'jest';
 const config: Config = {
   roots: ['../src'],
   setupFilesAfterEnv: ['./jest.setup.ts'],
+  setupFiles: ['./jest.polyfills.ts'],
   moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx'],
   injectGlobals: true,
   moduleNameMapper: {
@@ -19,6 +20,9 @@ const config: Config = {
   },
   testMatch: ['**/?(*.)(spec|test).[jt]s?(x)'],
   testEnvironment: 'jsdom',
+  testEnvironmentOptions: {
+    customExportConditions: [''],
+  },
 };
 
 export default config;

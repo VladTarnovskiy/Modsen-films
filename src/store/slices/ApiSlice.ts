@@ -1,8 +1,9 @@
 import { ISearchResultResponse } from 'src/interfaces/searchVideo';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { IVideo, IVideosInfo } from 'src/interfaces/videoData';
-import { v4 as uuidv4 } from 'uuid';
+// import { v4 as uuidv4 } from 'uuid';
 import { KEY } from 'src/constants/api';
+import { uid } from 'src/utils/uidGenerator';
 
 interface IPageToken {
   pageToken: string;
@@ -58,7 +59,9 @@ export const apiSlice = createApi({
         if (fetchVideosInfo.error) throw fetchVideosInfo.error;
 
         const videosInfo = fetchVideosInfo.data as IVideosInfo;
-        videosInfo.items.map((video) => (video.keyID = uuidv4()));
+        videosInfo.items.map((video) => (video.keyID = uid()));
+        // or crypto.randomUUID() for id generation
+
         const nextPageToken = searchResp.nextPageToken ?? null;
 
         return { data: { ...videosInfo, nextPageToken } };
