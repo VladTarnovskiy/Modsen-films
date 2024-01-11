@@ -1,7 +1,6 @@
 import { ISearchResultResponse } from 'src/interfaces/searchVideo';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { IVideo, IVideosInfo } from 'src/interfaces/videoData';
-// import { v4 as uuidv4 } from 'uuid';
 import { KEY } from 'src/constants/api';
 import { uid } from 'src/utils/uidGenerator';
 
@@ -83,8 +82,4 @@ export const apiSlice = createApi({
   }),
 });
 
-export const {
-  useGetSearchInfoQuery,
-  useLazyGetSearchInfoQuery,
-  useGetVideoDataQuery,
-} = apiSlice;
+export const { useGetSearchInfoQuery, useGetVideoDataQuery } = apiSlice;

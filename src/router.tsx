@@ -2,9 +2,9 @@ import { RouterErrorBoundary } from './components/RouterErrorBoundary/RouterErro
 import { DetailsPage } from './pages/Details';
 import { Layout } from './pages/Layout';
 import { MainPage } from './pages/Main';
-import { NotFoundPage } from './pages/NotFound/NotFound';
+import { NotFoundPage } from './pages/NotFound';
 
-export const router = [
+export const routes = [
   {
     element: <Layout />,
     errorElement: <RouterErrorBoundary />,

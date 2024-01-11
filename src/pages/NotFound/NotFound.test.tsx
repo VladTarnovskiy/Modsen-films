@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { NotFoundPage } from './NotFound';
+import { NotFoundPage } from '.';
 import { BrowserRouter } from 'react-router-dom';
 import { Wrapper } from '../../../__jest__/utils/testUtils';
 

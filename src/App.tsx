@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import './styles/fonts.scss';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import { router } from './router';
+import { routes } from './router';
 import { ThemeProvider } from 'styled-components';
 import { darkTheme, lightTheme } from './styles/theme';
 import GlobalStyles from './styles/global';
@@ -13,7 +13,7 @@ export const App: FC = () => {
 
   return (
     <ThemeProvider theme={isLight ? lightTheme : darkTheme}>
-      <RouterProvider router={createBrowserRouter(router)} />
+      <RouterProvider router={createBrowserRouter(routes)} />
       <GlobalStyles />
     </ThemeProvider>
   );
