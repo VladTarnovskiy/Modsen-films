@@ -14,7 +14,10 @@ export const Card: FC<IProps> = ({ videoData }) => {
   const navigate = useNavigate();
 
   return (
-    <S.CardContainer onClick={() => navigate(`/details/${videoData.id}`)}>
+    <S.CardContainer
+      onClick={() => navigate(`/details/${videoData.id}`)}
+      data-testid="card"
+    >
       <S.CardImg src={snippet.thumbnails.medium.url} alt={snippet.title} />
       <S.CardDescription>
         <S.UserIcon $bg={snippet.thumbnails.default.url} />

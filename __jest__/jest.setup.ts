@@ -8,5 +8,5 @@ afterEach(() => {
 });
 
 beforeAll(() => server.listen());
-afterEach(() => server.close());
+afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
