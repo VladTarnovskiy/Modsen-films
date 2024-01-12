@@ -1,4 +1,6 @@
-export const videoDataMock = {
+import { IVideo } from 'src/interfaces/videoData';
+
+export const videoDataMock: IVideo = {
   kind: 'youtube#video',
   etag: 'I3OcX3-u8TTrzaK7o48EmeN9ZE8',
   id: '3bhkYoMWTFE',
@@ -43,15 +45,11 @@ export const videoDataMock = {
       description:
         '#cat #cats #catlover #catvideos #catlovers #catshorts #funny #funnyvideo #funnyshorts #funnyvideos #funnycat #cute #cutecat #fyp #fypシ',
     },
+    tags: [],
+    defaultAudioLanguage: '',
   },
   contentDetails: {
     duration: 'PT18S',
-    dimension: '2d',
-    definition: 'hd',
-    caption: 'false',
-    licensedContent: false,
-    contentRating: {},
-    projection: 'rectangular',
   },
   statistics: {
     viewCount: '174988618',

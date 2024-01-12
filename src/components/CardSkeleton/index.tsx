@@ -3,7 +3,7 @@ import * as S from './styled';
 
 export const CardSkeleton: FC = () => {
   return (
-    <S.SkeletonCardContainer>
+    <S.SkeletonCardContainer data-testid="card-skeleton">
       <S.SkeletonCardImg />
       <S.SkeletonCardDescription>
         <S.SkeletonUserIcon />

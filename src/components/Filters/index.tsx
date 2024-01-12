@@ -29,12 +29,13 @@ export const Filters: FC = () => {
   };
 
   return (
-    <S.FilterContainer>
+    <S.FilterContainer data-testid="filters">
       {buttonsData.map((title) => (
         <S.FilterButton
           $isActive={filterValue === title}
           key={title}
           onClick={() => changeFilter(title)}
+          data-testid="filters-button"
         >
           {title}
         </S.FilterButton>

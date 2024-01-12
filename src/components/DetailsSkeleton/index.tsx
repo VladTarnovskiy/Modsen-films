@@ -3,7 +3,7 @@ import * as S from './styled';
 
 export const DetailsSkeleton: FC = () => {
   return (
-    <>
+    <div data-testid="details-skeleton">
       <S.SkeletonVideoPlayer />
       <S.SkeletonFilmTitle />
       <S.SkeletonChanelInfo>
@@ -12,6 +12,6 @@ export const DetailsSkeleton: FC = () => {
       </S.SkeletonChanelInfo>
       <S.SkeletonVideoStatistic />
       <S.SkeletonVideoDescription />
-    </>
+    </div>
   );
 };

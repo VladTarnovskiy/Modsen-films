@@ -12,7 +12,6 @@ export const DetailsPage: FC = () => {
     data: videoData,
     isSuccess,
     isError,
-    error,
   } = useGetVideoDataQuery({
     videoID: detailsId!,
   });
@@ -58,7 +57,6 @@ export const DetailsPage: FC = () => {
       </>
     );
   } else if (isError) {
-    console.warn(error);
     content = <S.InfoContainer>Sorry, something went wrong.</S.InfoContainer>;
   } else {
     content = <DetailsSkeleton />;

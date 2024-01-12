@@ -42,18 +42,18 @@ export const Layout: FC = () => {
   }, [videosInfo]);
 
   useEffect(() => {
+    dispatch(setIsLoading(isFetching));
+    dispatch(setIsError(isError));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isFetching, isError]);
+
+  useEffect(() => {
     const theme = localStorage.getItem('isLightTheme');
     if (theme) {
       dispatch(changeTheme(Boolean(JSON.parse(theme))));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  useEffect(() => {
-    dispatch(setIsLoading(isFetching));
-    dispatch(setIsError(isError));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isFetching, isError]);
 
   return (
     <>

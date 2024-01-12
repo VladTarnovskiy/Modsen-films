@@ -18,10 +18,10 @@ export const apiSlice = createApi({
       IVideosInfo,
       { searchValue: string; pageToken: string | null; filterValue: string }
     >({
-      async queryFn(arg, _queryApi, _extraOptions, fetchWithBQ) {
+      async queryFn(arg, _queryApi, _extraOptions, fetchBaseQuery) {
         const pageToken: IPageToken | null =
           arg.pageToken !== null ? { pageToken: arg.pageToken } : null;
-        const fetchSearchInfo = await fetchWithBQ({
+        const fetchSearchInfo = await fetchBaseQuery({
           url: 'youtube.googleapis.com/youtube/v3/search',
           params: {
             key: KEY,
@@ -46,7 +46,7 @@ export const apiSlice = createApi({
         });
         ids = ids.slice(0, -1);
 
-        const fetchVideosInfo = await fetchWithBQ({
+        const fetchVideosInfo = await fetchBaseQuery({
           url: 'www.googleapis.com/youtube/v3/videos',
           params: {
             key: KEY,

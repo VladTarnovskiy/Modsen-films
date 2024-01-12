@@ -4,21 +4,6 @@ import { Wrapper } from '../../../__jest__/utils/testUtils';
 import { DetailsPage } from '.';
 
 describe('Details page', () => {
-  // test('Main found', async () => {
-  //   render(
-  //     <Wrapper>
-  //       <MainPage />
-  //     </Wrapper>,
-  //     {
-  //       wrapper: BrowserRouter,
-  //     }
-  //   );
-
-  //   await waitFor(() => {
-  //     const button = screen.getByText(/Show More/i);
-  //     expect(button).toBeInTheDocument();
-  //   });
-  // });
   const routes = [
     {
       path: 'details/:detailsId',
@@ -34,29 +19,18 @@ describe('Details page', () => {
     initialEntries: ['/details/3bhkYoMWTFE'],
   });
 
-  test('render details data', async () => {
+  test('data displays correctly', async () => {
     render(<RouterProvider router={router} />);
-    // global.structuredClone = (val) => JSON.parse(JSON.stringify(val));
-
     await waitFor(() => {
-      //   const card = screen.getAllByTestId('card');
-      const cardTitle = screen.getByText(/Cat/i);
-      expect(cardTitle).toBeInTheDocument();
-      //   expect(status).toBeInTheDocument();
-      //   expect(card.length).toBe(2);
+      const videoTitle = screen.getByText(/Cats Doing Cat Things/i);
+      const chanelTitle = screen.getByText(/catvid-19/i);
+      const viewsCount = screen.getByText(/174988618/i);
+      const likesCount = screen.getByText(/5497058/i);
+
+      expect(videoTitle).toBeInTheDocument();
+      expect(chanelTitle).toBeInTheDocument();
+      expect(viewsCount).toBeInTheDocument();
+      expect(likesCount).toBeInTheDocument();
     });
   });
 });
-
-// test('verify that the component renders the specified number of cards', async () => {
-//     render(<RouterProvider router={router} />);
-
-//     await waitFor(() => {
-//       const card = screen.getAllByTestId('card');
-//       const name = screen.getByText(/Rick Sanchez/i);
-//       const status = screen.getByText(/Alive/i);
-//       expect(name).toBeInTheDocument();
-//       expect(status).toBeInTheDocument();
-//       expect(card.length).toBe(2);
-//     });
-//   })

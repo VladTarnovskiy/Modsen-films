@@ -35,7 +35,7 @@ export const SearchBar: FC = () => {
   };
 
   return (
-    <S.SearchBarContainer>
+    <S.SearchBarContainer data-testid="search-bar">
       <S.SearchBar
         type="search"
         placeholder="Search"
@@ -43,7 +43,7 @@ export const SearchBar: FC = () => {
         onKeyDown={onKeyPressHandler}
         value={inputValue}
       />
-      <S.SubmitButton onClick={handleSubmit}>
+      <S.SubmitButton onClick={handleSubmit} data-testid="search-button">
         <S.SubmitButtonIcon src={SearchImg} />
       </S.SubmitButton>
     </S.SearchBarContainer>

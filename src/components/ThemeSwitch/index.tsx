@@ -18,7 +18,7 @@ export const ThemeSwitch: FC = () => {
   };
 
   return (
-    <S.Switch>
+    <S.Switch data-testid="theme-switch">
       <S.SwitchThumb onClick={changeCurrentTheme} $isLight={isLight}>
         {isLight ? <S.SwitchImg src={Sun} /> : <S.SwitchImg src={Moon} />}
       </S.SwitchThumb>
