@@ -1,7 +1,7 @@
 import { ISearchResultResponse } from 'src/interfaces/searchVideo';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { IVideo, IVideosInfo } from 'src/interfaces/videoData';
-import { KEY } from 'src/constants/api';
+import { KEY, SEARCH_URL, VIDEO_DATA_URL } from 'src/constants/api';
 import { uid } from 'src/utils/uidGenerator';
 
 interface IPageToken {
@@ -11,7 +11,7 @@ interface IPageToken {
 export const apiSlice = createApi({
   reducerPath: 'api',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://',
+    baseUrl: '',
   }),
   endpoints: (builder) => ({
     getSearchInfo: builder.query<
@@ -22,7 +22,7 @@ export const apiSlice = createApi({
         const pageToken: IPageToken | null =
           arg.pageToken !== null ? { pageToken: arg.pageToken } : null;
         const fetchSearchInfo = await fetchBaseQuery({
-          url: 'youtube.googleapis.com/youtube/v3/search',
+          url: SEARCH_URL,
           params: {
             key: KEY,
             q: `${arg.searchValue} + ' ' + ${
@@ -32,7 +32,7 @@ export const apiSlice = createApi({
             maxResults: '16',
             type: 'video',
             videoEmbeddable: 'true',
-            // videoType: 'movie',
+            // videoType: 'movie', used to get only films data
             ...pageToken,
           },
         });
@@ -47,7 +47,7 @@ export const apiSlice = createApi({
         ids = ids.slice(0, -1);
 
         const fetchVideosInfo = await fetchBaseQuery({
-          url: 'www.googleapis.com/youtube/v3/videos',
+          url: VIDEO_DATA_URL,
           params: {
             key: KEY,
             part: 'snippet,statistics,player,contentDetails',
@@ -59,7 +59,6 @@ export const apiSlice = createApi({
 
         const videosInfo = fetchVideosInfo.data as IVideosInfo;
         videosInfo.items.map((video) => (video.keyID = uid()));
-        // or crypto.randomUUID() for id generation
 
         const nextPageToken = searchResp.nextPageToken ?? null;
 
@@ -68,7 +67,7 @@ export const apiSlice = createApi({
     }),
     getVideoData: builder.query<IVideo, { videoID: string }>({
       query: ({ videoID }) => ({
-        url: 'www.googleapis.com/youtube/v3/videos',
+        url: VIDEO_DATA_URL,
         params: {
           key: KEY,
           part: 'snippet,statistics,player,contentDetails',

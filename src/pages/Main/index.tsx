@@ -28,8 +28,10 @@ export const MainPage: FC = () => {
   };
 
   let content: JSX.Element | JSX.Element[] | null = null;
-  if (videos.length >= 1) {
-    //!!!!!!!!!!!!!!!!
+
+  if (isError) {
+    content = <S.InfoContainer>Sorry, something went wrong.</S.InfoContainer>;
+  } else if (!isLoading) {
     if (videos.length >= 1) {
       content = videos.map((video) => (
         <Card key={video.keyID} videoData={video} />
@@ -37,8 +39,6 @@ export const MainPage: FC = () => {
     } else {
       content = <div>Nothing found.</div>;
     }
-  } else if (isError) {
-    content = <S.InfoContainer>Sorry, something went wrong.</S.InfoContainer>;
   }
 
   return (
@@ -47,7 +47,7 @@ export const MainPage: FC = () => {
       <S.CardContainer>
         {content}
         {isLoading &&
-          [...Array(6)].map((_item, index) => <CardSkeleton key={index} />)}
+          [...Array(6).keys()].map((item) => <CardSkeleton key={item} />)}
       </S.CardContainer>
       {nextPageToken ? (
         <S.ShowMoreBut $isFetching={isLoading} onClick={getNextPageVideosData}>
