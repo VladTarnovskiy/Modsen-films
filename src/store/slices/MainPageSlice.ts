@@ -10,7 +10,7 @@ interface InitialState {
   filmsFilter: string;
   isError: boolean;
   searchValue: string;
-  videosInfo: IVideo[];
+  videosInfo: IVideo[] | null;
 }
 
 const initialState: InitialState = {
@@ -21,7 +21,7 @@ const initialState: InitialState = {
   filmsFilter: 'All',
   isError: false,
   searchValue: localStorage.getItem('searchValue') || '',
-  videosInfo: [],
+  videosInfo: null,
 };
 
 const userSlice = createSlice({
@@ -53,10 +53,14 @@ const userSlice = createSlice({
       state.filmsFilter = payload;
     },
     setVideos: (state, { payload }: PayloadAction<IVideo[]>) => {
-      state.videosInfo = [...state.videosInfo].concat(payload);
+      if (state.videosInfo === null) {
+        state.videosInfo = payload;
+      } else {
+        state.videosInfo = [...state.videosInfo].concat(payload);
+      }
     },
     clearVideos: (state) => {
-      state.videosInfo = [];
+      state.videosInfo = null;
     },
   },
 });

@@ -7,7 +7,6 @@ import {
   selectIsLoading,
   selectNextPageToken,
   selectVideos,
-  setIsLoading,
   setTriggeredNextPageToken,
 } from 'src/store/slices/MainPageSlice';
 import { Filters } from 'src/components/Filters';
@@ -23,7 +22,6 @@ export const MainPage: FC = () => {
   const getNextPageVideosData = () => {
     if (!isLoading) {
       dispatch(setTriggeredNextPageToken(nextPageToken));
-      dispatch(setIsLoading(true));
     }
   };
 
@@ -31,14 +29,12 @@ export const MainPage: FC = () => {
 
   if (isError) {
     content = <S.InfoContainer>Sorry, something went wrong.</S.InfoContainer>;
-  } else if (!isLoading) {
-    if (videos.length >= 1) {
-      content = videos.map((video) => (
-        <Card key={video.keyID} videoData={video} />
-      ));
-    } else {
-      content = <div>Nothing found.</div>;
-    }
+  } else if (videos && videos.length >= 1) {
+    content = videos.map((video) => (
+      <Card key={video.keyID} videoData={video} />
+    ));
+  } else if (videos && videos.length === 0) {
+    content = <div>Nothing found.</div>;
   }
 
   return (
