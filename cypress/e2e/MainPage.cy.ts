@@ -27,11 +27,19 @@ describe('Main page', () => {
     cy.get('body').should('have.css', 'background-color', 'rgb(0, 128, 128)');
   });
 
-  it('get the details page by clicking on the card', () => {
+  it('get the details page by clicking on the card description', () => {
     cy.wait(3000);
-    cy.get('[data-testid="card"]').first().click();
+    cy.get('[data-testid="card-details"]').first().click();
     cy.wait(1000);
     cy.get('[data-testid="details-page"]');
+  });
+
+  it('get video modal by clicking card video and close it by clicking overlay', () => {
+    cy.wait(3000);
+    cy.get('[data-testid="card-video"]').first().click();
+    cy.get('[data-testid="details-modal"]');
+    cy.get('[data-testid="details-modal-overlay"]').click('bottomLeft');
+    cy.get('[data-testid="details-modal"]').should('not.exist');
   });
 
   it('refresh cards after filters button clicking', () => {

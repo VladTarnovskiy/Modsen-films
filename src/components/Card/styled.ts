@@ -1,15 +1,11 @@
-import {
-  buttonAnimation,
-  defaultAnimationSize,
-  itemsCenter,
-} from '@src/styles/fragments';
+import { itemsCenter } from '@src/styles/fragments';
 import styled from 'styled-components';
 
 export const CardContainer = styled.div`
-  position: relative;
   padding-bottom: 20px;
   width: 332px;
   overflow: hidden;
+  transition: all 0.1s ease-out;
 
   @media ${({ theme }) => theme.media.s} {
     width: 212px;
@@ -19,22 +15,30 @@ export const CardContainer = styled.div`
   &:hover {
     cursor: pointer;
     background-color: ${({ theme }) => theme.colors.bgPrimary};
-    ${buttonAnimation}
-    transform: scale(1.02);
   }
+`;
 
-  &:active {
-    ${defaultAnimationSize}
+export const CardImageContainer = styled.div`
+  position: relative;
+  height: 186px;
+  overflow: hidden;
+
+  @media ${({ theme }) => theme.media.s} {
+    height: 129px;
   }
 `;
 
 export const CardImg = styled.img`
   width: 100%;
-  height: 186px;
+  height: 100%;
 
-  @media ${({ theme }) => theme.media.s} {
-    height: 129px;
+  &:hover {
+    transform: scale(102%);
   }
+`;
+
+export const CardDataContainer = styled.div`
+  height: 100%;
 `;
 
 export const CardDescription = styled.div`
@@ -80,9 +84,9 @@ export const FilmTitle = styled.div`
 
 export const CreationDate = styled.div`
   font-size: ${({ theme }) => theme.fontSize.small};
-  width: 100%;
-  text-align: left;
-  padding: 5px;
+  width: fit-content;
+  margin-right: auto;
+  padding-bottom: 5px;
 `;
 
 export const Duration = styled.div`

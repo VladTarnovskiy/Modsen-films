@@ -9,7 +9,6 @@ interface IProps {
 
 export const VideoModal: FC<IProps> = ({ videoLink, setVideoModal }) => {
   const playerLink = `https:${videoLink.split('"')[5]}?autoplay=1`;
-
   const modalWindow = useRef<HTMLDivElement>(null);
 
   const closeModalWindow = () => {
@@ -25,10 +24,11 @@ export const VideoModal: FC<IProps> = ({ videoLink, setVideoModal }) => {
     }
   };
 
-  console.log(playerLink);
-
   return createPortal(
-    <S.Overlay onClick={closeWithOverlayClick}>
+    <S.Overlay
+      onClick={closeWithOverlayClick}
+      data-testid="details-modal-overlay"
+    >
       <S.ModalContainer data-testid="details-modal" ref={modalWindow}>
         <S.VideoPlayer
           src={playerLink}

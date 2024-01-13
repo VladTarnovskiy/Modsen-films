@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { Card } from '.';
 import { Wrapper } from '@jest-dir/utils/testUtils';
 import { videoDataMock } from '@jest-dir/mocks/videoMock';
@@ -20,5 +20,21 @@ describe('Card', () => {
 
     expect(channelTitle).toBeInTheDocument();
     expect(videoTitle).toBeInTheDocument();
+  });
+  test('get video modal by video click', async () => {
+    render(
+      <Wrapper>
+        <Card videoData={videoDataMock} />
+      </Wrapper>,
+      {
+        wrapper: BrowserRouter,
+      }
+    );
+
+    const cardVideo = screen.getByTestId('card-video');
+    fireEvent.click(cardVideo);
+    const detailsModal = screen.getByTestId('details-modal');
+
+    expect(detailsModal).toBeInTheDocument();
   });
 });

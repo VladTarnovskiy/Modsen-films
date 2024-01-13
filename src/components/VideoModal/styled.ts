@@ -13,6 +13,7 @@ export const ModalContainer = styled.div`
   margin: auto;
   top: 20%;
   position: relative;
+  max-width: 1200px;
   width: 100%;
 `;
 

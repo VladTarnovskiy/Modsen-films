@@ -19,29 +19,35 @@ export const Card: FC<IProps> = ({ videoData }) => {
   const [videoModal, setVideoModal] = useState(false);
 
   return (
-    <S.CardContainer data-testid="card">
-      <S.CardImg
-        src={snippet.thumbnails.medium.url}
-        onClick={() => setVideoModal(true)}
-        alt={snippet.title}
-      />
-      <S.CreationDate onClick={() => navigate(`/details/${videoData.id}`)}>
-        {localDate}
-      </S.CreationDate>
-      <S.CardDescription onClick={() => navigate(`/details/${videoData.id}`)}>
-        <S.UserIcon $bg={snippet.thumbnails.default.url} />
-        <S.VideoInfo>
-          <S.ChanelTitle>{snippet.channelTitle}</S.ChanelTitle>
-          <S.FilmTitle>{snippet.title}</S.FilmTitle>
-        </S.VideoInfo>
-      </S.CardDescription>
-      <S.Duration>{time}</S.Duration>
+    <>
+      <S.CardContainer data-testid="card">
+        <S.CardImageContainer
+          onClick={() => setVideoModal(true)}
+          data-testid="card-video"
+        >
+          <S.CardImg src={snippet.thumbnails.medium.url} alt={snippet.title} />
+          <S.Duration>{time}</S.Duration>
+        </S.CardImageContainer>
+        <S.CardDataContainer
+          onClick={() => navigate(`/details/${videoData.id}`)}
+          data-testid="card-details"
+        >
+          <S.CreationDate>{localDate}</S.CreationDate>
+          <S.CardDescription>
+            <S.UserIcon $bg={snippet.thumbnails.default.url} />
+            <S.VideoInfo>
+              <S.ChanelTitle>{snippet.channelTitle}</S.ChanelTitle>
+              <S.FilmTitle>{snippet.title}</S.FilmTitle>
+            </S.VideoInfo>
+          </S.CardDescription>
+        </S.CardDataContainer>
+      </S.CardContainer>
       {videoModal && (
         <VideoModal
           videoLink={player.embedHtml}
           setVideoModal={setVideoModal}
         />
       )}
-    </S.CardContainer>
+    </>
   );
 };

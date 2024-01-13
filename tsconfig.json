@@ -39,8 +39,8 @@
     "build",
     "coverage",
     "webpack.*.js",
-    "*.config.js",
-    "cypress.config.ts",
-    "cypress"
+    "*.config.js"
+    // "cypress.config.ts",
+    // "cypress"
   ]
 }
