@@ -13,7 +13,7 @@ export const Header: FC = () => {
     <>
       <S.StyledHeader>
         <NavLink to="/">
-          <S.LogoContainer>
+          <S.LogoContainer data-testid="logo">
             <S.LogoImg src={Logo}></S.LogoImg>
             <S.LogoTitle>ModsenFilms</S.LogoTitle>
           </S.LogoContainer>

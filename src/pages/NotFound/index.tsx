@@ -11,7 +11,7 @@ export const NotFoundPage: FC = () => {
       </S.ErrorDescription>
       <S.ErrorAnimation />
       <NavLink to="/">
-        <S.MainPageBut>Main Page</S.MainPageBut>
+        <S.MainPageBut data-testid="main-page-btn">Main Page</S.MainPageBut>
       </NavLink>
     </S.ErrorWrapper>
   );

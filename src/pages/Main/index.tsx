@@ -43,14 +43,20 @@ export const MainPage: FC = () => {
       <S.CardContainer>
         {content}
         {isLoading &&
-          [...Array(6).keys()].map((item) => <CardSkeleton key={item} />)}
+          [...Array(16).keys()].map((item) => <CardSkeleton key={item} />)}
       </S.CardContainer>
       {nextPageToken ? (
-        <S.ShowMoreBut $isFetching={isLoading} onClick={getNextPageVideosData}>
+        <S.ShowMoreBut
+          $isFetching={isLoading}
+          onClick={getNextPageVideosData}
+          data-testid="showMore-btn"
+        >
           Show More
         </S.ShowMoreBut>
       ) : (
-        <S.ShowMoreBut $isFetching={true}>Show More</S.ShowMoreBut>
+        <S.ShowMoreBut $isFetching={true} data-testid="showMore-btn">
+          Show More
+        </S.ShowMoreBut>
       )}
     </div>
   );

@@ -31,7 +31,7 @@ export const DetailsPage: FC = () => {
 
     const localDate = date.toLocaleDateString('en-EN', options);
     content = (
-      <>
+      <div data-testid="details-page">
         <S.VideoPlayer
           src={playerEl}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;"
@@ -54,7 +54,7 @@ export const DetailsPage: FC = () => {
         </S.VideoStatistic>
         <S.VideoPublishedDate>{localDate}</S.VideoPublishedDate>
         <S.VideoDescription>{snippet.description}</S.VideoDescription>
-      </>
+      </div>
     );
   } else if (isError) {
     content = <S.InfoContainer>Sorry, something went wrong.</S.InfoContainer>;

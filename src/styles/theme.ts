@@ -53,7 +53,7 @@ export const darkTheme: DefaultTheme = {
     tertiary: 'rgb(0, 0, 0)',
     quaternary: 'rgba(255, 255, 255, 0.4)',
 
-    bgBase: 'teal',
+    bgBase: 'rgb(0, 128, 128)',
     bgTertiary: 'rgb(0, 0, 0)',
   },
 };

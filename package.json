@@ -25,6 +25,8 @@
     "test": "cross-env jest --config __jest__/jest.config.ts",
     "test-watch": "jest --watch --config __jest__/jest.config.ts",
     "test-coverage": "jest --coverage --config __jest__/jest.config.ts",
+    "cypress:run": "npx cypress run --e2e",
+    "cypress:open": "npx cypress open --e2e",
     "prepare": "husky install"
   },
   "devDependencies": {
