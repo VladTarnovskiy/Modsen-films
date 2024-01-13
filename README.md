@@ -7,8 +7,8 @@
    - video search
    - filtration
    - pagination (infinity scroll)
-   - when you click on a video, a modal window with a video player opens
-   - when you click on the "details" button, the Details page opens
+   - when you click on a video, a modal window with a video player opens (only player)
+   - when you click on the cards details, the Details page opens (with details information)
 
 2. ### Details page
 

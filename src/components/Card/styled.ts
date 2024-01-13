@@ -20,6 +20,7 @@ export const CardContainer = styled.div`
     cursor: pointer;
     background-color: ${({ theme }) => theme.colors.bgPrimary};
     ${buttonAnimation}
+    transform: scale(1.02);
   }
 
   &:active {
@@ -79,8 +80,9 @@ export const FilmTitle = styled.div`
 
 export const CreationDate = styled.div`
   font-size: ${({ theme }) => theme.fontSize.small};
-  width: fit-content;
-  margin-bottom: 5px;
+  width: 100%;
+  text-align: left;
+  padding: 5px;
 `;
 
 export const Duration = styled.div`

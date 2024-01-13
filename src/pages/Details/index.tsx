@@ -21,13 +21,13 @@ export const DetailsPage: FC = () => {
 
   if (isSuccess) {
     const { snippet, statistics, player } = videoData;
-    const playerEl = player.embedHtml.split('"')[5];
+    const playerLink = `https:${player.embedHtml.split('"')[5]}?autoplay=1`;
     const localDate = getDate(snippet.publishedAt);
 
     content = (
       <div data-testid="details-page">
         <S.VideoPlayer
-          src={playerEl}
+          src={playerLink}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;"
           allowFullScreen
         />
