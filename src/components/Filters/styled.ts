@@ -29,13 +29,16 @@ export const FilterButton = styled.button<{ $isActive: boolean }>`
   padding: 7px 12px;
   margin-right: 10px;
   background-color: ${({ theme, $isActive }) =>
-    $isActive ? theme.colors.bgSecondary : theme.colors.bgPrimary};
+    $isActive ? theme.colors.bgTertiary : theme.colors.bgPrimary};
+  color: ${({ theme, $isActive }) =>
+    $isActive ? theme.colors.tertiary : theme.colors.base};
+
   ${borderBase}
   ${itemsCenter}
 
   &:hover {
     ${buttonAnimation}
-    background-color: ${({ theme }) => theme.colors.bgSecondary};
+    background-color: ${({ theme }) => theme.colors.bgTertiary};
     color: ${({ theme }) => theme.colors.tertiary};
     border: none;
   }

@@ -39,7 +39,6 @@ export const CardImg = styled.img`
 export const CardDescription = styled.div`
   display: flex;
   justify-content: flex-start;
-  padding-top: 12px;
 `;
 
 export const UserIcon = styled.div<{ $bg: string }>`
@@ -66,16 +65,22 @@ export const VideoInfo = styled.div`
   }
 `;
 
-export const FilmTitle = styled.div`
-  font-size: ${({ theme }) => theme.fontSize.small};
-`;
-
 export const ChanelTitle = styled.div`
   margin-bottom: 4px;
 
   @media ${({ theme }) => theme.media.s} {
     font-size: ${({ theme }) => theme.fontSize.small};
   }
+`;
+
+export const FilmTitle = styled.div`
+  font-size: ${({ theme }) => theme.fontSize.small};
+`;
+
+export const CreationDate = styled.div`
+  font-size: ${({ theme }) => theme.fontSize.small};
+  width: fit-content;
+  margin-bottom: 3px;
 `;
 
 export const Duration = styled.div`
@@ -85,6 +90,7 @@ export const Duration = styled.div`
   width: 70px;
   height: 20px;
   background-color: ${({ theme }) => theme.colors.bgTertiary};
+  color: ${({ theme }) => theme.colors.tertiary};
   border-radius: 9999px;
   ${itemsCenter}
 

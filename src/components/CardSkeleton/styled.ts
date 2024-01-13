@@ -51,6 +51,14 @@ export const SkeletonVideoInfo = styled.div`
   }
 `;
 
+export const SkeletonCreationDate = styled.div`
+  ${SkeletonBackgroundAnimation}
+  height: 18px;
+  width: 130px;
+  margin-bottom: 3px;
+  margin-top: 3px;
+`;
+
 export const SkeletonFilmTitle = styled.div`
   ${SkeletonBackgroundAnimation}
   height: 22px;

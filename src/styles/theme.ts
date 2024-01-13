@@ -12,7 +12,7 @@ export const baseTheme = {
     bgBase: 'rgb(255, 255, 255)',
     bgPrimary: 'rgba(0, 0, 0, 0.06)',
     bgSecondary: 'rgb(255, 138, 0)',
-    bgTertiary: 'rgb(255, 255, 255)',
+    bgTertiary: 'rgb(0, 0, 0)',
   },
 
   fontFamily: {
@@ -54,6 +54,6 @@ export const darkTheme: DefaultTheme = {
     quaternary: 'rgba(255, 255, 255, 0.4)',
 
     bgBase: 'rgb(0, 128, 128)',
-    bgTertiary: 'rgb(0, 0, 0)',
+    bgTertiary: 'rgb(255, 255, 255)',
   },
 };

@@ -24,7 +24,11 @@ export const ThemeSwitch: FC = () => {
         $isLight={isLight}
         data-testid="theme-switch"
       >
-        {isLight ? <S.SwitchImg src={Sun} /> : <S.SwitchImg src={Moon} />}
+        {isLight ? (
+          <S.SwitchImg src={Sun} data-testid="sun-img" />
+        ) : (
+          <S.SwitchImg src={Moon} data-testid="moon-img" />
+        )}
       </S.SwitchThumb>
     </S.Switch>
   );

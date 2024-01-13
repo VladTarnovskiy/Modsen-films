@@ -5,6 +5,7 @@ export const CardSkeleton: FC = () => {
   return (
     <S.SkeletonCardContainer data-testid="card-skeleton">
       <S.SkeletonCardImg />
+      <S.SkeletonCreationDate />
       <S.SkeletonCardDescription>
         <S.SkeletonUserIcon />
         <S.SkeletonVideoInfo>

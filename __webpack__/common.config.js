@@ -11,7 +11,6 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const BUILD_DIR = path.resolve(__dirname, '..', 'build');
 const PUBLIC_DIR = path.resolve(__dirname, '..', 'public');
-const STATIC_DIR = path.resolve(__dirname, '..', 'static');
 
 const plugins = [
   new Dotenv(),
@@ -20,7 +19,7 @@ const plugins = [
     filename: 'index.html',
   }),
   new FaviconsWebpackPlugin({
-    logo: path.resolve(STATIC_DIR, 'favicon.svg'),
+    logo: path.join(__dirname, '..', 'src/assets', 'favicon.svg'),
     mode: 'light',
   }),
   new webpack.HotModuleReplacementPlugin(),

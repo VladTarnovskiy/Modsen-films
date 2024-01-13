@@ -5,6 +5,7 @@ import LikedIcon from '@assets/Liked.svg';
 import { useParams } from 'react-router-dom';
 import { useGetVideoDataQuery } from '@src/store/slices/ApiSlice';
 import { DetailsSkeleton } from '@src/components/DetailsSkeleton';
+import { getDate } from '@src/utils/getDate';
 
 export const DetailsPage: FC = () => {
   const { detailsId } = useParams();
@@ -21,15 +22,8 @@ export const DetailsPage: FC = () => {
   if (isSuccess) {
     const { snippet, statistics, player } = videoData;
     const playerEl = player.embedHtml.split('"')[5];
-    const date = new Date(snippet.publishedAt);
-    const options = {
-      weekday: undefined,
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    } as Intl.DateTimeFormatOptions;
+    const localDate = getDate(snippet.publishedAt);
 
-    const localDate = date.toLocaleDateString('en-EN', options);
     content = (
       <div data-testid="details-page">
         <S.VideoPlayer
