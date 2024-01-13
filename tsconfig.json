@@ -29,9 +29,9 @@
       }
     ],
     "paths": {
-      "src/*": ["./src/*"],
-      "assets/*": ["./src/assets/*"]
-      // "jest/*": ["./__jest__/*"]
+      "@src/*": ["./src/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@jest-dir/*": ["./__jest__/*"]
     }
   },
   "exclude": [

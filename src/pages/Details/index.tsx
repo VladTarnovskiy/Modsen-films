@@ -1,10 +1,10 @@
 import { FC } from 'react';
 import * as S from './styled';
-import ViewsIcon from 'assets/Views.svg';
-import LikedIcon from 'assets/Liked.svg';
+import ViewsIcon from '@assets/Views.svg';
+import LikedIcon from '@assets/Liked.svg';
 import { useParams } from 'react-router-dom';
-import { useGetVideoDataQuery } from 'src/store/slices/ApiSlice';
-import { DetailsSkeleton } from 'src/components/DetailsSkeleton';
+import { useGetVideoDataQuery } from '@src/store/slices/ApiSlice';
+import { DetailsSkeleton } from '@src/components/DetailsSkeleton';
 
 export const DetailsPage: FC = () => {
   const { detailsId } = useParams();

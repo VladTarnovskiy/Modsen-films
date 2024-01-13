@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import DinoImg from 'assets/ErrorDino.svg';
+import DinoImg from '@assets/ErrorDino.svg';
 import {
   isRouteErrorResponse,
   useNavigate,

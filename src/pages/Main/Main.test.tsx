@@ -4,9 +4,9 @@ import {
   RouterProvider,
   createMemoryRouter,
 } from 'react-router-dom';
-import { Wrapper } from '../../../__jest__/utils/testUtils';
+import { Wrapper } from '@jest-dir/utils/testUtils';
 import { MainPage } from '.';
-import { routes } from 'src/router';
+import { routes } from '@src/router';
 
 describe('Main page', () => {
   test('Main found', async () => {

@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import * as S from './styled';
-import { Card } from 'src/components/Card';
+import { Card } from '@src/components/Card';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   selectIsError,
@@ -8,9 +8,9 @@ import {
   selectNextPageToken,
   selectVideos,
   setTriggeredNextPageToken,
-} from 'src/store/slices/MainPageSlice';
-import { Filters } from 'src/components/Filters';
-import { CardSkeleton } from 'src/components/CardSkeleton';
+} from '@src/store/slices/MainPageSlice';
+import { Filters } from '@src/components/Filters';
+import { CardSkeleton } from '@src/components/CardSkeleton';
 
 export const MainPage: FC = () => {
   const dispatch = useDispatch();

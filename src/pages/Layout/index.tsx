@@ -1,9 +1,9 @@
 import { FC, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
-import { Footer } from 'src/components/Footer';
-import { Header } from 'src/components/Header';
+import { Footer } from '@src/components/Footer';
+import { Header } from '@src/components/Header';
 import * as S from './styled';
-import { useGetSearchInfoQuery } from 'src/store/slices/ApiSlice';
+import { useGetSearchInfoQuery } from '@src/store/slices/ApiSlice';
 import {
   setVideos,
   setNextPageToken,
@@ -13,7 +13,7 @@ import {
   selectTriggeredNextPageToken,
   changeTheme,
   selectFilmsFilter,
-} from 'src/store/slices/MainPageSlice';
+} from '@src/store/slices/MainPageSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
 export const Layout: FC = () => {

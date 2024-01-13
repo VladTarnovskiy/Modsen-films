@@ -1,4 +1,4 @@
-import { IVideo } from 'src/interfaces/videoData';
+import { IVideo } from '@src/interfaces/videoData';
 
 export const videoDataMock: IVideo = {
   kind: 'youtube#video',

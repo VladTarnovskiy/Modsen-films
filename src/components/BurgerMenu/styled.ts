@@ -1,4 +1,4 @@
-import { buttonAnimation, itemsCenter } from 'src/styles/fragments';
+import { buttonAnimation, itemsCenter } from '@src/styles/fragments';
 import styled from 'styled-components';
 
 export const BurgerMenuContainer = styled.div`

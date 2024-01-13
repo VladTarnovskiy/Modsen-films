@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { Card } from '.';
-import { Wrapper } from '../../../__jest__/utils/testUtils';
-import { videoDataMock } from '../../../__jest__/mocks/videoMock';
+import { Wrapper } from '@jest-dir/utils/testUtils';
+import { videoDataMock } from '@jest-dir/mocks/videoMock';
 import { BrowserRouter } from 'react-router-dom';
 
 describe('Card', () => {

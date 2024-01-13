@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import * as S from './styled';
-import { IVideo } from 'src/interfaces/videoData';
-import { getDuration } from 'src/utils/getDuration';
+import { IVideo } from '@src/interfaces/videoData';
+import { getDuration } from '@src/utils/getDuration';
 import { useNavigate } from 'react-router-dom';
 
 interface IProps {

@@ -1,4 +1,4 @@
-import { ThemeEnum } from 'src/interfaces/styled';
+import { ThemeEnum } from '@src/interfaces/styled';
 import { DefaultTheme } from 'styled-components';
 
 export const baseTheme = {

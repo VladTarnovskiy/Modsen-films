@@ -1,4 +1,4 @@
-import { SkeletonBackgroundAnimation } from 'src/styles/fragments';
+import { SkeletonBackgroundAnimation } from '@src/styles/fragments';
 import styled from 'styled-components';
 
 export const SkeletonDetailsContainer = styled.div`

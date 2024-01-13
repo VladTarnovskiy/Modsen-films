@@ -1,11 +1,11 @@
 import { ChangeEvent, FC, useState } from 'react';
 import * as S from './styled';
-import SearchImg from 'src/assets/Search.svg';
+import SearchImg from '@assets/Search.svg';
 import {
   clearVideos,
   selectSearchValue,
   setSearchValue,
-} from 'src/store/slices/MainPageSlice';
+} from '@src/store/slices/MainPageSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
 export const SearchBar: FC = () => {

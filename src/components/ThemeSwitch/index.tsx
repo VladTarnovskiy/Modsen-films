@@ -1,12 +1,12 @@
 import { FC } from 'react';
 import * as S from './styled';
-import Sun from 'assets/Sun.svg';
-import Moon from 'assets/Moon.svg';
+import Sun from '@assets/Sun.svg';
+import Moon from '@assets/Moon.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   changeTheme,
   selectIsLightTheme,
-} from 'src/store/slices/MainPageSlice';
+} from '@src/store/slices/MainPageSlice';
 
 export const ThemeSwitch: FC = () => {
   const isLight = useSelector(selectIsLightTheme);

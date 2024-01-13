@@ -5,7 +5,7 @@ import {
   changeFilmsFilter,
   clearVideos,
   selectFilmsFilter,
-} from 'src/store/slices/MainPageSlice';
+} from '@src/store/slices/MainPageSlice';
 
 const buttonsData = [
   'All',

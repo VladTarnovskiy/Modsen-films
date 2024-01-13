@@ -1,8 +1,8 @@
 import { Provider } from 'react-redux';
-import { store } from 'src/store/store';
-import { lightTheme } from 'src/styles/theme';
+import { store } from '@src/store/store';
+import { lightTheme } from '@src/styles/theme';
 import { ThemeProvider } from 'styled-components';
-import GlobalStyles from 'src/styles/global';
+import GlobalStyles from '@src/styles/global';
 import { FC } from 'react';
 
 interface IProps {

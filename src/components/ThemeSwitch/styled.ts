@@ -1,4 +1,4 @@
-import { itemsCenter } from 'src/styles/fragments';
+import { itemsCenter } from '@src/styles/fragments';
 import styled from 'styled-components';
 
 export const Switch = styled.div`

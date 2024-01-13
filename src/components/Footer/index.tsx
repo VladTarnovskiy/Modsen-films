@@ -1,14 +1,14 @@
 import { FC } from 'react';
 import * as S from './styled';
-import FaceBookImg from 'assets/Facebook.svg';
-import FaceBookImgLight from 'assets/FacebookLight.svg';
-import InstagramImg from 'assets/Instagram.svg';
-import InstagramImgLight from 'assets/InstagramLight.svg';
-import TwitterImg from 'assets/Twitter.svg';
-import TwitterImgLight from 'assets/TwitterLight.svg';
-import LinkedInImg from 'assets/LinkedIn.svg';
-import LinkedInImgLight from 'assets/LinkedInLight.svg';
-import { selectIsLightTheme } from 'src/store/slices/MainPageSlice';
+import FaceBookImg from '@assets/Facebook.svg';
+import FaceBookImgLight from '@assets/FacebookLight.svg';
+import InstagramImg from '@assets/Instagram.svg';
+import InstagramImgLight from '@assets/InstagramLight.svg';
+import TwitterImg from '@assets/Twitter.svg';
+import TwitterImgLight from '@assets/TwitterLight.svg';
+import LinkedInImg from '@assets/LinkedIn.svg';
+import LinkedInImgLight from '@assets/LinkedInLight.svg';
+import { selectIsLightTheme } from '@src/store/slices/MainPageSlice';
 import { useSelector } from 'react-redux';
 
 export const Footer: FC = () => {

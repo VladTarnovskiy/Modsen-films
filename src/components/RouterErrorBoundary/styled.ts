@@ -2,7 +2,7 @@ import {
   buttonAnimation,
   defaultAnimationSize,
   itemsCenter,
-} from 'src/styles/fragments';
+} from '@src/styles/fragments';
 import { styled } from 'styled-components';
 
 export const ErrorContainer = styled.div`

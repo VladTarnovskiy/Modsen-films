@@ -60,9 +60,9 @@ export default {
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
     alias: {
-      src: path.join(__dirname, '..', 'src'),
-      assets: path.join(__dirname, '..', 'src/assets'),
-      // jest: path.join(__dirname, '..', '__jest__'),
+      '@src': path.join(__dirname, '..', 'src'),
+      '@assets': path.join(__dirname, '..', 'src/assets'),
+      '@jest-dir': path.join(__dirname, '..', '__jest__'),
     },
   },
   module: {
