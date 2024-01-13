@@ -36,7 +36,7 @@ export function getDuration(duration: string) {
   }
 
   if (!hours && !minutes && !seconds) {
-    time = 'online';
+    time = 'LIVE';
   }
 
   return time;

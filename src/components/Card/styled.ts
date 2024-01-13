@@ -80,7 +80,7 @@ export const FilmTitle = styled.div`
 export const CreationDate = styled.div`
   font-size: ${({ theme }) => theme.fontSize.small};
   width: fit-content;
-  margin-bottom: 3px;
+  margin-bottom: 5px;
 `;
 
 export const Duration = styled.div`
