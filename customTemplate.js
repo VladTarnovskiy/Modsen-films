@@ -1,5 +1,5 @@
-export default (dts, { classes }) => {
+export default (_, { classes }) => {
   return Object.keys(classes)
     .map((key) => `export const ${key}: string`)
-    .join("\n");
+    .join('\n');
 };

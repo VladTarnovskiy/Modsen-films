@@ -32,7 +32,6 @@ export const apiSlice = createApi({
             maxResults: '16',
             type: 'video',
             videoEmbeddable: 'true',
-            // videoType: 'movie', used to get only films data
             ...pageToken,
           },
         });

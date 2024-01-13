@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { NotFoundPage } from '.';
 import { BrowserRouter } from 'react-router-dom';
-import { Wrapper } from '../../../__jest__/utils/testUtils';
+import { Wrapper } from '@jest-dir/utils/testUtils';
 
 describe('Not found page', () => {
   test('Not found', () => {
