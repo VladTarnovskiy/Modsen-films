@@ -1,5 +1,7 @@
 # Application for searching and watching videos
 
+- Deploy: https://modsenfilms-vladtarnovskiy.netlify.app/
+
 ## Structure:
 
 1. ### Main page
