@@ -1,4 +1,4 @@
-import { itemsCenter } from '@src/styles/fragments';
+import { buttonAnimation, itemsCenter } from '@src/styles/fragments';
 import styled from 'styled-components';
 
 export const CardContainer = styled.div`
@@ -33,7 +33,7 @@ export const CardImg = styled.img`
   height: 100%;
 
   &:hover {
-    transform: scale(102%);
+    ${buttonAnimation}
   }
 `;
 
