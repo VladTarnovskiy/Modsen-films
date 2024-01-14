@@ -8,7 +8,6 @@ const plugins = [
   new MiniCssExtractPlugin({
     filename: '[contenthash].css',
   }),
-  // Compress images
   new ImageMinimizerPlugin({
     minimizer: {
       implementation: ImageMinimizerPlugin.imageminMinify,
@@ -46,7 +45,6 @@ const plugins = [
 export default merge(common, {
   mode: 'production',
   target: 'web',
-  // target: "browserslist",
   plugins,
   devtool: false,
   output: {
@@ -54,7 +52,7 @@ export default merge(common, {
   },
   optimization: {
     usedExports: false,
-    minimize: true, // Affects Terser Plugin
+    minimize: true,
     minimizer: [
       new TerserPlugin({
         terserOptions: {
