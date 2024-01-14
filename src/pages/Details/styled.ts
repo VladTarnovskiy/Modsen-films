@@ -69,6 +69,7 @@ export const VideoPublishedDate = styled.div`
 `;
 
 export const VideoDescription = styled.div`
+  word-break: break-all;
   font-size: ${({ theme }) => theme.fontSize.small};
 `;
 
