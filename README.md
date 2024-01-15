@@ -26,8 +26,8 @@
 - styled-components
 - Redux Toolkit
 - webpack
-- cypress (unit testing)
-- jest (e2e testing)
+- cypress (e2e testing) 
+- jest (unit testing) 
 - prettier
 - eslint
 - husky
