@@ -27,6 +27,7 @@ export const MainPage: FC = () => {
   };
 
   let content: JSX.Element | JSX.Element[] | null = null;
+  const skeletonArray = [...Array(16).keys()];
 
   if (isError) {
     content = <S.InfoContainer>Sorry, something went wrong.</S.InfoContainer>;
@@ -43,8 +44,7 @@ export const MainPage: FC = () => {
       <Filters />
       <S.CardContainer>
         {content}
-        {isLoading &&
-          [...Array(16).keys()].map((item) => <CardSkeleton key={item} />)}
+        {isLoading && skeletonArray.map((item) => <CardSkeleton key={item} />)}
       </S.CardContainer>
       {nextPageToken ? (
         <S.ShowMoreBut
