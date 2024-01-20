@@ -1,6 +1,8 @@
 import { buttonAnimation, defaultAnimationSize } from '@src/styles/fragments';
 import { styled } from 'styled-components';
 
+import { itemsCenter } from './../../styles/fragments';
+
 export const FooterContainer = styled.footer`
   padding: 55px 6px 17px 6px;
   border-top: 2px solid;
@@ -48,9 +50,14 @@ export const LocalLinksContainer = styled.div`
   }
 `;
 
+export const LocalLinksGroup = styled.div`
+  ${itemsCenter}
+
+  justify-content: flex-start;
+`;
+
 export const LocalLinksList = styled.div`
   margin-right: 32px;
-  width: 293px;
 
   @media ${({ theme }) => theme.media.l} {
     width: auto;
@@ -58,12 +65,6 @@ export const LocalLinksList = styled.div`
 
   @media ${({ theme }) => theme.media.s} {
     margin-bottom: 16px;
-  }
-`;
-
-export const LocalLink = styled.a`
-  &:hover {
-    color: ${({ theme }) => theme.colors.secondary};
   }
 `;
 

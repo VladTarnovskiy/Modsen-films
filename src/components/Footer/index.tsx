@@ -6,10 +6,15 @@ import LinkedInImg from '@assets/LinkedIn.svg';
 import LinkedInImgLight from '@assets/LinkedInLight.svg';
 import TwitterImg from '@assets/Twitter.svg';
 import TwitterImgLight from '@assets/TwitterLight.svg';
+import {
+  footerLocalLinksOne,
+  footerLocalLinksTwo,
+} from '@src/constants/footer';
 import { selectIsLightTheme } from '@src/store/slices/MainPageSlice';
 import { FC } from 'react';
 import { useSelector } from 'react-redux';
 
+import { FooterLink } from '../FooterLink';
 import * as S from './styled';
 
 export const Footer: FC = () => {
@@ -20,43 +25,55 @@ export const Footer: FC = () => {
       <S.LinksContainer>
         <S.LocalLinksContainer>
           <S.LocalLinksList>
-            <div>
-              <S.LocalLink href="#">TermsPrivacyPolicy & Safety</S.LocalLink>
-            </div>
-            <div>
-              <S.LocalLink href="#">How YouTube works</S.LocalLink>
-            </div>
-            <div>
-              <S.LocalLink href="#">Test new features</S.LocalLink>
-            </div>
+            {footerLocalLinksOne.map((link) => (
+              <FooterLink key={link.title} linkData={link} />
+            ))}
           </S.LocalLinksList>
           <S.LocalLinksList>
-            <div>
-              <S.LocalLink href="#">About</S.LocalLink>{' '}
-              <S.LocalLink href="#">Press</S.LocalLink>{' '}
-              <S.LocalLink href="#">Copyright</S.LocalLink>
-            </div>
-            <div>
-              <S.LocalLink href="#">Contact us</S.LocalLink>{' '}
-              <S.LocalLink href="#">Creators</S.LocalLink>
-            </div>
-            <div>
-              <S.LocalLink href="#">Advertise</S.LocalLink>{' '}
-              <S.LocalLink href="#">Developers</S.LocalLink>
-            </div>
+            <S.LocalLinksGroup>
+              {footerLocalLinksTwo[0].map((link) => (
+                <FooterLink key={link.title} linkData={link} />
+              ))}
+            </S.LocalLinksGroup>
+            <S.LocalLinksGroup>
+              {footerLocalLinksTwo[1].map((link) => (
+                <FooterLink key={link.title} linkData={link} />
+              ))}
+            </S.LocalLinksGroup>
+            <S.LocalLinksGroup>
+              {footerLocalLinksTwo[2].map((link) => (
+                <FooterLink key={link.title} linkData={link} />
+              ))}
+            </S.LocalLinksGroup>
           </S.LocalLinksList>
         </S.LocalLinksContainer>
         <S.SocialLinksContainer>
-          <a href="https://web.facebook.com/ModsenSoftware/">
+          <a
+            target="_blank"
+            href="https://web.facebook.com/ModsenSoftware/"
+            rel="noreferrer"
+          >
             <S.SocialLink src={isLight ? FaceBookImg : FaceBookImgLight} />
           </a>
-          <a href="https://twitter.com/modsencompany">
+          <a
+            target="_blank"
+            href="https://twitter.com/modsencompany"
+            rel="noreferrer"
+          >
             <S.SocialLink src={isLight ? TwitterImg : TwitterImgLight} />
           </a>
-          <a href="https://www.instagram.com/modsencompany/">
+          <a
+            target="_blank"
+            href="https://www.instagram.com/modsencompany/"
+            rel="noreferrer"
+          >
             <S.SocialLink src={isLight ? InstagramImg : InstagramImgLight} />
           </a>
-          <a href="https://www.linkedin.com/company/modsen/">
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/company/modsen/"
+            rel="noreferrer"
+          >
             <S.SocialLink
               className="last"
               src={isLight ? LinkedInImg : LinkedInImgLight}
