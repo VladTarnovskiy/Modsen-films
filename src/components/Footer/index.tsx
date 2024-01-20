@@ -1,11 +1,13 @@
-import FaceBookImg from '@assets/Facebook.svg';
-import FaceBookImgLight from '@assets/FacebookLight.svg';
-import InstagramImg from '@assets/Instagram.svg';
-import InstagramImgLight from '@assets/InstagramLight.svg';
-import LinkedInImg from '@assets/LinkedIn.svg';
-import LinkedInImgLight from '@assets/LinkedInLight.svg';
-import TwitterImg from '@assets/Twitter.svg';
-import TwitterImgLight from '@assets/TwitterLight.svg';
+import {
+  FaceBookImg,
+  FaceBookImgLight,
+  InstagramImg,
+  InstagramImgLight,
+  LinkedInImg,
+  LinkedInImgLight,
+  TwitterImg,
+  TwitterImgLight,
+} from '@assets/footer/index';
 import {
   footerLocalLinksOne,
   footerLocalLinksTwo,
