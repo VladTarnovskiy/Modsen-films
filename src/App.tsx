@@ -11,10 +11,10 @@ import GlobalStyles from './styles/global';
 import { darkTheme, lightTheme } from './styles/theme';
 
 export const App: FC = () => {
-  const isLight = useSelector(selectIsLightTheme);
+  const isLightTheme = useSelector(selectIsLightTheme);
 
   return (
-    <ThemeProvider theme={isLight ? lightTheme : darkTheme}>
+    <ThemeProvider theme={isLightTheme ? lightTheme : darkTheme}>
       <RouterProvider router={createBrowserRouter(routes)} />
       <GlobalStyles />
     </ThemeProvider>

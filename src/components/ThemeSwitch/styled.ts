@@ -9,13 +9,13 @@ export const Switch = styled.div`
   box-shadow: 0px 1px 5px 0px ${({ theme }) => theme.colors.quaternary} inset;
 `;
 
-export const SwitchThumb = styled.button<{ $isLight: boolean }>`
+export const SwitchThumb = styled.button<{ $isLightTheme: boolean }>`
   transition: all 0.1s ease-out;
   border-radius: 100%;
   margin-top: -2px;
   height: 28px;
   width: 28px;
-  margin-left: ${({ $isLight }) => ($isLight ? 0 : '23px')};
+  margin-left: ${({ $isLightTheme }) => ($isLightTheme ? 0 : '23px')};
   background-color: ${({ theme }) => theme.colors.bgSecondary};
   ${itemsCenter}
 

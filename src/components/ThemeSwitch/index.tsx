@@ -10,22 +10,22 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as S from './styled';
 
 export const ThemeSwitch: FC = () => {
-  const isLight = useSelector(selectIsLightTheme);
+  const isLightTheme = useSelector(selectIsLightTheme);
   const dispatch = useDispatch();
 
   const changeCurrentTheme = () => {
-    localStorage.setItem('isLightTheme', JSON.stringify(!isLight));
-    dispatch(changeTheme(!isLight));
+    localStorage.setItem('isLightTheme', JSON.stringify(!isLightTheme));
+    dispatch(changeTheme(!isLightTheme));
   };
 
   return (
     <S.Switch>
       <S.SwitchThumb
         onClick={changeCurrentTheme}
-        $isLight={isLight}
+        $isLightTheme={isLightTheme}
         data-testid="theme-switch"
       >
-        {isLight ? (
+        {isLightTheme ? (
           <S.SwitchImg src={Sun} data-testid="sun-img" />
         ) : (
           <S.SwitchImg src={Moon} data-testid="moon-img" />

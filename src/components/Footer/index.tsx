@@ -20,7 +20,7 @@ import { FooterLink } from '../FooterLink';
 import * as S from './styled';
 
 export const Footer: FC = () => {
-  const isLight = useSelector(selectIsLightTheme);
+  const isLightTheme = useSelector(selectIsLightTheme);
   const year = new Date().getFullYear();
 
   return (
@@ -56,21 +56,23 @@ export const Footer: FC = () => {
             href="https://web.facebook.com/ModsenSoftware/"
             rel="noreferrer"
           >
-            <S.SocialLink src={isLight ? FaceBookImg : FaceBookImgLight} />
+            <S.SocialLink src={isLightTheme ? FaceBookImg : FaceBookImgLight} />
           </a>
           <a
             target="_blank"
             href="https://twitter.com/modsencompany"
             rel="noreferrer"
           >
-            <S.SocialLink src={isLight ? TwitterImg : TwitterImgLight} />
+            <S.SocialLink src={isLightTheme ? TwitterImg : TwitterImgLight} />
           </a>
           <a
             target="_blank"
             href="https://www.instagram.com/modsencompany/"
             rel="noreferrer"
           >
-            <S.SocialLink src={isLight ? InstagramImg : InstagramImgLight} />
+            <S.SocialLink
+              src={isLightTheme ? InstagramImg : InstagramImgLight}
+            />
           </a>
           <a
             target="_blank"
@@ -79,7 +81,7 @@ export const Footer: FC = () => {
           >
             <S.SocialLink
               className="last"
-              src={isLight ? LinkedInImg : LinkedInImgLight}
+              src={isLightTheme ? LinkedInImg : LinkedInImgLight}
             />
           </a>
         </S.SocialLinksContainer>
