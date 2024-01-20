@@ -11,7 +11,6 @@ export const CardContainer = styled.div`
   justify-items: center;
   gap: 20px;
   margin-bottom: 37px;
-  min-height: 47.8vh;
 
   @media ${({ theme }) => theme.media.s} {
     grid-template-columns: repeat(auto-fit, minmax(212px, 1fr));
