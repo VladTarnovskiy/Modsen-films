@@ -1,6 +1,7 @@
-import { render, screen, waitFor } from '@testing-library/react';
-import { RouterProvider, createMemoryRouter } from 'react-router-dom';
 import { Wrapper } from '@jest-dir/utils/testUtils';
+import { render, screen, waitFor } from '@testing-library/react';
+import { createMemoryRouter, RouterProvider } from 'react-router-dom';
+
 import { DetailsPage } from '.';
 
 describe('Details page', () => {

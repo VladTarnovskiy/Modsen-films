@@ -1,6 +1,7 @@
 import { FC } from 'react';
-import * as S from './styled';
 import { NavLink } from 'react-router-dom';
+
+import * as S from './styled';
 
 export const NotFoundPage: FC = () => {
   return (

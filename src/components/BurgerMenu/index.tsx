@@ -1,6 +1,7 @@
 import { FC } from 'react';
-import * as S from './styled';
+
 import { ThemeSwitch } from '../ThemeSwitch';
+import * as S from './styled';
 
 export const BurgerMenu: FC = () => {
   return (

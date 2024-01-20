@@ -1,20 +1,21 @@
-import { FC, useEffect } from 'react';
-import { Outlet } from 'react-router-dom';
 import { Footer } from '@src/components/Footer';
 import { Header } from '@src/components/Header';
-import * as S from './styled';
 import { useGetSearchInfoQuery } from '@src/store/slices/ApiSlice';
 import {
-  setVideos,
-  setNextPageToken,
-  selectSearchValue,
-  setIsLoading,
-  setIsError,
-  selectTriggeredNextPageToken,
   changeTheme,
   selectFilmsFilter,
+  selectSearchValue,
+  selectTriggeredNextPageToken,
+  setIsError,
+  setIsLoading,
+  setNextPageToken,
+  setVideos,
 } from '@src/store/slices/MainPageSlice';
+import { FC, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Outlet } from 'react-router-dom';
+
+import * as S from './styled';
 
 export const Layout: FC = () => {
   const dispatch = useDispatch();

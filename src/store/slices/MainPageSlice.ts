@@ -1,6 +1,7 @@
-import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { RootState } from '../store';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IVideo } from '@src/interfaces/videoData';
+
+import { RootState } from '../store';
 
 interface InitialState {
   isLightTheme: boolean;

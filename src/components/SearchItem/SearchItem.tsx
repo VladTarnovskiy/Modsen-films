@@ -1,6 +1,7 @@
-import { FC } from 'react';
-import * as S from './styled';
 import { ISearchItem } from '@src/interfaces/search';
+import { FC } from 'react';
+
+import * as S from './styled';
 
 interface IProps {
   searchItem: ISearchItem;

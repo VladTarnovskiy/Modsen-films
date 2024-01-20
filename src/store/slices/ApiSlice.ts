@@ -1,9 +1,9 @@
-import { ISearchResultResponse } from '@src/interfaces/searchVideo';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { IVideo, IVideosInfo } from '@src/interfaces/videoData';
 import { KEY, SEARCH_URL, VIDEO_DATA_URL } from '@src/constants/api';
-import { uid } from '@src/utils/uidGenerator';
 import { ISearch, ISearchItem } from '@src/interfaces/search';
+import { ISearchResultResponse } from '@src/interfaces/searchVideo';
+import { IVideo, IVideosInfo } from '@src/interfaces/videoData';
+import { uid } from '@src/utils/uidGenerator';
 
 interface IPageToken {
   pageToken: string;

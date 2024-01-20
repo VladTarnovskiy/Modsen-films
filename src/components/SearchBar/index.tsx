@@ -1,15 +1,16 @@
-import { ChangeEvent, FC, useState } from 'react';
-import * as S from './styled';
 import SearchImg from '@assets/Search.svg';
+import { useDebounce } from '@src/hooks/useDebounce';
+import { useSearchVideosQuery } from '@src/store/slices/ApiSlice';
 import {
   clearVideos,
   selectSearchValue,
   setSearchValue,
 } from '@src/store/slices/MainPageSlice';
+import { ChangeEvent, FC, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useSearchVideosQuery } from '@src/store/slices/ApiSlice';
+
 import { SearchItem } from '../SearchItem/SearchItem';
-import { useDebounce } from '@src/hooks/useDebounce';
+import * as S from './styled';
 
 export const SearchBar: FC = () => {
   const dispatch = useDispatch();

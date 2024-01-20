@@ -1,12 +1,13 @@
+import { Wrapper } from '@jest-dir/utils/testUtils';
+import { routes } from '@src/router';
 import { render, screen, waitFor } from '@testing-library/react';
 import {
   BrowserRouter,
-  RouterProvider,
   createMemoryRouter,
+  RouterProvider,
 } from 'react-router-dom';
-import { Wrapper } from '@jest-dir/utils/testUtils';
+
 import { MainPage } from '.';
-import { routes } from '@src/router';
 
 describe('Main page', () => {
   test('Main found', async () => {

@@ -1,8 +1,9 @@
-import { fireEvent, render, screen } from '@testing-library/react';
-import { Card } from '.';
-import { Wrapper } from '@jest-dir/utils/testUtils';
 import { videoDataMock } from '@jest-dir/mocks/videoMock';
+import { Wrapper } from '@jest-dir/utils/testUtils';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
+
+import { Card } from '.';
 
 describe('Card', () => {
   test('renders the relevant data', async () => {

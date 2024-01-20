@@ -1,5 +1,6 @@
-import { render, screen } from '@testing-library/react';
 import { Wrapper } from '@jest-dir/utils/testUtils';
+import { render, screen } from '@testing-library/react';
+
 import { CardSkeleton } from '.';
 
 describe('Card skeleton', () => {

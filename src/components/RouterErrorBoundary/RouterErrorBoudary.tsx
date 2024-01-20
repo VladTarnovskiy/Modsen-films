@@ -1,10 +1,11 @@
-import { FC } from 'react';
 import DinoImg from '@assets/ErrorDino.svg';
+import { FC } from 'react';
 import {
   isRouteErrorResponse,
   useNavigate,
   useRouteError,
 } from 'react-router-dom';
+
 import * as S from './styled';
 
 export const RouterErrorBoundary: FC = () => {

@@ -1,11 +1,12 @@
-import { FC } from 'react';
-import * as S from './styled';
-import { useDispatch, useSelector } from 'react-redux';
 import {
   changeFilmsFilter,
   clearVideos,
   selectFilmsFilter,
 } from '@src/store/slices/MainPageSlice';
+import { FC } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import * as S from './styled';
 
 const buttonsData = [
   'All',

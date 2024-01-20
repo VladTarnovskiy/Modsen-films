@@ -1,10 +1,11 @@
-import { FC, useState } from 'react';
-import * as S from './styled';
 import { IVideo } from '@src/interfaces/videoData';
-import { getDuration } from '@src/utils/getDuration';
-import { useNavigate } from 'react-router-dom';
 import { getDate } from '@src/utils/getDate';
+import { getDuration } from '@src/utils/getDuration';
+import { FC, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import { VideoModal } from '../VideoModal';
+import * as S from './styled';
 
 interface IProps {
   videoData: IVideo;

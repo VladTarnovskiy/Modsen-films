@@ -1,6 +1,7 @@
-import { FC, useRef, MouseEvent, Dispatch, SetStateAction } from 'react';
-import * as S from './styled';
+import { Dispatch, FC, MouseEvent, SetStateAction, useRef } from 'react';
 import { createPortal } from 'react-dom';
+
+import * as S from './styled';
 
 interface IProps {
   videoLink: string;
