@@ -97,12 +97,13 @@ export const Duration = styled.div`
   height: 20px;
   background-color: ${({ theme }) => theme.colors.bgTertiary};
   color: ${({ theme }) => theme.colors.tertiary};
-  border-radius: 9999px;
+  border-radius: 10px;
   ${itemsCenter}
 
   @media ${({ theme }) => theme.media.s} {
     top: 110px;
     width: 60px;
+    border-radius: 8px;
     height: 15px;
     font-size: ${({ theme }) => theme.fontSize.small};
   }

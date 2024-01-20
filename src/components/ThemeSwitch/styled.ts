@@ -2,7 +2,7 @@ import { itemsCenter } from '@src/styles/fragments';
 import styled from 'styled-components';
 
 export const Switch = styled.div`
-  border-radius: 9999px;
+  border-radius: 13px;
   height: 25px;
   width: 50px;
   padding: 0;

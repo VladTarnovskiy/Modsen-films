@@ -23,7 +23,7 @@ export const FilterContainer = styled.div`
 
 export const FilterButton = styled.button<{ $isActive: boolean }>`
   color: ${({ theme }) => theme.colors.base};
-  border-radius: 9999px;
+  border-radius: 15px;
   height: 30px;
   min-width: 90px;
   padding: 7px 12px;
