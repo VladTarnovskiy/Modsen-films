@@ -18,7 +18,7 @@ export const SearchBar: FC = () => {
     localStorage.getItem('searchValue') || ''
   );
   const [isSearchList, setIsSearchList] = useState(false);
-  const debouncedValue = useDebounce<string>(inputValue, 1000);
+  const debouncedValue = useDebounce<string>(inputValue, 500);
   const { data: searchData, isSuccess } = useSearchVideosQuery({
     searchValue: debouncedValue,
   });
