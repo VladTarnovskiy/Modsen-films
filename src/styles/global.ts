@@ -200,4 +200,7 @@ template {
   display: none;
 }
 
+div{
+  box-sizing: border-box;
+}
 `;

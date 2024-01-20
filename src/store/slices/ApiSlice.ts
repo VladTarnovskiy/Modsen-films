@@ -3,6 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { IVideo, IVideosInfo } from '@src/interfaces/videoData';
 import { KEY, SEARCH_URL, VIDEO_DATA_URL } from '@src/constants/api';
 import { uid } from '@src/utils/uidGenerator';
+import { ISearch, ISearchItem } from '@src/interfaces/search';
 
 interface IPageToken {
   pageToken: string;
@@ -77,7 +78,26 @@ export const apiSlice = createApi({
         return response.items[0];
       },
     }),
+    searchVideos: builder.query<ISearchItem[], { searchValue: string }>({
+      query: ({ searchValue }) => ({
+        url: SEARCH_URL,
+        params: {
+          key: KEY,
+          q: searchValue,
+          part: 'snippet',
+          maxResults: '10',
+        },
+      }),
+      transformResponse: (response: ISearch): ISearchItem[] => {
+        response.items.map((item) => (item.id.videoId = uid()));
+        return response.items;
+      },
+    }),
   }),
 });
 
-export const { useGetSearchInfoQuery, useGetVideoDataQuery } = apiSlice;
+export const {
+  useGetSearchInfoQuery,
+  useGetVideoDataQuery,
+  useSearchVideosQuery,
+} = apiSlice;
