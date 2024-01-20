@@ -21,6 +21,7 @@ import * as S from './styled';
 
 export const Footer: FC = () => {
   const isLight = useSelector(selectIsLightTheme);
+  const year = new Date().getFullYear();
 
   return (
     <S.FooterContainer>
@@ -83,7 +84,7 @@ export const Footer: FC = () => {
           </a>
         </S.SocialLinksContainer>
       </S.LinksContainer>
-      <S.CreationDate>2023 Modsen company</S.CreationDate>
+      <S.CreationDate>{year} Modsen company</S.CreationDate>
     </S.FooterContainer>
   );
 };
