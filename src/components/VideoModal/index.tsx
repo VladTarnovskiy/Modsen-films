@@ -9,7 +9,6 @@ interface IProps {
 }
 
 export const VideoModal: FC<IProps> = ({ videoLink, setVideoModal }) => {
-  const playerLink = `https:${videoLink.split('"')[5]}?autoplay=1`;
   const modalWindow = useRef<HTMLDivElement>(null);
 
   const closeModalWindow = () => {
@@ -32,7 +31,7 @@ export const VideoModal: FC<IProps> = ({ videoLink, setVideoModal }) => {
     >
       <S.ModalContainer data-testid="details-modal" ref={modalWindow}>
         <S.VideoPlayer
-          src={playerLink}
+          src={videoLink}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;"
           allowFullScreen
         />

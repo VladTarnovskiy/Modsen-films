@@ -9,7 +9,7 @@ import {
 import { ChangeEvent, FC, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { SearchItem } from '../SearchItem/SearchItem';
+import { SearchItem } from '../SearchItem';
 import * as S from './styled';
 
 export const SearchBar: FC = () => {

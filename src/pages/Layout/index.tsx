@@ -36,7 +36,7 @@ export const Layout: FC = () => {
 
   useEffect(() => {
     if (isSuccess) {
-      dispatch(setVideos(videosInfo.items));
+      dispatch(setVideos(videosInfo.videos));
       dispatch(setNextPageToken(videosInfo.nextPageToken));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

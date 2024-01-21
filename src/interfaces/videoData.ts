@@ -3,12 +3,10 @@ export interface IVideosInfo {
   kind: string;
   etag: string;
   pageInfo: PageInfo;
-  items: IVideo[];
-  nextPageToken: string | null;
+  items: IVideoResponse[];
 }
 
-export interface IVideo {
-  keyID: string;
+export interface IVideoResponse {
   kind: string;
   etag: string;
   id: string;
@@ -63,4 +61,35 @@ interface Statistics {
   likeCount: string;
   favoriteCount: string;
   commentCount: string;
+}
+
+export interface ITransformedVideosInfo {
+  videos: IVideo[];
+  nextPageToken: string | null;
+}
+
+export interface IVideo {
+  id: string;
+  keyID: string;
+  title: string;
+  channelTitle: string;
+  defaultImg: string;
+  mediumImg: string;
+  publishedAt: string;
+  duration: string;
+  player: string;
+}
+
+export interface IVideoDetails {
+  id: string;
+  title: string;
+  channelTitle: string;
+  defaultImg: string;
+  mediumImg: string;
+  publishedAt: string;
+  duration: string;
+  player: string;
+  viewCount: string;
+  likeCount: string;
+  description: string;
 }

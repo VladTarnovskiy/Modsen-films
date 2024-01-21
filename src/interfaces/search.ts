@@ -11,6 +11,8 @@ export interface ISearch {
 }
 
 export interface ISearchItem {
+  etag: string;
+  kind: string;
   id: {
     kind: string;
     videoId: string;

@@ -26,8 +26,8 @@ export const MainPage: FC = () => {
     }
   };
 
-  let content: JSX.Element | JSX.Element[] | null = null;
   const skeletonArray = [...Array(16).keys()];
+  let content: JSX.Element | JSX.Element[] | null = null;
 
   if (isError) {
     content = <S.InfoContainer>Sorry, something went wrong.</S.InfoContainer>;
