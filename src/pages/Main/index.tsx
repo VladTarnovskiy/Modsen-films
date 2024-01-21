@@ -46,16 +46,12 @@ export const MainPage: FC = () => {
         {content}
         {isLoading && skeletonArray.map((item) => <CardSkeleton key={item} />)}
       </S.CardContainer>
-      {nextPageToken ? (
+      {nextPageToken && (
         <S.ShowMoreBut
           $isFetching={isLoading}
           onClick={getNextPageVideosData}
           data-testid="showMore-btn"
         >
-          Show More
-        </S.ShowMoreBut>
-      ) : (
-        <S.ShowMoreBut $isFetching={true} data-testid="showMore-btn">
           Show More
         </S.ShowMoreBut>
       )}
