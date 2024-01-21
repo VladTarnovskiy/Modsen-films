@@ -29,13 +29,13 @@ export const VideoModal: FC<IProps> = ({ videoLink, setVideoModal }) => {
       onClick={closeWithOverlayClick}
       data-testid="details-modal-overlay"
     >
-      <S.ModalContainer data-testid="details-modal" ref={modalWindow}>
+      <S.Container data-testid="details-modal" ref={modalWindow}>
         <S.VideoPlayer
           src={videoLink}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;"
           allowFullScreen
         />
-      </S.ModalContainer>
+      </S.Container>
     </S.Overlay>,
     document.body
   );

@@ -1,7 +1,7 @@
 import { itemsCenter } from '@src/styles/fragments';
 import styled from 'styled-components';
 
-export const DetailsContainer = styled.div`
+export const Container = styled.div`
   max-width: 1200px;
   margin: auto;
   margin-top: 40px;

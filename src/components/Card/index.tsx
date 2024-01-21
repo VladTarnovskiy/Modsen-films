@@ -15,28 +15,28 @@ export const Card: FC<IProps> = ({ videoData }) => {
 
   return (
     <>
-      <S.CardContainer data-testid="card">
-        <S.CardImageContainer
+      <S.Container data-testid="card">
+        <S.ImageContainer
           onClick={() => setVideoModal(true)}
           data-testid="card-video"
         >
-          <S.CardImg src={videoData.mediumImg} alt={videoData.title} />
+          <S.Img src={videoData.mediumImg} alt={videoData.title} />
           <S.Duration>{videoData.duration}</S.Duration>
-        </S.CardImageContainer>
-        <S.CardDataContainer
+        </S.ImageContainer>
+        <S.DataContainer
           onClick={() => navigate(`/details/${videoData.id}`)}
           data-testid="card-details"
         >
           <S.CreationDate>{videoData.publishedAt}</S.CreationDate>
-          <S.CardDescription>
+          <S.Description>
             <S.UserIcon $bg={videoData.defaultImg} />
             <S.VideoInfo>
               <S.ChanelTitle>{videoData.channelTitle}</S.ChanelTitle>
               <S.FilmTitle>{videoData.title}</S.FilmTitle>
             </S.VideoInfo>
-          </S.CardDescription>
-        </S.CardDataContainer>
-      </S.CardContainer>
+          </S.Description>
+        </S.DataContainer>
+      </S.Container>
       {videoModal && (
         <VideoModal
           videoLink={videoData.player}

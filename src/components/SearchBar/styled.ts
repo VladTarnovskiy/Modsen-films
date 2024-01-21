@@ -6,7 +6,7 @@ import {
 } from '@src/styles/fragments';
 import styled from 'styled-components';
 
-export const SearchBarContainer = styled.div`
+export const Container = styled.div`
   ${itemsCenter}
 
   padding: 0 20px;

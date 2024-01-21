@@ -24,10 +24,10 @@ export const RouterErrorBoundary: FC = () => {
   }
 
   return (
-    <S.ErrorContainer>
-      <S.ErrorImg src={DinoImg} alt="Error dino" />
-      <S.ErrorMessage>{message}</S.ErrorMessage>
+    <S.Container>
+      <S.Img src={DinoImg} alt="Error dino" />
+      <S.Message>{message}</S.Message>
       <S.GoBackBut onClick={() => navigate(-1)}>Go back</S.GoBackBut>
-    </S.ErrorContainer>
+    </S.Container>
   );
 };

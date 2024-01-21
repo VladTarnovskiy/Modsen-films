@@ -24,7 +24,7 @@ export const Footer: FC = () => {
   const year = new Date().getFullYear();
 
   return (
-    <S.FooterContainer>
+    <S.Container>
       <S.LinksContainer>
         <S.LocalLinksContainer>
           <S.LocalLinksList>
@@ -87,6 +87,6 @@ export const Footer: FC = () => {
         </S.SocialLinksContainer>
       </S.LinksContainer>
       <S.CreationDate>{year} Modsen company</S.CreationDate>
-    </S.FooterContainer>
+    </S.Container>
   );
 };

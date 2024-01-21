@@ -5,11 +5,11 @@ import {
 } from '@src/styles/fragments';
 import { styled } from 'styled-components';
 
-export const ErrorWrapper = styled.div`
+export const Container = styled.div`
   margin-top: 100px;
   text-align: center;
 `;
-export const ErrorCode = styled.div`
+export const Code = styled.div`
   font-family: ${({ theme }) => theme.fontFamily.base};
   font-size: 4rem;
   margin-bottom: 10px;
@@ -21,7 +21,7 @@ export const ErrorCode = styled.div`
   }
 `;
 
-export const ErrorDescription = styled.div`
+export const Description = styled.div`
   font-family: ${({ theme }) => theme.fontFamily.light};
   font-size: 3rem;
   line-height: 60px;
@@ -33,7 +33,7 @@ export const ErrorDescription = styled.div`
   }
 `;
 
-export const ErrorAnimation = styled.div`
+export const Animation = styled.div`
   background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
   background-repeat: no-repeat;
   height: 600px;
@@ -50,7 +50,7 @@ export const ErrorAnimation = styled.div`
   }
 `;
 
-export const MainPageBut = styled.button`
+export const Button = styled.button`
   width: 192px;
   height: 52px;
   padding: 14px 35px;

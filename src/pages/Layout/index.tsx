@@ -59,9 +59,9 @@ export const Layout: FC = () => {
   return (
     <>
       <Header />
-      <S.MainContainer>
+      <S.Container>
         <Outlet />
-      </S.MainContainer>
+      </S.Container>
       <Footer />
     </>
   );

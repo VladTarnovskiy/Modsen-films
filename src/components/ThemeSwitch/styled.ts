@@ -9,7 +9,7 @@ export const Switch = styled.div`
   box-shadow: 0px 1px 5px 0px ${({ theme }) => theme.colors.quaternary} inset;
 `;
 
-export const SwitchThumb = styled.button<{ $isLightTheme: boolean }>`
+export const Thumb = styled.button<{ $isLightTheme: boolean }>`
   transition: all 0.1s ease-out;
   border-radius: 100%;
   margin-top: -2px;
@@ -25,7 +25,7 @@ export const SwitchThumb = styled.button<{ $isLightTheme: boolean }>`
   }
 `;
 
-export const SwitchImg = styled.img`
+export const Img = styled.img`
   transition: all 0.2s ease-out;
   height: 24px;
   width: 24px;

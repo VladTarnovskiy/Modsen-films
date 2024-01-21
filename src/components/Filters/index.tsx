@@ -21,17 +21,17 @@ export const Filters: FC = () => {
   };
 
   return (
-    <S.FilterContainer data-testid="filters">
+    <S.Container data-testid="filters">
       {buttonsData.map((title) => (
-        <S.FilterButton
+        <S.Button
           $isActive={filterValue === title}
           key={title}
           onClick={() => changeFilter(title)}
           data-testid="filters-button"
         >
           {title}
-        </S.FilterButton>
+        </S.Button>
       ))}
-    </S.FilterContainer>
+    </S.Container>
   );
 };

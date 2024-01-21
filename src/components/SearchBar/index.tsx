@@ -64,7 +64,7 @@ export const SearchBar: FC = () => {
   };
 
   return (
-    <S.SearchBarContainer data-testid="search-bar">
+    <S.Container data-testid="search-bar">
       <S.SearcherContainer>
         <S.SearchBar
           type="search"
@@ -95,6 +95,6 @@ export const SearchBar: FC = () => {
       <S.SubmitButton onClick={handleSubmit} data-testid="search-button">
         <S.SubmitButtonIcon src={SearchImg} />
       </S.SubmitButton>
-    </S.SearchBarContainer>
+    </S.Container>
   );
 };

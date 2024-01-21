@@ -6,7 +6,7 @@ import {
 } from '@src/styles/fragments';
 import styled from 'styled-components';
 
-export const FilterContainer = styled.div`
+export const Container = styled.div`
   padding: 12px 6px;
   flex-wrap: wrap;
   gap: 6px;
@@ -24,7 +24,7 @@ export const FilterContainer = styled.div`
   }
 `;
 
-export const FilterButton = styled.button<{ $isActive: boolean }>`
+export const Button = styled.button<{ $isActive: boolean }>`
   color: ${({ theme }) => theme.colors.base};
   border-radius: 15px;
   height: 30px;

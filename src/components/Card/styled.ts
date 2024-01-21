@@ -1,7 +1,7 @@
 import { buttonAnimation, itemsCenter } from '@src/styles/fragments';
 import styled from 'styled-components';
 
-export const CardContainer = styled.div`
+export const Container = styled.div`
   padding-bottom: 20px;
   width: 332px;
   overflow: hidden;
@@ -18,7 +18,7 @@ export const CardContainer = styled.div`
   }
 `;
 
-export const CardImageContainer = styled.div`
+export const ImageContainer = styled.div`
   position: relative;
   height: 186px;
   overflow: hidden;
@@ -28,7 +28,7 @@ export const CardImageContainer = styled.div`
   }
 `;
 
-export const CardImg = styled.img`
+export const Img = styled.img`
   width: 100%;
   height: 100%;
 
@@ -37,11 +37,11 @@ export const CardImg = styled.img`
   }
 `;
 
-export const CardDataContainer = styled.div`
+export const DataContainer = styled.div`
   height: 100%;
 `;
 
-export const CardDescription = styled.div`
+export const Description = styled.div`
   display: flex;
   justify-content: flex-start;
 `;

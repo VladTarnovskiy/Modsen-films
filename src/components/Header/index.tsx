@@ -11,7 +11,7 @@ import * as S from './styled';
 export const Header: FC = () => {
   return (
     <>
-      <S.StyledHeader>
+      <S.Header>
         <NavLink to="/">
           <S.LogoContainer data-testid="logo">
             <S.LogoImg src={Logo}></S.LogoImg>
@@ -27,7 +27,7 @@ export const Header: FC = () => {
           <ThemeSwitch />
         </S.SwitchContainer>
         <BurgerMenu />
-      </S.StyledHeader>
+      </S.Header>
       <PathnameCheck>
         <S.SearchBarMobileContainer>
           <SearchBar />

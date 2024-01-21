@@ -52,5 +52,5 @@ export const DetailsPage: FC = () => {
     content = <DetailsSkeleton />;
   }
 
-  return <S.DetailsContainer>{content} </S.DetailsContainer>;
+  return <S.Container>{content} </S.Container>;
 };
