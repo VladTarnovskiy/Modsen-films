@@ -1,3 +1,4 @@
+import { buttonsData } from '@src/constants/filters';
 import {
   changeFilmsFilter,
   clearVideos,
@@ -7,16 +8,6 @@ import { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import * as S from './styled';
-
-const buttonsData = [
-  'All',
-  'actions',
-  'drama',
-  'crime',
-  'romantic',
-  'horror',
-  'documentary',
-];
 
 export const Filters: FC = () => {
   const dispatch = useDispatch();
