@@ -20,7 +20,11 @@ export const SearchBar: FC = () => {
   );
   const [isSearchList, setIsSearchList] = useState(false);
   const debouncedValue = useDebounce<string>(inputValue, 500);
-  const { data: searchData, isSuccess } = useSearchVideosQuery({
+  const {
+    data: searchData,
+    isSuccess,
+    isError,
+  } = useSearchVideosQuery({
     searchValue: debouncedValue,
   });
 
@@ -80,6 +84,11 @@ export const SearchBar: FC = () => {
                 setSearchFromList={setSearchFromList}
               />
             ))}
+          </S.ElasticSearch>
+        )}
+        {isError && isSearchList && (
+          <S.ElasticSearch>
+            <S.ErrorContainer>Something went wrong.</S.ErrorContainer>
           </S.ElasticSearch>
         )}
       </S.SearcherContainer>

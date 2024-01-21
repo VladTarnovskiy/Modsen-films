@@ -80,3 +80,7 @@ export const SubmitButtonIcon = styled.img`
   width: 17px;
   height: 16px;
 `;
+
+export const ErrorContainer = styled.div`
+  margin: 10px 0;
+`;
