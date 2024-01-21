@@ -94,7 +94,7 @@ export const SocialLink = styled.img`
   }
 `;
 
-export const CreationDate = styled.div`
+export const CreationDate = styled.p`
   margin: auto;
   width: fit-content;
   margin-bottom: 17px;

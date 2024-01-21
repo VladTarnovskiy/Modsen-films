@@ -32,7 +32,7 @@ export const ChanelInfo = styled.div`
   padding-top: 12px;
 `;
 
-export const FilmTitle = styled.div`
+export const FilmTitle = styled.p`
   font-size: ${({ theme }) => theme.fontSize.lg};
 
   @media ${({ theme }) => theme.media.s} {
@@ -40,7 +40,7 @@ export const FilmTitle = styled.div`
   }
 `;
 
-export const ChanelTitle = styled.div`
+export const ChanelTitle = styled.p`
   margin-bottom: 4px;
 `;
 
@@ -59,7 +59,7 @@ export const UserIcon = styled.div<{ $bg: string }>`
   }
 `;
 
-export const VideoPublishedDate = styled.div`
+export const VideoPublishedDate = styled.p`
   margin-top: 20px;
   margin-bottom: 5px;
 
@@ -68,7 +68,7 @@ export const VideoPublishedDate = styled.div`
   }
 `;
 
-export const VideoDescription = styled.div`
+export const VideoDescription = styled.p`
   word-break: break-all;
   font-size: ${({ theme }) => theme.fontSize.small};
 `;
@@ -98,7 +98,7 @@ export const VideoStatisticIcon = styled.img`
   margin-right: 4px;
 `;
 
-export const VideoStatisticInfo = styled.div`
+export const VideoStatisticInfo = styled.p`
   @media ${({ theme }) => theme.media.s} {
     font-size: ${({ theme }) => theme.fontSize.small};
   }

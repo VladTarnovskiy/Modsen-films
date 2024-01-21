@@ -70,7 +70,7 @@ export const VideoInfo = styled.div`
   }
 `;
 
-export const ChanelTitle = styled.div`
+export const ChanelTitle = styled.p`
   margin-bottom: 4px;
 
   @media ${({ theme }) => theme.media.s} {
@@ -78,18 +78,18 @@ export const ChanelTitle = styled.div`
   }
 `;
 
-export const FilmTitle = styled.div`
+export const FilmTitle = styled.p`
   font-size: ${({ theme }) => theme.fontSize.small};
 `;
 
-export const CreationDate = styled.div`
+export const CreationDate = styled.p`
   font-size: ${({ theme }) => theme.fontSize.small};
   width: fit-content;
   margin-right: auto;
   padding-bottom: 5px;
 `;
 
-export const Duration = styled.div`
+export const Duration = styled.p`
   top: 160px;
   right: 5px;
   position: absolute;
