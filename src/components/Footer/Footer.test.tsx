@@ -12,7 +12,7 @@ describe('Footer', () => {
     );
 
     const localLink = screen.getByText(/TermsPrivacyPolicy & Safety/i);
-    const creationDate = screen.getByText(/2023 Modsen company/i);
+    const creationDate = screen.getByText(/Modsen company/i);
 
     expect(localLink).toBeInTheDocument();
     expect(creationDate).toBeInTheDocument();
