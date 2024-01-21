@@ -11,9 +11,12 @@ export const FilterContainer = styled.div`
   flex-wrap: wrap;
   gap: 6px;
   margin-bottom: 28px;
+
   ${borderBase};
+
   border-left: none;
   border-right: none;
+
   ${itemsCenter};
 
   @media ${({ theme }) => theme.media.s} {
@@ -38,6 +41,7 @@ export const FilterButton = styled.button<{ $isActive: boolean }>`
 
   &:hover {
     ${buttonAnimation}
+
     background-color: ${({ theme }) => theme.colors.bgTertiary};
     color: ${({ theme }) => theme.colors.tertiary};
     border: none;

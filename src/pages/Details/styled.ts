@@ -88,6 +88,7 @@ export const VideoStatistic = styled.div`
 export const VideoStatisticItem = styled.div`
   margin-top: 10px;
   margin-right: 20px;
+
   ${itemsCenter}
 `;
 
@@ -106,5 +107,6 @@ export const VideoStatisticInfo = styled.div`
 export const InfoContainer = styled.div`
   margin-top: 200px;
   width: 100%;
+
   ${itemsCenter}
 `;

@@ -7,7 +7,9 @@ import { styled } from 'styled-components';
 
 export const ErrorContainer = styled.div`
   margin: auto;
+
   ${itemsCenter}
+
   width: fit-content;
   flex-direction: column;
 
@@ -45,6 +47,7 @@ export const GoBackBut = styled.button`
   margin: auto;
   background-color: ${({ theme }) => theme.colors.bgSecondary};
   border: none;
+
   ${itemsCenter};
 
   @media ${({ theme }) => theme.media.s} {

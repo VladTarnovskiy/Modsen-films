@@ -92,17 +92,19 @@ export const MenuBox = styled.ul`
   text-align: center;
   background-color: ${({ theme }) => theme.colors.bgBase};
   box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.2);
+
   ${buttonAnimation}
 `;
 
 export const MenuItem = styled.li`
-  ${itemsCenter}
   padding: 12px;
   color: ${({ theme }) => theme.colors.base};
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
   font-weight: 600;
   text-decoration: none;
+
+  ${itemsCenter}
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.bgPrimary};

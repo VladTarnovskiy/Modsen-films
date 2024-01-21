@@ -60,6 +60,7 @@ export const MainPageBut = styled.button`
   margin: auto;
   background-color: ${({ theme }) => theme.colors.bgSecondary};
   border: none;
+
   ${itemsCenter};
 
   @media ${({ theme }) => theme.media.s} {

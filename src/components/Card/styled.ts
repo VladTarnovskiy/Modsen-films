@@ -98,6 +98,7 @@ export const Duration = styled.div`
   background-color: ${({ theme }) => theme.colors.bgTertiary};
   color: ${({ theme }) => theme.colors.tertiary};
   border-radius: 10px;
+
   ${itemsCenter}
 
   @media ${({ theme }) => theme.media.s} {

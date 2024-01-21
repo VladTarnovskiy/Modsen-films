@@ -14,9 +14,10 @@ export const SkeletonCardContainer = styled.div`
 `;
 
 export const SkeletonCardImg = styled.div`
-  ${SkeletonBackgroundAnimation}
   width: 100%;
   height: 186px;
+
+  ${SkeletonBackgroundAnimation}
 
   @media ${({ theme }) => theme.media.s} {
     height: 129px;
@@ -30,11 +31,12 @@ export const SkeletonCardDescription = styled.div`
 `;
 
 export const SkeletonUserIcon = styled.div`
-  ${SkeletonBackgroundAnimation}
   width: 36px;
   height: 36px;
   margin-right: 12px;
   border-radius: 100%;
+
+  ${SkeletonBackgroundAnimation}
 
   @media ${({ theme }) => theme.media.s} {
     width: 22px;
@@ -52,17 +54,19 @@ export const SkeletonVideoInfo = styled.div`
 `;
 
 export const SkeletonCreationDate = styled.div`
-  ${SkeletonBackgroundAnimation}
   height: 18px;
   width: 130px;
   margin-bottom: 3px;
   margin-top: 3px;
+
+  ${SkeletonBackgroundAnimation}
 `;
 
 export const SkeletonFilmTitle = styled.div`
-  ${SkeletonBackgroundAnimation}
   height: 22px;
   width: 230px;
+
+  ${SkeletonBackgroundAnimation}
 
   @media ${({ theme }) => theme.media.s} {
     width: 150px;
@@ -70,10 +74,11 @@ export const SkeletonFilmTitle = styled.div`
 `;
 
 export const SkeletonChanelTitle = styled.div`
-  ${SkeletonBackgroundAnimation}
   margin-bottom: 4px;
   height: 22px;
   width: 130px;
+
+  ${SkeletonBackgroundAnimation}
 
   @media ${({ theme }) => theme.media.s} {
     width: 80px;

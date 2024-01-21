@@ -17,6 +17,7 @@ export const SwitchThumb = styled.button<{ $isLightTheme: boolean }>`
   width: 28px;
   margin-left: ${({ $isLightTheme }) => ($isLightTheme ? 0 : '23px')};
   background-color: ${({ theme }) => theme.colors.bgSecondary};
+
   ${itemsCenter}
 
   &:hover {

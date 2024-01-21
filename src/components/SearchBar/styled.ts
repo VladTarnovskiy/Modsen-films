@@ -8,6 +8,7 @@ import styled from 'styled-components';
 
 export const SearchBarContainer = styled.div`
   ${itemsCenter}
+
   padding: 0 20px;
 
   @media ${({ theme }) => theme.media.s} {
@@ -22,6 +23,7 @@ export const SearchBar = styled.input`
   padding: 5px 15px;
   font-size: ${({ theme }) => theme.fontSize.small};
   color: ${({ theme }) => theme.colors.base};
+
   ${borderBase}
 
   &:focus {
@@ -63,11 +65,13 @@ export const ElasticSearch = styled.div`
 export const SubmitButton = styled.button`
   width: 57px;
   height: 38px;
+
   ${borderBase}
   ${itemsCenter}
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.bgSecondary};
+
     ${buttonAnimation}
   }
 
