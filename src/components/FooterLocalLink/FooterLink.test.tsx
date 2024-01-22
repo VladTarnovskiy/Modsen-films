@@ -1,9 +1,9 @@
 import { Wrapper } from '@jest-dir/utils/testUtils';
 import { render, screen } from '@testing-library/react';
 
-import { FooterLink } from '.';
+import { FooterLocalLink } from '.';
 
-describe('Footer link', () => {
+describe('Footer local link', () => {
   test('element renders', async () => {
     const props = {
       title: 'Modsen',
@@ -11,7 +11,7 @@ describe('Footer link', () => {
     };
     render(
       <Wrapper>
-        <FooterLink linkData={props} />
+        <FooterLocalLink linkData={props} />
       </Wrapper>
     );
 
