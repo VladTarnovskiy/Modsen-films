@@ -1,5 +1,9 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { KEY, SEARCH_URL, VIDEO_DATA_URL } from '@src/constants/api';
+import {
+  SEARCH_URL,
+  VIDEO_DATA_URL,
+  YOUTUBE_API_KEY,
+} from '@src/constants/api';
 import { ISearch, ISearchItem } from '@src/interfaces/search';
 import { ISearchResultResponse } from '@src/interfaces/searchVideo';
 import {
@@ -31,7 +35,7 @@ export const apiSlice = createApi({
         const fetchSearchInfo = await fetchBaseQuery({
           url: SEARCH_URL,
           params: {
-            key: KEY,
+            key: YOUTUBE_API_KEY,
             q: `${arg.searchValue} + ' ' + ${
               arg.filterValue === 'All' ? '' : arg.filterValue
             }`,
@@ -56,7 +60,7 @@ export const apiSlice = createApi({
         const fetchVideosInfo = await fetchBaseQuery({
           url: VIDEO_DATA_URL,
           params: {
-            key: KEY,
+            key: YOUTUBE_API_KEY,
             part: 'snippet,statistics,player,contentDetails',
             id: ids,
           },
@@ -90,7 +94,7 @@ export const apiSlice = createApi({
       query: ({ videoID }) => ({
         url: VIDEO_DATA_URL,
         params: {
-          key: KEY,
+          key: YOUTUBE_API_KEY,
           part: 'snippet,statistics,player,contentDetails',
           id: videoID,
         },
@@ -119,7 +123,7 @@ export const apiSlice = createApi({
       query: ({ searchValue }) => ({
         url: SEARCH_URL,
         params: {
-          key: KEY,
+          key: YOUTUBE_API_KEY,
           q: searchValue,
           part: 'snippet',
           maxResults: '10',

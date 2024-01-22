@@ -1,3 +1,4 @@
+import { SEARCH_URL, VIDEO_DATA_URL } from '../../src/constants/api';
 import { searchResultMock } from '../mocks/searchResult';
 import { videosInfoMock } from '../mocks/videosInfo';
 
@@ -6,11 +7,11 @@ afterEach(() => {
 });
 
 beforeEach(() => {
-  cy.intercept('GET', 'https://youtube.googleapis.com/youtube/v3/search*', {
+  cy.intercept('GET', `${SEARCH_URL}*`, {
     statusCode: 200,
     body: searchResultMock,
   });
-  cy.intercept('GET', 'https://www.googleapis.com/youtube/v3/videos*', {
+  cy.intercept('GET', `${VIDEO_DATA_URL}*`, {
     statusCode: 200,
     body: videosInfoMock,
   });
