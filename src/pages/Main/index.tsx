@@ -40,7 +40,7 @@ export const MainPage: FC = () => {
   }
 
   return (
-    <div>
+    <div data-testid="main-page">
       <Filters />
       <S.CardContainer>
         {content}

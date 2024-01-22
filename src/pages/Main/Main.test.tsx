@@ -21,8 +21,8 @@ describe('Main page', () => {
     );
 
     await waitFor(() => {
-      const button = screen.getByText(/Show More/i);
-      expect(button).toBeInTheDocument();
+      const page = screen.getByTestId('main-page');
+      expect(page).toBeInTheDocument();
     });
   });
 

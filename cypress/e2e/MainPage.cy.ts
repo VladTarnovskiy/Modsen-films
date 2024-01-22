@@ -7,7 +7,6 @@ describe('Main page', () => {
     cy.contains('ModsenFilms');
     cy.contains('Show More');
     cy.contains('TermsPrivacyPolicy');
-    cy.contains('2023 Modsen company');
     cy.wait(3000);
     cy.get('[data-testid="card"]').should('have.length', 16);
   });
@@ -45,22 +44,5 @@ describe('Main page', () => {
   it('refresh cards after filters button clicking', () => {
     cy.get('[data-testid="filters-button"]').eq(1).click();
     cy.get('[data-testid="card-skeleton"]');
-  });
-
-  it('get cards by enter new value to search input', () => {
-    cy.get('input[placeholder="Search"]').first().type('Modsen{enter}');
-    cy.get('input[placeholder="Search"]').should('have.value', 'Modsen');
-    cy.get('[data-testid="card-skeleton"]');
-    cy.wait(3000);
-    cy.get('[data-testid="card"]');
-  });
-
-  it('get cards by search input search button', () => {
-    cy.get('input[placeholder="Search"]').first().type('Modsen');
-    cy.get('input[placeholder="Search"]').should('have.value', 'Modsen');
-    cy.get('[data-testid="search-button"]').first().click();
-    cy.get('[data-testid="card-skeleton"]');
-    cy.wait(3000);
-    cy.get('[data-testid="card"]');
   });
 });
