@@ -29,24 +29,7 @@ if (process.env.SERVE) {
   plugins.push(new ReactRefreshWebpackPlugin());
 }
 
-const devServer = {
-  historyApiFallback: true,
-  open: true,
-  compress: true,
-  allowedHosts: 'all',
-  hot: true,
-  client: {
-    overlay: {
-      errors: true,
-      warnings: true,
-    },
-    progress: true,
-  },
-  port: 3000,
-};
-
 export default {
-  devServer,
   plugins,
   entry: path.join(__dirname, '..', 'src', 'index.tsx'),
   output: {

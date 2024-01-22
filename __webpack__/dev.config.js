@@ -9,7 +9,24 @@ const plugins = [
   }),
 ];
 
+const devServer = {
+  historyApiFallback: true,
+  open: true,
+  compress: true,
+  allowedHosts: 'all',
+  hot: true,
+  client: {
+    overlay: {
+      errors: true,
+      warnings: true,
+    },
+    progress: true,
+  },
+  port: 3000,
+};
+
 export default merge(common, {
+  devServer,
   mode: 'development',
   target: 'web',
   plugins,

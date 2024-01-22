@@ -1,4 +1,3 @@
-import SearchImg from '@assets/Search.svg';
 import { useDebounce } from '@src/hooks/useDebounce';
 import { useSearchVideosQuery } from '@src/store/slices/ApiSlice';
 import {
@@ -7,13 +6,14 @@ import {
   setSearchValue,
 } from '@src/store/slices/MainPageSlice';
 import { MyLocalStorage } from '@src/utils/localStorage';
-import { ChangeEvent, FC, useState } from 'react';
+import { ChangeEvent, FC, memo, useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { SearchButton } from '../SearchButton';
 import { SearchItem } from '../SearchItem';
 import * as S from './styled';
 
-export const SearchBar: FC = () => {
+export const SearchBar: FC = memo(function SearchBar() {
   const dispatch = useDispatch();
   const searchValue = useSelector(selectSearchValue);
   const [inputValue, setInputValue] = useState(
@@ -29,14 +29,17 @@ export const SearchBar: FC = () => {
     searchValue: debouncedValue,
   });
 
-  const handleSubmit = () => {
-    setIsSearchList(false);
-    if (searchValue !== inputValue) {
-      dispatch(clearVideos());
-      dispatch(setSearchValue(inputValue));
-      MyLocalStorage.setItem('searchValue', inputValue);
-    }
-  };
+  const handleSubmit = useCallback(
+    function handleSubmit() {
+      setIsSearchList(false);
+      if (searchValue !== inputValue) {
+        dispatch(clearVideos());
+        dispatch(setSearchValue(inputValue));
+        MyLocalStorage.setItem('searchValue', inputValue);
+      }
+    },
+    [dispatch, inputValue, searchValue]
+  );
 
   const setSearchFromList = (value: string) => {
     setInputValue(value);
@@ -100,9 +103,7 @@ export const SearchBar: FC = () => {
         />
         {elasticSearch}
       </S.SearcherContainer>
-      <S.SubmitButton onClick={handleSubmit} data-testid="search-button">
-        <S.SubmitButtonIcon src={SearchImg} />
-      </S.SubmitButton>
+      <SearchButton data-testid="search-button" handleSubmit={handleSubmit} />
     </S.Container>
   );
-};
+});

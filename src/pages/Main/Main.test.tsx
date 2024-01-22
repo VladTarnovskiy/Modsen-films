@@ -38,9 +38,9 @@ describe('Main page', () => {
     );
 
     await waitFor(() => {
-      const cardTitle = screen.getByText(/catvid-19/i);
+      const cardTitle = screen.getAllByText(/catvid-19/i);
       const buttons = screen.getAllByTestId('card');
-      expect(cardTitle).toBeInTheDocument();
+      expect(cardTitle[0]).toBeInTheDocument();
       expect(buttons).toHaveLength(5);
     });
   });
