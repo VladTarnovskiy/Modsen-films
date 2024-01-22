@@ -1,11 +1,11 @@
-import { FC } from 'react';
-import * as S from './styled';
-import ViewsIcon from '@assets/Views.svg';
 import LikedIcon from '@assets/Liked.svg';
-import { useParams } from 'react-router-dom';
-import { useGetVideoDataQuery } from '@src/store/slices/ApiSlice';
+import ViewsIcon from '@assets/Views.svg';
 import { DetailsSkeleton } from '@src/components/DetailsSkeleton';
-import { getDate } from '@src/utils/getDate';
+import { useGetVideoDataQuery } from '@src/store/slices/ApiSlice';
+import { FC } from 'react';
+import { useParams } from 'react-router-dom';
+
+import * as S from './styled';
 
 export const DetailsPage: FC = () => {
   const { detailsId } = useParams();
@@ -20,34 +20,30 @@ export const DetailsPage: FC = () => {
   let content: JSX.Element | JSX.Element[];
 
   if (isSuccess) {
-    const { snippet, statistics, player } = videoData;
-    const playerLink = `https:${player.embedHtml.split('"')[5]}?autoplay=1`;
-    const localDate = getDate(snippet.publishedAt);
-
     content = (
       <div data-testid="details-page">
         <S.VideoPlayer
-          src={playerLink}
+          src={videoData.player}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;"
           allowFullScreen
         />
-        <S.FilmTitle>{snippet.title}</S.FilmTitle>
+        <S.FilmTitle>{videoData.title}</S.FilmTitle>
         <S.ChanelInfo>
-          <S.UserIcon $bg={snippet.thumbnails.default.url} />
-          <S.ChanelTitle>{snippet.channelTitle}</S.ChanelTitle>
+          <S.UserIcon $bg={videoData.defaultImg} />
+          <S.ChanelTitle>{videoData.channelTitle}</S.ChanelTitle>
         </S.ChanelInfo>
         <S.VideoStatistic>
           <S.VideoStatisticItem>
             <S.VideoStatisticIcon src={ViewsIcon} />
-            <S.VideoStatisticInfo>{statistics.viewCount}</S.VideoStatisticInfo>
+            <S.VideoStatisticInfo>{videoData.viewCount}</S.VideoStatisticInfo>
           </S.VideoStatisticItem>
           <S.VideoStatisticItem>
             <S.VideoStatisticIcon src={LikedIcon} />
-            <S.VideoStatisticInfo>{statistics.likeCount}</S.VideoStatisticInfo>
+            <S.VideoStatisticInfo>{videoData.likeCount}</S.VideoStatisticInfo>
           </S.VideoStatisticItem>
         </S.VideoStatistic>
-        <S.VideoPublishedDate>{localDate}</S.VideoPublishedDate>
-        <S.VideoDescription>{snippet.description}</S.VideoDescription>
+        <S.VideoPublishedDate>{videoData.publishedAt}</S.VideoPublishedDate>
+        <S.VideoDescription>{videoData.description}</S.VideoDescription>
       </div>
     );
   } else if (isError) {
@@ -56,5 +52,5 @@ export const DetailsPage: FC = () => {
     content = <DetailsSkeleton />;
   }
 
-  return <S.DetailsContainer>{content} </S.DetailsContainer>;
+  return <S.Container>{content} </S.Container>;
 };

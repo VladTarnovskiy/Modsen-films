@@ -1,18 +1,17 @@
 import { FC } from 'react';
-import * as S from './styled';
 import { NavLink } from 'react-router-dom';
+
+import * as S from './styled';
 
 export const NotFoundPage: FC = () => {
   return (
-    <S.ErrorWrapper>
-      <S.ErrorCode>404</S.ErrorCode>
-      <S.ErrorDescription>
-        The page you are looking for not found!
-      </S.ErrorDescription>
-      <S.ErrorAnimation />
+    <S.Container>
+      <S.Code>404</S.Code>
+      <S.Description>The page you are looking for not found!</S.Description>
+      <S.Animation />
       <NavLink to="/">
-        <S.MainPageBut data-testid="main-page-btn">Main Page</S.MainPageBut>
+        <S.Button data-testid="main-page-btn">Main Page</S.Button>
       </NavLink>
-    </S.ErrorWrapper>
+    </S.Container>
   );
 };

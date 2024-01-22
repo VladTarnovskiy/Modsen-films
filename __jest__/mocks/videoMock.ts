@@ -1,6 +1,6 @@
-import { IVideo } from '@src/interfaces/videoData';
+import { IVideoResponse } from '@src/interfaces/videoData';
 
-export const videoDataMock: IVideo = {
+export const videoDataMock: IVideoResponse = {
   kind: 'youtube#video',
   etag: 'I3OcX3-u8TTrzaK7o48EmeN9ZE8',
   id: '3bhkYoMWTFE',
@@ -61,5 +61,4 @@ export const videoDataMock: IVideo = {
     embedHtml:
       '<iframe width="480" height="270" src="//www.youtube.com/embed/3bhkYoMWTFE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
   },
-  keyID: '1fc49129-52e8-45dc-a283-214efa9e97db',
 };

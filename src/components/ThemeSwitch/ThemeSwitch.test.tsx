@@ -1,5 +1,6 @@
-import { fireEvent, render, screen } from '@testing-library/react';
 import { Wrapper } from '@jest-dir/utils/testUtils';
+import { fireEvent, render, screen } from '@testing-library/react';
+
 import { ThemeSwitch } from '.';
 
 describe('Theme switch', () => {

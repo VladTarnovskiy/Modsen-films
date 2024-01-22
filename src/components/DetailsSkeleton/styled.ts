@@ -1,14 +1,10 @@
 import { SkeletonBackgroundAnimation } from '@src/styles/fragments';
 import styled from 'styled-components';
 
-export const SkeletonDetailsContainer = styled.div`
-  max-width: 1200px;
-  margin: auto;
-`;
-
-export const SkeletonVideoPlayer = styled.div`
+export const VideoPlayer = styled.div`
   width: 100%;
   height: 500px;
+
   ${SkeletonBackgroundAnimation}
 
   @media ${({ theme }) => theme.media.xl} {
@@ -24,17 +20,18 @@ export const SkeletonVideoPlayer = styled.div`
   }
 `;
 
-export const SkeletonChanelInfo = styled.div`
+export const ChanelInfo = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
   padding-top: 12px;
 `;
 
-export const SkeletonFilmTitle = styled.div`
+export const FilmTitle = styled.div`
   margin-top: 5px;
   height: 22px;
   width: 230px;
+
   ${SkeletonBackgroundAnimation}
 
   @media ${({ theme }) => theme.media.s} {
@@ -42,10 +39,11 @@ export const SkeletonFilmTitle = styled.div`
   }
 `;
 
-export const SkeletonChanelTitle = styled.div`
+export const ChanelTitle = styled.div`
   margin-bottom: 4px;
   height: 22px;
   width: 130px;
+
   ${SkeletonBackgroundAnimation}
 
   @media ${({ theme }) => theme.media.s} {
@@ -53,10 +51,11 @@ export const SkeletonChanelTitle = styled.div`
   }
 `;
 
-export const SkeletonVideoStatistic = styled.div`
+export const VideoStatistic = styled.div`
   height: 22px;
   width: 230px;
   margin-left: 45px;
+
   ${SkeletonBackgroundAnimation}
 
   @media ${({ theme }) => theme.media.s} {
@@ -65,12 +64,13 @@ export const SkeletonVideoStatistic = styled.div`
   }
 `;
 
-export const SkeletonUserIcon = styled.div`
+export const UserIcon = styled.div`
   flex-shrink: 0;
   width: 36px;
   height: 36px;
   margin-right: 12px;
   border-radius: 100%;
+
   ${SkeletonBackgroundAnimation}
 
   @media ${({ theme }) => theme.media.s} {
@@ -80,9 +80,10 @@ export const SkeletonUserIcon = styled.div`
   }
 `;
 
-export const SkeletonVideoDescription = styled.div`
+export const VideoDescription = styled.div`
   margin-top: 20px;
   width: 100%;
   height: 100px;
+
   ${SkeletonBackgroundAnimation}
 `;

@@ -1,12 +1,13 @@
+import { Wrapper } from '@jest-dir/utils/testUtils';
+import { routes } from '@src/router';
 import { render, screen, waitFor } from '@testing-library/react';
 import {
   BrowserRouter,
-  RouterProvider,
   createMemoryRouter,
+  RouterProvider,
 } from 'react-router-dom';
-import { Wrapper } from '@jest-dir/utils/testUtils';
+
 import { MainPage } from '.';
-import { routes } from '@src/router';
 
 describe('Main page', () => {
   test('Main found', async () => {
@@ -20,8 +21,8 @@ describe('Main page', () => {
     );
 
     await waitFor(() => {
-      const button = screen.getByText(/Show More/i);
-      expect(button).toBeInTheDocument();
+      const page = screen.getByTestId('main-page');
+      expect(page).toBeInTheDocument();
     });
   });
 
@@ -37,9 +38,9 @@ describe('Main page', () => {
     );
 
     await waitFor(() => {
-      const cardTitle = screen.getByText(/catvid-19/i);
+      const cardTitle = screen.getAllByText(/catvid-19/i);
       const buttons = screen.getAllByTestId('card');
-      expect(cardTitle).toBeInTheDocument();
+      expect(cardTitle[0]).toBeInTheDocument();
       expect(buttons).toHaveLength(5);
     });
   });

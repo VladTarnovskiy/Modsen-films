@@ -1,20 +1,22 @@
-import { FC, useEffect } from 'react';
-import { Outlet } from 'react-router-dom';
 import { Footer } from '@src/components/Footer';
 import { Header } from '@src/components/Header';
-import * as S from './styled';
 import { useGetSearchInfoQuery } from '@src/store/slices/ApiSlice';
 import {
-  setVideos,
-  setNextPageToken,
-  selectSearchValue,
-  setIsLoading,
-  setIsError,
-  selectTriggeredNextPageToken,
   changeTheme,
   selectFilmsFilter,
+  selectSearchValue,
+  selectTriggeredNextPageToken,
+  setIsError,
+  setIsLoading,
+  setNextPageToken,
+  setVideos,
 } from '@src/store/slices/MainPageSlice';
+import { MyLocalStorage } from '@src/utils/localStorage';
+import { FC, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Outlet } from 'react-router-dom';
+
+import * as S from './styled';
 
 export const Layout: FC = () => {
   const dispatch = useDispatch();
@@ -24,7 +26,6 @@ export const Layout: FC = () => {
 
   const {
     data: videosInfo,
-    isSuccess,
     isFetching,
     isError,
   } = useGetSearchInfoQuery({
@@ -34,33 +35,30 @@ export const Layout: FC = () => {
   });
 
   useEffect(() => {
-    if (isSuccess) {
-      dispatch(setVideos(videosInfo.items));
+    if (videosInfo) {
+      dispatch(setVideos(videosInfo.videos));
       dispatch(setNextPageToken(videosInfo.nextPageToken));
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [videosInfo]);
+  }, [dispatch, videosInfo]);
 
   useEffect(() => {
     dispatch(setIsLoading(isFetching));
     dispatch(setIsError(isError));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isFetching, isError]);
+  }, [isFetching, isError, dispatch]);
 
   useEffect(() => {
-    const theme = localStorage.getItem('isLightTheme');
+    const theme = MyLocalStorage.getItem('isLightTheme');
     if (theme) {
-      dispatch(changeTheme(Boolean(JSON.parse(theme))));
+      dispatch(changeTheme(theme === 'true' ? true : false));
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
       <Header />
-      <S.MainContainer>
+      <S.Container>
         <Outlet />
-      </S.MainContainer>
+      </S.Container>
       <Footer />
     </>
   );

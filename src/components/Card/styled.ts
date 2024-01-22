@@ -1,7 +1,7 @@
 import { buttonAnimation, itemsCenter } from '@src/styles/fragments';
 import styled from 'styled-components';
 
-export const CardContainer = styled.div`
+export const Container = styled.div`
   padding-bottom: 20px;
   width: 332px;
   overflow: hidden;
@@ -18,7 +18,7 @@ export const CardContainer = styled.div`
   }
 `;
 
-export const CardImageContainer = styled.div`
+export const ImageContainer = styled.div`
   position: relative;
   height: 186px;
   overflow: hidden;
@@ -28,7 +28,7 @@ export const CardImageContainer = styled.div`
   }
 `;
 
-export const CardImg = styled.img`
+export const Img = styled.img`
   width: 100%;
   height: 100%;
 
@@ -37,11 +37,11 @@ export const CardImg = styled.img`
   }
 `;
 
-export const CardDataContainer = styled.div`
+export const DataContainer = styled.div`
   height: 100%;
 `;
 
-export const CardDescription = styled.div`
+export const Description = styled.div`
   display: flex;
   justify-content: flex-start;
 `;
@@ -70,7 +70,7 @@ export const VideoInfo = styled.div`
   }
 `;
 
-export const ChanelTitle = styled.div`
+export const ChanelTitle = styled.p`
   margin-bottom: 4px;
 
   @media ${({ theme }) => theme.media.s} {
@@ -78,18 +78,18 @@ export const ChanelTitle = styled.div`
   }
 `;
 
-export const FilmTitle = styled.div`
+export const FilmTitle = styled.p`
   font-size: ${({ theme }) => theme.fontSize.small};
 `;
 
-export const CreationDate = styled.div`
+export const CreationDate = styled.p`
   font-size: ${({ theme }) => theme.fontSize.small};
   width: fit-content;
   margin-right: auto;
   padding-bottom: 5px;
 `;
 
-export const Duration = styled.div`
+export const Duration = styled.p`
   top: 160px;
   right: 5px;
   position: absolute;
@@ -97,12 +97,14 @@ export const Duration = styled.div`
   height: 20px;
   background-color: ${({ theme }) => theme.colors.bgTertiary};
   color: ${({ theme }) => theme.colors.tertiary};
-  border-radius: 9999px;
+  border-radius: 10px;
+
   ${itemsCenter}
 
   @media ${({ theme }) => theme.media.s} {
     top: 110px;
     width: 60px;
+    border-radius: 8px;
     height: 15px;
     font-size: ${({ theme }) => theme.fontSize.small};
   }

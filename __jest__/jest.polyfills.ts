@@ -1,5 +1,5 @@
-import { TextDecoder, TextEncoder } from 'node:util';
 import { ReadableStream } from 'node:stream/web';
+import { TextDecoder, TextEncoder } from 'node:util';
 
 Object.defineProperties(globalThis, {
   TextDecoder: { value: TextDecoder },
@@ -8,7 +8,8 @@ Object.defineProperties(globalThis, {
 });
 
 import { Blob, File } from 'node:buffer';
-import { fetch, Headers, FormData, Request, Response } from 'undici';
+
+import { fetch, FormData, Headers, Request, Response } from 'undici';
 
 Object.defineProperties(globalThis, {
   fetch: { value: fetch, writable: true },

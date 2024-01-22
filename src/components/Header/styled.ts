@@ -1,7 +1,7 @@
 import { itemsCenter } from '@src/styles/fragments';
 import styled from 'styled-components';
 
-export const StyledHeader = styled.header`
+export const Header = styled.header`
   padding: 15px 6px;
   display: flex;
   justify-content: space-between;

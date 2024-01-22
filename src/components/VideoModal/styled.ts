@@ -7,9 +7,10 @@ export const Overlay = styled.div`
   left: 0;
   top: 0;
   background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
 `;
 
-export const ModalContainer = styled.div`
+export const Container = styled.div`
   margin: auto;
   top: 20%;
   position: relative;

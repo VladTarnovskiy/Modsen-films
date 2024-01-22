@@ -1,18 +1,19 @@
 import { FC } from 'react';
+
 import * as S from './styled';
 
 export const CardSkeleton: FC = () => {
   return (
-    <S.SkeletonCardContainer data-testid="card-skeleton">
-      <S.SkeletonCardImg />
-      <S.SkeletonCreationDate />
-      <S.SkeletonCardDescription>
-        <S.SkeletonUserIcon />
-        <S.SkeletonVideoInfo>
-          <S.SkeletonChanelTitle />
-          <S.SkeletonFilmTitle />
-        </S.SkeletonVideoInfo>
-      </S.SkeletonCardDescription>
-    </S.SkeletonCardContainer>
+    <S.Container data-testid="card-skeleton">
+      <S.Img />
+      <S.CreationDate />
+      <S.Description>
+        <S.UserIcon />
+        <S.VideoInfo>
+          <S.ChanelTitle />
+          <S.FilmTitle />
+        </S.VideoInfo>
+      </S.Description>
+    </S.Container>
   );
 };

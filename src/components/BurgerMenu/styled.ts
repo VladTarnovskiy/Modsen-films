@@ -1,7 +1,7 @@
 import { buttonAnimation, itemsCenter } from '@src/styles/fragments';
 import styled from 'styled-components';
 
-export const BurgerMenuContainer = styled.div`
+export const Container = styled.div`
   position: relative;
   display: none;
   height: 26px;
@@ -13,7 +13,7 @@ export const BurgerMenuContainer = styled.div`
   }
 `;
 
-export const MenuToggle = styled.input`
+export const Toggle = styled.input`
   opacity: 0;
   z-index: 3;
 
@@ -41,11 +41,11 @@ export const MenuToggle = styled.input`
   }
 `;
 
-export const MenuLine = styled.span`
+export const Line = styled.span`
   max-width: 26px;
 `;
 
-export const MenuButton = styled.label`
+export const Button = styled.label`
   display: flex;
   align-items: center;
   position: relative;
@@ -75,7 +75,7 @@ export const MenuButton = styled.label`
   }
 `;
 
-export const MenuBox = styled.ul`
+export const Box = styled.ul`
   display: block;
   position: fixed;
   visibility: hidden;
@@ -92,11 +92,11 @@ export const MenuBox = styled.ul`
   text-align: center;
   background-color: ${({ theme }) => theme.colors.bgBase};
   box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.2);
+
   ${buttonAnimation}
 `;
 
-export const MenuItem = styled.li`
-  ${itemsCenter}
+export const Item = styled.li`
   padding: 12px;
   color: ${({ theme }) => theme.colors.base};
   font-family: 'Roboto', sans-serif;
@@ -104,15 +104,17 @@ export const MenuItem = styled.li`
   font-weight: 600;
   text-decoration: none;
 
+  ${itemsCenter}
+
   &:hover {
     background-color: ${({ theme }) => theme.colors.bgPrimary};
   }
 `;
 
-export const MenuItemTitle = styled.div`
+export const ItemTitle = styled.div`
   margin-right: 15px;
 `;
 
-export const MenuItemDescription = styled.div`
+export const ItemDescription = styled.div`
   display: flex;
 `;

@@ -49,16 +49,10 @@ YouTube Data API v3
 yarn dev
 ```
 
-### Start production mode (with some build optimizations)
-
-```
-yarn prod
-```
-
 ### Build application for deploy
 
 ```
-yarn build:prod
+yarn prod
 ```
 
 ### Unit testing (jest)

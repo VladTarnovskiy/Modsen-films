@@ -1,8 +1,9 @@
-import { merge } from 'webpack-merge';
-import common from './common.config.js';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ImageMinimizerPlugin from 'image-minimizer-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import TerserPlugin from 'terser-webpack-plugin';
+import { merge } from 'webpack-merge';
+
+import common from './common.config.js';
 
 const plugins = [
   new MiniCssExtractPlugin({
