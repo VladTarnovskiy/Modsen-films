@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IVideo } from '@src/interfaces/videoData';
+import { MyLocalStorage } from '@src/utils/localStorage';
 
 import { RootState } from '../store';
 
@@ -21,7 +22,7 @@ const initialState: InitialState = {
   isLoading: false,
   filmsFilter: 'All',
   isError: false,
-  searchValue: localStorage.getItem('searchValue') || '',
+  searchValue: MyLocalStorage.getItem('searchValue') || '',
   videosInfo: null,
 };
 

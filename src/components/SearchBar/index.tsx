@@ -6,6 +6,7 @@ import {
   selectSearchValue,
   setSearchValue,
 } from '@src/store/slices/MainPageSlice';
+import { MyLocalStorage } from '@src/utils/localStorage';
 import { ChangeEvent, FC, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -16,7 +17,7 @@ export const SearchBar: FC = () => {
   const dispatch = useDispatch();
   const searchValue = useSelector(selectSearchValue);
   const [inputValue, setInputValue] = useState(
-    localStorage.getItem('searchValue') || ''
+    MyLocalStorage.getItem('searchValue') || ''
   );
   const [isSearchList, setIsSearchList] = useState(false);
   const debouncedValue = useDebounce<string>(inputValue, 500);
@@ -33,7 +34,7 @@ export const SearchBar: FC = () => {
     if (searchValue !== inputValue) {
       dispatch(clearVideos());
       dispatch(setSearchValue(inputValue));
-      localStorage.setItem('searchValue', inputValue);
+      MyLocalStorage.setItem('searchValue', inputValue);
     }
   };
 
@@ -42,7 +43,7 @@ export const SearchBar: FC = () => {
     if (searchValue !== value) {
       dispatch(clearVideos());
       dispatch(setSearchValue(value));
-      localStorage.setItem('searchValue', value);
+      MyLocalStorage.setItem('searchValue', value);
     }
   };
 

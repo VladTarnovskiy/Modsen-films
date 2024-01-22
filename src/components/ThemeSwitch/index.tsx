@@ -4,6 +4,7 @@ import {
   changeTheme,
   selectIsLightTheme,
 } from '@src/store/slices/MainPageSlice';
+import { MyLocalStorage } from '@src/utils/localStorage';
 import { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -14,7 +15,7 @@ export const ThemeSwitch: FC = () => {
   const dispatch = useDispatch();
 
   const changeCurrentTheme = () => {
-    localStorage.setItem('isLightTheme', JSON.stringify(!isLightTheme));
+    MyLocalStorage.setItem('isLightTheme', !isLightTheme);
     dispatch(changeTheme(!isLightTheme));
   };
 

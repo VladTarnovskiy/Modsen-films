@@ -1,4 +1,5 @@
 import { Wrapper } from '@jest-dir/utils/testUtils';
+import { MyLocalStorage } from '@src/utils/localStorage';
 import { fireEvent, render, screen } from '@testing-library/react';
 
 import { SearchBar } from '.';
@@ -29,7 +30,7 @@ describe('Search bar', () => {
     fireEvent.change(searchBar, { target: { value: 'Modsen' } });
     fireEvent.click(button);
 
-    const storageValue = localStorage.getItem('searchValue');
+    const storageValue = MyLocalStorage.getItem('searchValue');
 
     expect(storageValue).toBe('Modsen');
   });
