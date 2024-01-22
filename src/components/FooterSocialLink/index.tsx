@@ -18,7 +18,10 @@ export const FooterSocialLink: FC<IProps> = ({ linkData }) => {
 
   return (
     <S.Container target="_blank" href={linkData.href} rel="noreferrer">
-      <S.SocialLink src={isLightTheme ? linkData.dark : linkData.light} />
+      <S.SocialLink
+        data-testid="socialLink"
+        src={isLightTheme ? linkData.dark : linkData.light}
+      />
     </S.Container>
   );
 };

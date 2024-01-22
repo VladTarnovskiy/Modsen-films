@@ -1,4 +1,4 @@
-import { RouterErrorBoundary } from './components/RouterErrorBoundary/RouterErrorBoudary';
+import { RouterErrorBoundary } from './components/RouterErrorBoundary';
 import { DetailsPage } from './pages/Details';
 import { Layout } from './pages/Layout';
 import { MainPage } from './pages/Main';

@@ -64,6 +64,28 @@ export const SearchBar: FC = () => {
     }
   };
 
+  let elasticSearch: JSX.Element | JSX.Element[] | null = null;
+
+  if (isSuccess && isSearchList) {
+    elasticSearch = (
+      <S.ElasticSearch>
+        {searchData.map((searchItem) => (
+          <SearchItem
+            searchItem={searchItem}
+            key={searchItem.id.videoId}
+            setSearchFromList={setSearchFromList}
+          />
+        ))}
+      </S.ElasticSearch>
+    );
+  } else if (isError && isSearchList) {
+    elasticSearch = (
+      <S.ElasticSearch>
+        <S.ErrorContainer>Something went wrong.</S.ErrorContainer>
+      </S.ElasticSearch>
+    );
+  }
+
   return (
     <S.Container data-testid="search-bar">
       <S.SearcherContainer>
@@ -76,22 +98,7 @@ export const SearchBar: FC = () => {
           onFocus={() => setIsSearchList(true)}
           onBlur={setOnBlur}
         />
-        {isSuccess && isSearchList && (
-          <S.ElasticSearch>
-            {searchData.map((searchItem) => (
-              <SearchItem
-                searchItem={searchItem}
-                key={searchItem.id.videoId}
-                setSearchFromList={setSearchFromList}
-              />
-            ))}
-          </S.ElasticSearch>
-        )}
-        {isError && isSearchList && (
-          <S.ElasticSearch>
-            <S.ErrorContainer>Something went wrong.</S.ErrorContainer>
-          </S.ElasticSearch>
-        )}
+        {elasticSearch}
       </S.SearcherContainer>
       <S.SubmitButton onClick={handleSubmit} data-testid="search-button">
         <S.SubmitButtonIcon src={SearchImg} />

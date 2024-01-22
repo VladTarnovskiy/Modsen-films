@@ -1,22 +1,25 @@
 import { Wrapper } from '@jest-dir/utils/testUtils';
+import { FaceBookImg, FaceBookImgLight } from '@src/assets/footer';
 import { render, screen } from '@testing-library/react';
 
-import { FooterLocalLink } from '.';
+import { FooterSocialLink } from '.';
 
-describe('Footer local link', () => {
+describe('Footer social link', () => {
   test('element renders', async () => {
     const props = {
-      title: 'Modsen',
-      link: '#',
+      title: 'facebook',
+      dark: FaceBookImg,
+      light: FaceBookImgLight,
+      href: 'https://web.facebook.com/ModsenSoftware/',
     };
     render(
       <Wrapper>
-        <FooterLocalLink linkData={props} />
+        <FooterSocialLink linkData={props} />
       </Wrapper>
     );
 
-    const title = screen.getByText(/Modsen/i);
+    const link = screen.getByTestId('socialLink');
 
-    expect(title).toBeInTheDocument();
+    expect(link).toBeInTheDocument();
   });
 });

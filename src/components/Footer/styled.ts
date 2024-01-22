@@ -75,7 +75,7 @@ export const SocialLinksContainer = styled.div`
   display: flex;
   justify-content: space-between;
   justify-items: center;
-  max-width: 144px;
+  max-width: 172px;
 `;
 
 export const CreationDate = styled.p`
