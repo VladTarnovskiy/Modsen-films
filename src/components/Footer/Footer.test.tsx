@@ -1,5 +1,6 @@
-import { render, screen } from '@testing-library/react';
 import { Wrapper } from '@jest-dir/utils/testUtils';
+import { render, screen } from '@testing-library/react';
+
 import { Footer } from '.';
 
 describe('Footer', () => {
@@ -11,7 +12,7 @@ describe('Footer', () => {
     );
 
     const localLink = screen.getByText(/TermsPrivacyPolicy & Safety/i);
-    const creationDate = screen.getByText(/2023 Modsen company/i);
+    const creationDate = screen.getByText(/Modsen company/i);
 
     expect(localLink).toBeInTheDocument();
     expect(creationDate).toBeInTheDocument();

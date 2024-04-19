@@ -1,4 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
+
 import { apiSlice } from './slices/ApiSlice';
 import mainPageReducer from './slices/MainPageSlice';
 

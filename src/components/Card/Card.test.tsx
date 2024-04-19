@@ -1,14 +1,26 @@
-import { fireEvent, render, screen } from '@testing-library/react';
-import { Card } from '.';
 import { Wrapper } from '@jest-dir/utils/testUtils';
-import { videoDataMock } from '@jest-dir/mocks/videoMock';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 
+import { Card } from '.';
+
 describe('Card', () => {
+  const mockData = {
+    id: '3bhkYoMWTFE',
+    keyID: 'aerqg4edd2342r',
+    title: '😹Cats Doing Cat Things😹 (3)',
+    channelTitle: 'catvid-19',
+    defaultImg: 'https://i.ytimg.com/vi/3bhkYoMWTFE/default.jpg',
+    mediumImg: 'https://i.ytimg.com/vi/3bhkYoMWTFE/mqdefault.jpg',
+    publishedAt: 'January 21, 2024',
+    duration: '00:18',
+    player: 'https://www.youtube.com/embed/uZ_Ok8IT7fs?autoplay=1',
+  };
+
   test('renders the relevant data', async () => {
     render(
       <Wrapper>
-        <Card videoData={videoDataMock} />
+        <Card videoData={mockData} />
       </Wrapper>,
       {
         wrapper: BrowserRouter,
@@ -24,7 +36,7 @@ describe('Card', () => {
   test('get video modal by video click', async () => {
     render(
       <Wrapper>
-        <Card videoData={videoDataMock} />
+        <Card videoData={mockData} />
       </Wrapper>,
       {
         wrapper: BrowserRouter,

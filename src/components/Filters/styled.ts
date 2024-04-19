@@ -6,14 +6,17 @@ import {
 } from '@src/styles/fragments';
 import styled from 'styled-components';
 
-export const FilterContainer = styled.div`
+export const Container = styled.div`
   padding: 12px 6px;
   flex-wrap: wrap;
   gap: 6px;
   margin-bottom: 28px;
+
   ${borderBase};
+
   border-left: none;
   border-right: none;
+
   ${itemsCenter};
 
   @media ${({ theme }) => theme.media.s} {
@@ -21,9 +24,9 @@ export const FilterContainer = styled.div`
   }
 `;
 
-export const FilterButton = styled.button<{ $isActive: boolean }>`
+export const Button = styled.button<{ $isActive: boolean }>`
   color: ${({ theme }) => theme.colors.base};
-  border-radius: 9999px;
+  border-radius: 15px;
   height: 30px;
   min-width: 90px;
   padding: 7px 12px;
@@ -38,6 +41,7 @@ export const FilterButton = styled.button<{ $isActive: boolean }>`
 
   &:hover {
     ${buttonAnimation}
+
     background-color: ${({ theme }) => theme.colors.bgTertiary};
     color: ${({ theme }) => theme.colors.tertiary};
     border: none;

@@ -1,38 +1,38 @@
-import { FC } from 'react';
-import * as S from './styled';
 import Logo from '@assets/Logo.svg';
+import { PathnameCheck } from '@src/utils/HOC/pathNameCheck';
+import { FC } from 'react';
+import { NavLink } from 'react-router-dom';
+
+import { BurgerMenu } from '../BurgerMenu';
 import { SearchBar } from '../SearchBar';
 import { ThemeSwitch } from '../ThemeSwitch';
-import { NavLink, useLocation } from 'react-router-dom';
-import { BurgerMenu } from '../BurgerMenu';
+import * as S from './styled';
 
 export const Header: FC = () => {
-  const location = useLocation();
-
   return (
     <>
-      <S.StyledHeader>
+      <S.Header>
         <NavLink to="/">
           <S.LogoContainer data-testid="logo">
             <S.LogoImg src={Logo}></S.LogoImg>
             <S.LogoTitle>ModsenFilms</S.LogoTitle>
           </S.LogoContainer>
         </NavLink>
-        {location.pathname === '/' && (
+        <PathnameCheck>
           <S.SearchBarDesktopContainer>
             <SearchBar />
           </S.SearchBarDesktopContainer>
-        )}
+        </PathnameCheck>
         <S.SwitchContainer>
           <ThemeSwitch />
         </S.SwitchContainer>
         <BurgerMenu />
-      </S.StyledHeader>
-      {location.pathname === '/' && (
+      </S.Header>
+      <PathnameCheck>
         <S.SearchBarMobileContainer>
           <SearchBar />
         </S.SearchBarMobileContainer>
-      )}
+      </PathnameCheck>
     </>
   );
 };

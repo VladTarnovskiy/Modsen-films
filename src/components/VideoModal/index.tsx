@@ -1,6 +1,7 @@
-import { FC, useRef, MouseEvent, Dispatch, SetStateAction } from 'react';
-import * as S from './styled';
+import { Dispatch, FC, MouseEvent, SetStateAction, useRef } from 'react';
 import { createPortal } from 'react-dom';
+
+import * as S from './styled';
 
 interface IProps {
   videoLink: string;
@@ -8,7 +9,6 @@ interface IProps {
 }
 
 export const VideoModal: FC<IProps> = ({ videoLink, setVideoModal }) => {
-  const playerLink = `https:${videoLink.split('"')[5]}?autoplay=1`;
   const modalWindow = useRef<HTMLDivElement>(null);
 
   const closeModalWindow = () => {
@@ -29,13 +29,13 @@ export const VideoModal: FC<IProps> = ({ videoLink, setVideoModal }) => {
       onClick={closeWithOverlayClick}
       data-testid="details-modal-overlay"
     >
-      <S.ModalContainer data-testid="details-modal" ref={modalWindow}>
+      <S.Container data-testid="details-modal" ref={modalWindow}>
         <S.VideoPlayer
-          src={playerLink}
+          src={videoLink}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;"
           allowFullScreen
         />
-      </S.ModalContainer>
+      </S.Container>
     </S.Overlay>,
     document.body
   );

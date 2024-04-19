@@ -11,7 +11,6 @@ export const CardContainer = styled.div`
   justify-items: center;
   gap: 20px;
   margin-bottom: 37px;
-  min-height: 47.8vh;
 
   @media ${({ theme }) => theme.media.s} {
     grid-template-columns: repeat(auto-fit, minmax(212px, 1fr));
@@ -29,8 +28,9 @@ export const ShowMoreBut = styled.button<{ $isFetching: boolean }>`
   color: ${({ theme }) => theme.colors.tertiary};
   background-color: ${({ theme }) => theme.colors.bgSecondary};
   border: none;
-  ${itemsCenter};
   opacity: ${({ $isFetching }) => ($isFetching ? 0.5 : 1)};
+
+  ${itemsCenter};
 
   @media ${({ theme }) => theme.media.s} {
     width: 206px;

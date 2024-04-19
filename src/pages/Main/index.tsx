@@ -1,7 +1,6 @@
-import { FC } from 'react';
-import * as S from './styled';
 import { Card } from '@src/components/Card';
-import { useDispatch, useSelector } from 'react-redux';
+import { CardSkeleton } from '@src/components/CardSkeleton';
+import { Filters } from '@src/components/Filters';
 import {
   selectIsError,
   selectIsLoading,
@@ -9,8 +8,10 @@ import {
   selectVideos,
   setTriggeredNextPageToken,
 } from '@src/store/slices/MainPageSlice';
-import { Filters } from '@src/components/Filters';
-import { CardSkeleton } from '@src/components/CardSkeleton';
+import { FC } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import * as S from './styled';
 
 export const MainPage: FC = () => {
   const dispatch = useDispatch();
@@ -25,6 +26,7 @@ export const MainPage: FC = () => {
     }
   };
 
+  const skeletonArray = [...Array(16).keys()];
   let content: JSX.Element | JSX.Element[] | null = null;
 
   if (isError) {
@@ -38,23 +40,18 @@ export const MainPage: FC = () => {
   }
 
   return (
-    <div>
+    <div data-testid="main-page">
       <Filters />
       <S.CardContainer>
         {content}
-        {isLoading &&
-          [...Array(16).keys()].map((item) => <CardSkeleton key={item} />)}
+        {isLoading && skeletonArray.map((item) => <CardSkeleton key={item} />)}
       </S.CardContainer>
-      {nextPageToken ? (
+      {nextPageToken && (
         <S.ShowMoreBut
           $isFetching={isLoading}
           onClick={getNextPageVideosData}
           data-testid="showMore-btn"
         >
-          Show More
-        </S.ShowMoreBut>
-      ) : (
-        <S.ShowMoreBut $isFetching={true} data-testid="showMore-btn">
           Show More
         </S.ShowMoreBut>
       )}

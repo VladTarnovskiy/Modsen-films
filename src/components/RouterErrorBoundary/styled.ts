@@ -5,9 +5,11 @@ import {
 } from '@src/styles/fragments';
 import { styled } from 'styled-components';
 
-export const ErrorContainer = styled.div`
+export const Container = styled.div`
   margin: auto;
+
   ${itemsCenter}
+
   width: fit-content;
   flex-direction: column;
 
@@ -16,7 +18,7 @@ export const ErrorContainer = styled.div`
   }
 `;
 
-export const ErrorImg = styled.img`
+export const Img = styled.img`
   width: 230px;
   height: 230px;
   margin-top: 180px;
@@ -29,7 +31,7 @@ export const ErrorImg = styled.img`
   }
 `;
 
-export const ErrorMessage = styled.div`
+export const Message = styled.div`
   margin-top: 10px;
   margin-bottom: 30px;
   font-size: 22px;
@@ -45,6 +47,7 @@ export const GoBackBut = styled.button`
   margin: auto;
   background-color: ${({ theme }) => theme.colors.bgSecondary};
   border: none;
+
   ${itemsCenter};
 
   @media ${({ theme }) => theme.media.s} {

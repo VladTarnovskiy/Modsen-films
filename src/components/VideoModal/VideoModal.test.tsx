@@ -1,7 +1,8 @@
-import { render, screen, waitFor } from '@testing-library/react';
-import { Wrapper } from '@jest-dir/utils/testUtils';
-import { VideoModal } from '.';
 import { videoIframeDataMock } from '@jest-dir/mocks/videoIframeDataMock';
+import { Wrapper } from '@jest-dir/utils/testUtils';
+import { render, screen, waitFor } from '@testing-library/react';
+
+import { VideoModal } from '.';
 
 describe('Video modal', () => {
   const mockFn = jest.fn();

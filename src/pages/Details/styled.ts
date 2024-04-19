@@ -1,7 +1,7 @@
 import { itemsCenter } from '@src/styles/fragments';
 import styled from 'styled-components';
 
-export const DetailsContainer = styled.div`
+export const Container = styled.div`
   max-width: 1200px;
   margin: auto;
   margin-top: 40px;
@@ -32,7 +32,7 @@ export const ChanelInfo = styled.div`
   padding-top: 12px;
 `;
 
-export const FilmTitle = styled.div`
+export const FilmTitle = styled.p`
   font-size: ${({ theme }) => theme.fontSize.lg};
 
   @media ${({ theme }) => theme.media.s} {
@@ -40,7 +40,7 @@ export const FilmTitle = styled.div`
   }
 `;
 
-export const ChanelTitle = styled.div`
+export const ChanelTitle = styled.p`
   margin-bottom: 4px;
 `;
 
@@ -59,7 +59,7 @@ export const UserIcon = styled.div<{ $bg: string }>`
   }
 `;
 
-export const VideoPublishedDate = styled.div`
+export const VideoPublishedDate = styled.p`
   margin-top: 20px;
   margin-bottom: 5px;
 
@@ -68,7 +68,7 @@ export const VideoPublishedDate = styled.div`
   }
 `;
 
-export const VideoDescription = styled.div`
+export const VideoDescription = styled.p`
   word-break: break-all;
   font-size: ${({ theme }) => theme.fontSize.small};
 `;
@@ -88,6 +88,7 @@ export const VideoStatistic = styled.div`
 export const VideoStatisticItem = styled.div`
   margin-top: 10px;
   margin-right: 20px;
+
   ${itemsCenter}
 `;
 
@@ -97,7 +98,7 @@ export const VideoStatisticIcon = styled.img`
   margin-right: 4px;
 `;
 
-export const VideoStatisticInfo = styled.div`
+export const VideoStatisticInfo = styled.p`
   @media ${({ theme }) => theme.media.s} {
     font-size: ${({ theme }) => theme.fontSize.small};
   }
@@ -106,5 +107,6 @@ export const VideoStatisticInfo = styled.div`
 export const InfoContainer = styled.div`
   margin-top: 200px;
   width: 100%;
+
   ${itemsCenter}
 `;

@@ -3,16 +3,10 @@ import { DefaultTheme } from 'styled-components';
 
 export const baseTheme = {
   colors: {
-    base: 'rgb(0, 0, 0)',
-    primary: 'rgba(0, 0, 0, 0.19)',
     secondary: 'rgb(255, 138, 0)',
-    tertiary: 'rgb(255, 255, 255)',
-    quaternary: 'rgba(0, 0, 0, 0.4)',
 
-    bgBase: 'rgb(255, 255, 255)',
     bgPrimary: 'rgba(0, 0, 0, 0.06)',
     bgSecondary: 'rgb(255, 138, 0)',
-    bgTertiary: 'rgb(0, 0, 0)',
   },
 
   fontFamily: {
@@ -40,6 +34,17 @@ export const baseTheme = {
 export const lightTheme: DefaultTheme = {
   ...baseTheme,
   type: ThemeEnum.light,
+
+  colors: {
+    ...baseTheme.colors,
+    base: 'rgb(0, 0, 0)',
+    primary: 'rgba(0, 0, 0, 0.19)',
+    tertiary: 'rgb(255, 255, 255)',
+    quaternary: 'rgba(0, 0, 0, 0.4)',
+
+    bgBase: 'rgb(255, 255, 255)',
+    bgTertiary: 'rgb(0, 0, 0)',
+  },
 };
 
 export const darkTheme: DefaultTheme = {

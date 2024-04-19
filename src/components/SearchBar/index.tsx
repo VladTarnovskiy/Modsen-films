@@ -1,31 +1,64 @@
-import { ChangeEvent, FC, useState } from 'react';
-import * as S from './styled';
-import SearchImg from '@assets/Search.svg';
+import { useDebounce } from '@src/hooks/useDebounce';
+import { useSearchVideosQuery } from '@src/store/slices/ApiSlice';
 import {
   clearVideos,
   selectSearchValue,
   setSearchValue,
 } from '@src/store/slices/MainPageSlice';
+import { MyLocalStorage } from '@src/utils/localStorage';
+import { ChangeEvent, FC, memo, useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-export const SearchBar: FC = () => {
+import { SearchButton } from '../SearchButton';
+import { SearchItem } from '../SearchItem';
+import * as S from './styled';
+
+export const SearchBar: FC = memo(function SearchBar() {
   const dispatch = useDispatch();
   const searchValue = useSelector(selectSearchValue);
   const [inputValue, setInputValue] = useState(
-    localStorage.getItem('searchValue') || ''
+    MyLocalStorage.getItem('searchValue') || ''
   );
+  const [isSearchList, setIsSearchList] = useState(false);
+  const debouncedValue = useDebounce<string>(inputValue, 500);
+  const {
+    data: searchData,
+    isSuccess,
+    isError,
+  } = useSearchVideosQuery({
+    searchValue: debouncedValue,
+  });
+
+  const handleSubmit = useCallback(
+    function handleSubmit() {
+      setIsSearchList(false);
+      if (searchValue !== inputValue) {
+        dispatch(clearVideos());
+        dispatch(setSearchValue(inputValue));
+        MyLocalStorage.setItem('searchValue', inputValue);
+      }
+    },
+    [dispatch, inputValue, searchValue]
+  );
+
+  const setSearchFromList = (value: string) => {
+    setInputValue(value);
+    if (searchValue !== value) {
+      dispatch(clearVideos());
+      dispatch(setSearchValue(value));
+      MyLocalStorage.setItem('searchValue', value);
+    }
+  };
+
+  const setOnBlur = () => {
+    setTimeout(() => {
+      setIsSearchList(false);
+    }, 300);
+  };
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const inputValue = event.target.value;
     setInputValue(inputValue);
-  };
-
-  const handleSubmit = () => {
-    if (searchValue !== inputValue) {
-      dispatch(clearVideos());
-      dispatch(setSearchValue(inputValue));
-      localStorage.setItem('searchValue', inputValue);
-    }
   };
 
   const onKeyPressHandler = (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -34,18 +67,47 @@ export const SearchBar: FC = () => {
     }
   };
 
+  const onFocus = () => {
+    setIsSearchList(true);
+  };
+
+  let elasticSearch: JSX.Element | JSX.Element[] | null = null;
+
+  if (isSuccess && isSearchList) {
+    elasticSearch = (
+      <S.ElasticSearch>
+        {searchData.map((searchItem) => (
+          <SearchItem
+            searchItem={searchItem}
+            key={searchItem.id.videoId}
+            setSearchFromList={setSearchFromList}
+          />
+        ))}
+      </S.ElasticSearch>
+    );
+  } else if (isError && isSearchList) {
+    elasticSearch = (
+      <S.ElasticSearch>
+        <S.ErrorContainer>Something went wrong.</S.ErrorContainer>
+      </S.ElasticSearch>
+    );
+  }
+
   return (
-    <S.SearchBarContainer data-testid="search-bar">
-      <S.SearchBar
-        type="search"
-        placeholder="Search"
-        onChange={handleChange}
-        onKeyDown={onKeyPressHandler}
-        value={inputValue}
-      />
-      <S.SubmitButton onClick={handleSubmit} data-testid="search-button">
-        <S.SubmitButtonIcon src={SearchImg} />
-      </S.SubmitButton>
-    </S.SearchBarContainer>
+    <S.Container data-testid="search-bar">
+      <S.SearcherContainer>
+        <S.SearchBar
+          type="search"
+          placeholder="Search"
+          onChange={handleChange}
+          onKeyDown={onKeyPressHandler}
+          value={inputValue}
+          onFocus={onFocus}
+          onBlur={setOnBlur}
+        />
+        {elasticSearch}
+      </S.SearcherContainer>
+      <SearchButton data-testid="search-button" handleSubmit={handleSubmit} />
+    </S.Container>
   );
-};
+});

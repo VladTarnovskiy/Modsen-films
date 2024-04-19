@@ -1,10 +1,9 @@
-import { FC, useState } from 'react';
-import * as S from './styled';
 import { IVideo } from '@src/interfaces/videoData';
-import { getDuration } from '@src/utils/getDuration';
+import { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getDate } from '@src/utils/getDate';
+
 import { VideoModal } from '../VideoModal';
+import * as S from './styled';
 
 interface IProps {
   videoData: IVideo;
@@ -12,39 +11,37 @@ interface IProps {
 
 export const Card: FC<IProps> = ({ videoData }) => {
   const navigate = useNavigate();
-  const { snippet, contentDetails, player } = videoData;
-  const time = getDuration(contentDetails.duration);
-  const localDate = getDate(snippet.publishedAt);
-
   const [videoModal, setVideoModal] = useState(false);
+
+  const getVideoModal = () => {
+    setVideoModal(true);
+  };
+
+  const getDetailsPage = () => {
+    navigate(`/details/${videoData.id}`);
+  };
 
   return (
     <>
-      <S.CardContainer data-testid="card">
-        <S.CardImageContainer
-          onClick={() => setVideoModal(true)}
-          data-testid="card-video"
-        >
-          <S.CardImg src={snippet.thumbnails.medium.url} alt={snippet.title} />
-          <S.Duration>{time}</S.Duration>
-        </S.CardImageContainer>
-        <S.CardDataContainer
-          onClick={() => navigate(`/details/${videoData.id}`)}
-          data-testid="card-details"
-        >
-          <S.CreationDate>{localDate}</S.CreationDate>
-          <S.CardDescription>
-            <S.UserIcon $bg={snippet.thumbnails.default.url} />
+      <S.Container data-testid="card">
+        <S.ImageContainer onClick={getVideoModal} data-testid="card-video">
+          <S.Img src={videoData.mediumImg} alt={videoData.title} />
+          <S.Duration>{videoData.duration}</S.Duration>
+        </S.ImageContainer>
+        <S.DataContainer onClick={getDetailsPage} data-testid="card-details">
+          <S.CreationDate>{videoData.publishedAt}</S.CreationDate>
+          <S.Description>
+            <S.UserIcon $bg={videoData.defaultImg} />
             <S.VideoInfo>
-              <S.ChanelTitle>{snippet.channelTitle}</S.ChanelTitle>
-              <S.FilmTitle>{snippet.title}</S.FilmTitle>
+              <S.ChanelTitle>{videoData.channelTitle}</S.ChanelTitle>
+              <S.FilmTitle>{videoData.title}</S.FilmTitle>
             </S.VideoInfo>
-          </S.CardDescription>
-        </S.CardDataContainer>
-      </S.CardContainer>
+          </S.Description>
+        </S.DataContainer>
+      </S.Container>
       {videoModal && (
         <VideoModal
-          videoLink={player.embedHtml}
+          videoLink={videoData.player}
           setVideoModal={setVideoModal}
         />
       )}
