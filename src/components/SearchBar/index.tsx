@@ -67,6 +67,10 @@ export const SearchBar: FC = memo(function SearchBar() {
     }
   };
 
+  const onFocus = () => {
+    setIsSearchList(true);
+  };
+
   let elasticSearch: JSX.Element | JSX.Element[] | null = null;
 
   if (isSuccess && isSearchList) {
@@ -98,7 +102,7 @@ export const SearchBar: FC = memo(function SearchBar() {
           onChange={handleChange}
           onKeyDown={onKeyPressHandler}
           value={inputValue}
-          onFocus={() => setIsSearchList(true)}
+          onFocus={onFocus}
           onBlur={setOnBlur}
         />
         {elasticSearch}

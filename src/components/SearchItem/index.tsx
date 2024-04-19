@@ -10,9 +10,9 @@ interface IProps {
 
 export const SearchItem: FC<IProps> = ({ searchItem, setSearchFromList }) => {
   const itemValue = searchItem.snippet.title;
-  return (
-    <S.SearchItem onClick={() => setSearchFromList(itemValue)}>
-      {itemValue}
-    </S.SearchItem>
-  );
+
+  const setSearchItem = () => {
+    setSearchFromList(itemValue);
+  };
+  return <S.SearchItem onClick={setSearchItem}>{itemValue}</S.SearchItem>;
 };

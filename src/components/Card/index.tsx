@@ -13,20 +13,22 @@ export const Card: FC<IProps> = ({ videoData }) => {
   const navigate = useNavigate();
   const [videoModal, setVideoModal] = useState(false);
 
+  const getVideoModal = () => {
+    setVideoModal(true);
+  };
+
+  const getDetailsPage = () => {
+    navigate(`/details/${videoData.id}`);
+  };
+
   return (
     <>
       <S.Container data-testid="card">
-        <S.ImageContainer
-          onClick={() => setVideoModal(true)}
-          data-testid="card-video"
-        >
+        <S.ImageContainer onClick={getVideoModal} data-testid="card-video">
           <S.Img src={videoData.mediumImg} alt={videoData.title} />
           <S.Duration>{videoData.duration}</S.Duration>
         </S.ImageContainer>
-        <S.DataContainer
-          onClick={() => navigate(`/details/${videoData.id}`)}
-          data-testid="card-details"
-        >
+        <S.DataContainer onClick={getDetailsPage} data-testid="card-details">
           <S.CreationDate>{videoData.publishedAt}</S.CreationDate>
           <S.Description>
             <S.UserIcon $bg={videoData.defaultImg} />

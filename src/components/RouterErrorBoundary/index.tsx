@@ -13,6 +13,10 @@ export const RouterErrorBoundary: FC = () => {
   const error = useRouteError();
   let message = 'Something went wrong.';
 
+  const goBack = () => {
+    navigate(-1);
+  };
+
   if (isRouteErrorResponse(error)) {
     if (error.status === 401) {
       message = "You aren't authorized to see this.";
@@ -27,7 +31,7 @@ export const RouterErrorBoundary: FC = () => {
     <S.Container>
       <S.Img src={DinoImg} alt="Error dino" />
       <S.Message>{message}</S.Message>
-      <S.GoBackBut onClick={() => navigate(-1)}>Go back</S.GoBackBut>
+      <S.GoBackBut onClick={goBack}>Go back</S.GoBackBut>
     </S.Container>
   );
 };
